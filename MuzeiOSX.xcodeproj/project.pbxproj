@@ -11,7 +11,9 @@
 		ED271FE41E04351400241BD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED271FE31E04351400241BD2 /* Assets.xcassets */; };
 		ED271FE71E04351400241BD2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED271FE51E04351400241BD2 /* MainMenu.xib */; };
 		ED271FEF1E04467400241BD2 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED271FEE1E04467400241BD2 /* MenuController.swift */; };
-		ED271FF11E04491000241BD2 /* WallpaperSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED271FF01E04491000241BD2 /* WallpaperSource.swift */; };
+		ED271FF11E04491000241BD2 /* FeaturedArtSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED271FF01E04491000241BD2 /* FeaturedArtSource.swift */; };
+		ED271FF51E04771000241BD2 /* WPSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED271FF41E04771000241BD2 /* WPSourceProtocol.swift */; };
+		ED271FF71E047ECF00241BD2 /* RedditSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED271FF61E047ECF00241BD2 /* RedditSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +23,9 @@
 		ED271FE61E04351400241BD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		ED271FE81E04351400241BD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED271FEE1E04467400241BD2 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
-		ED271FF01E04491000241BD2 /* WallpaperSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallpaperSource.swift; sourceTree = "<group>"; };
+		ED271FF01E04491000241BD2 /* FeaturedArtSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedArtSource.swift; sourceTree = "<group>"; };
+		ED271FF41E04771000241BD2 /* WPSourceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WPSourceProtocol.swift; sourceTree = "<group>"; };
+		ED271FF61E047ECF00241BD2 /* RedditSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +63,9 @@
 				ED271FE51E04351400241BD2 /* MainMenu.xib */,
 				ED271FE81E04351400241BD2 /* Info.plist */,
 				ED271FEE1E04467400241BD2 /* MenuController.swift */,
-				ED271FF01E04491000241BD2 /* WallpaperSource.swift */,
+				ED271FF01E04491000241BD2 /* FeaturedArtSource.swift */,
+				ED271FF41E04771000241BD2 /* WPSourceProtocol.swift */,
+				ED271FF61E047ECF00241BD2 /* RedditSource.swift */,
 			);
 			path = MuzeiOSX;
 			sourceTree = "<group>";
@@ -135,8 +141,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED271FEF1E04467400241BD2 /* MenuController.swift in Sources */,
-				ED271FF11E04491000241BD2 /* WallpaperSource.swift in Sources */,
+				ED271FF11E04491000241BD2 /* FeaturedArtSource.swift in Sources */,
 				ED271FE21E04351400241BD2 /* AppDelegate.swift in Sources */,
+				ED271FF51E04771000241BD2 /* WPSourceProtocol.swift in Sources */,
+				ED271FF71E047ECF00241BD2 /* RedditSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +285,7 @@
 				ED271FED1E04351400241BD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

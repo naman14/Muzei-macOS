@@ -18,7 +18,21 @@ class MenuController: NSObject {
 
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
     
-    let wallpaperSource = WallpaperSource();
+    var wallpaperSource: WPSourceProtocol
+    
+    override init() {
+        
+        let source: String = "featured"
+        
+        switch source {
+            
+        case "featured":
+            wallpaperSource = FeaturedArtSource()
+        default:
+            wallpaperSource = FeaturedArtSource()
+        }
+
+    }
     
    override func awakeFromNib() {
         let icon = NSImage(named: "statusicon")
@@ -37,6 +51,7 @@ class MenuController: NSObject {
     }
 
     func setWallpaper() {
+        
         let imgUrl = wallpaperSource.getWallpaper()
         print(imgUrl)
         

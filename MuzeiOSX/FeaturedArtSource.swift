@@ -8,12 +8,12 @@
 
 import Foundation
 
-class WallpaperSource {
-    
-    func getWallpaper()->NSURL {
-        let image = "/Users/naman/Pictures/Irvue/pic1.jpg"
+class FeaturedArtSource: WPSourceProtocol {
 
     
+    func getWallpaper()-> NSURL {
+        
+        let image = "/Users/naman/Pictures/Irvue/pic1.jpg"
         return NSURL.fileURLWithPath(image)
     }
     
