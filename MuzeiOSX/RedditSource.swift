@@ -10,12 +10,11 @@ import Foundation
 
 class RedditSource: WPSourceProtocol {
     
-    
-    func getWallpaper()-> NSURL {
+    func getWallpaper(callback: (NSURL) -> Void) {
         
-        let image = "/Users/naman/Pictures/Irvue/pic1.jpg"
-        return NSURL.fileURLWithPath(image)
-}
+        let image = "/Users/naman/Pictures/Irvue/pic2.jpg"
+        callback(NSURL.fileURLWithPath(image))
+    }
 
 }
 

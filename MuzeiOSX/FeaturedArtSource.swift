@@ -10,11 +10,12 @@ import Foundation
 
 class FeaturedArtSource: WPSourceProtocol {
 
+    let API_URL: String = "http://muzeiapi.appspot.com/featured?cachebust=1"
     
-    func getWallpaper()-> NSURL {
+    func getWallpaper(callback: (NSURL) -> Void) {
         
         let image = "/Users/naman/Pictures/Irvue/pic1.jpg"
-        return NSURL.fileURLWithPath(image)
+        callback(NSURL.fileURLWithPath(image))
     }
     
 }

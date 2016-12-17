@@ -16,7 +16,10 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <customObject id="qbP-ia-k4W" userLabel="MenuController" customClass="MenuController" customModule="MuzeiOSX" customModuleProvider="target">
             <connections>
+                <outlet property="featuredArtSourceItem" destination="y4v-GH-Bbv" id="4b5-f2-bqa"/>
                 <outlet property="quitItem" destination="b5f-Xn-06e" id="pqU-VO-rCT"/>
+                <outlet property="redditSourceItem" destination="fpK-lT-lBl" id="7qc-1C-4iC"/>
+                <outlet property="sourcesMenu" destination="evo-nV-ihv" id="emD-fT-UjS"/>
                 <outlet property="statusMenu" destination="iCc-DG-iXA" id="mHo-Zu-hbF"/>
                 <outlet property="updateItem" destination="lYO-s6-bss" id="KWe-NI-wbL"/>
             </connections>
@@ -29,14 +32,33 @@
                         <action selector="updateClicked:" target="qbP-ia-k4W" id="FMV-Oh-jV7"/>
                     </connections>
                 </menuItem>
+                <menuItem title="Source" id="GqG-D4-bFS">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" id="evo-nV-ihv" userLabel="Source Menu">
+                        <items>
+                            <menuItem title="Featured Art" id="y4v-GH-Bbv" userLabel="Featured Art">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="featuredArtSourceClicked:" target="qbP-ia-k4W" id="Q0K-gG-4GG"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Reddit" id="fpK-lT-lBl" userLabel="Reddit">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="redditSourceClicked:" target="qbP-ia-k4W" id="kxq-JL-hKI"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Item 3" id="err-qU-mFL">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
                 <menuItem title="Quit" keyEquivalent="Q" id="b5f-Xn-06e">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="quitClicked:" target="qbP-ia-k4W" id="5r5-AD-bwI"/>
                     </connections>
-                </menuItem>
-                <menuItem title="Item 3" id="GqG-D4-bFS">
-                    <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
             </items>
         </menu>

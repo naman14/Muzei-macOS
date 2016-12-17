@@ -10,5 +10,5 @@ import Foundation
 
 protocol WPSourceProtocol {
     
-    func getWallpaper()-> NSURL
+    func getWallpaper(callback: (NSURL) -> Void)
 }
