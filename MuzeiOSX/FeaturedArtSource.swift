@@ -18,10 +18,7 @@ class FeaturedArtSource: WPSourceProtocol {
     func getWallpaper(callback: @escaping (URL) -> Void,  failure: @escaping () -> Void) {
         
         Alamofire.request(API_URL).responseJSON { response in
-            print(response.result)   // result of response serialization
-            
             if let responseStr = response.result.value {
-                print("JSON: \(responseStr)")
                 
                 let json = JSON(responseStr)
                 
@@ -29,9 +26,14 @@ class FeaturedArtSource: WPSourceProtocol {
             
                 let httpsUri = String(imageUri).replacingOccurrences(of: "http://", with: "https://", options: .literal, range: nil)
 
-                
                 ImageDownloader.default.downloadImage(with: URL(string: httpsUri)!, options: [], progressBlock: nil) {
                     (image, error, url, data) in
+                    
+                    let processor = BlurImageProcessor(blurRadius: 4)
+                    let processedImage = processor.process(item: ImageProcessItem.image(image!),
+                                                             options: [])
+                    
+                    let processedData = processedImage?.tiffRepresentation
                     
                     if (error != nil) {
                         failure()
@@ -39,22 +41,20 @@ class FeaturedArtSource: WPSourceProtocol {
                         return
                     }
                     
-                    let directory = NSTemporaryDirectory()
-                    let fileName = UUID().uuidString
-                    
-                    let fullURL = NSURL.fileURL(withPathComponents: [directory, fileName])
-                    
-                    
-                    print("Downloaded Image: \(image)")
+                  let fullURL = WPProcessor().getTempFileUrl()
                     
                     do {
-                        try data?.write(to: fullURL!)
-                    
-                    } catch {
+                        try processedData?.write(to: fullURL)
                         
-                    }
+                        callback(fullURL)
 
-                    callback(fullURL!)
+                        try FileManager.default.removeItem(at: fullURL)
+                        
+                        
+                    } catch {
+                        failure()
+                        print("Error occurred")
+                    }
 
                 }
                 
