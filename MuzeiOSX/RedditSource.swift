@@ -12,7 +12,7 @@ class RedditSource: WPSourceProtocol {
     
     func getWallpaper(callback: @escaping (URL) -> Void, failure: @escaping () -> Void) {
         
-        let image = "/Users/naman/Pictures/Irvue/pic2.jpg"
+        let image = "/Users/naman/Desktop/20161218-netherlandish-proverbs-pieter-bruegel-the-elder.jpg"
         callback(URL(fileURLWithPath: image))
     }
 

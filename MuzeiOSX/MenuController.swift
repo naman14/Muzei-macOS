@@ -109,6 +109,7 @@ class MenuController: NSObject, SourceMenuDelegate {
         let wallpaperSource = self.getWallpaperSource()
         wallpaperSource.getWallpaper(callback: { url in
             print(url)
+            self.setActiveWorkspaceObserver( url: url)
             self.setWallpaper(url: url)
         }, failure: {
         
@@ -157,6 +158,18 @@ class MenuController: NSObject, SourceMenuDelegate {
         }
         
        
+    }
+    
+    func setActiveWorkspaceObserver(url: URL) {
+        
+        let workspace = NSWorkspace.shared()
+        
+        workspace.notificationCenter.addObserver(forName: NSNotification.Name.NSWorkspaceActiveSpaceDidChange, object: nil, queue: nil) { (Notification) in
+            
+            self.setWallpaper(url: url)
+        }
+        
+        
     }
     
     func menuWillOpen(_ menu: NSMenu) {

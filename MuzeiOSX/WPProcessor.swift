@@ -41,6 +41,25 @@ class WPProcessor {
         return url
     }
     
+    func imageToFile(image: NSImage, imageURL: URL, ext: String) -> Bool {
+        if ext == "png" {
+            do {
+                try image.savePNG(path: imageURL)
+                return true
+            } catch{
+                
+            }
+        } else if ext == "jpeg" || ext == "jpg" {
+            do {
+                try image.saveJPEG(path: imageURL)
+                return true
+            } catch{
+                
+            }
+        }
+        return false
+    }
+    
     func saveCurrentWallpaper() -> Bool {
         
         let nsPicturesDirectory = FileManager.SearchPathDirectory.picturesDirectory
@@ -76,21 +95,7 @@ class WPProcessor {
                 do {
                     try image = NSImage.init(data: Data.init(contentsOf: url!, options: []))!
                     
-                    if ext == "png" {
-                        do {
-                            try image.savePNG(path: imageURL)
-                            return true
-                        } catch{
-                            
-                        }
-                    } else if ext == "jpeg" {
-                        do {
-                            try image.saveJPEG(path: imageURL)
-                            return true
-                        } catch{
-                            
-                        }
-                    }
+                    return imageToFile(image: image, imageURL: imageURL, ext: ext)
                 }
                 catch {
                     print("Error reading data")
@@ -102,6 +107,7 @@ class WPProcessor {
     }
     
 }
+
 
 extension NSImage {
     var imagePNGRepresentation: Data {
