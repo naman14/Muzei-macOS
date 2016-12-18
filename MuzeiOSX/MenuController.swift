@@ -22,12 +22,12 @@ class MenuController: NSObject, SourceMenuDelegate {
     @IBOutlet weak var featuredArtSourceItem: NSMenuItem!
     @IBOutlet weak var redditSourceItem: NSMenuItem!
 
-    let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
+    let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
     
-    var defaults: NSUserDefaults
+    var defaults: UserDefaults
     
     override init() {
-        defaults = NSUserDefaults.standardUserDefaults()
+        defaults = UserDefaults.standard
         super.init()
 
     }
@@ -37,25 +37,25 @@ class MenuController: NSObject, SourceMenuDelegate {
     
     }
     
-    @IBAction func quitClicked(sender: NSMenuItem) {
-        NSApplication.sharedApplication().terminate(self)
+    @IBAction func quitClicked(_ sender: NSMenuItem) {
+        NSApplication.shared().terminate(self)
     }
 
-    @IBAction func updateClicked(sender: NSMenuItem) {
+    @IBAction func updateClicked(_ sender: NSMenuItem) {
         getWallpaper()
     }
     
-    @IBAction func featuredArtSourceClicked(sender: NSMenuItem) {
+    @IBAction func featuredArtSourceClicked(_ sender: NSMenuItem) {
         updateSource(sourceFeaturedArt)
     }
     
-    @IBAction func redditSourceClicked(sender: NSMenuItem) {
+    @IBAction func redditSourceClicked(_ sender: NSMenuItem) {
         updateSource(sourceReddit)
     }
     
     func setupMenu() {
         let icon = NSImage(named: "statusicon")
-        icon?.template = true
+        icon?.isTemplate = true
         statusItem.image = icon
         statusItem.menu = statusMenu
         
@@ -63,7 +63,7 @@ class MenuController: NSObject, SourceMenuDelegate {
         
     }
     
-    func updateSource(source: String) {
+    func updateSource(_ source: String) {
         defaults.setValue(source, forKey: sourcePreferenceKey)
         defaults.synchronize()
         
@@ -86,7 +86,7 @@ class MenuController: NSObject, SourceMenuDelegate {
             
         }
         
-        for item in sourcesMenu.itemArray {
+        for item in sourcesMenu.items {
             item.state = NSOffState
         }
         
@@ -97,9 +97,11 @@ class MenuController: NSObject, SourceMenuDelegate {
     
     func getWallpaper() {
         let wallpaperSource = self.getWallpaperSource()
-        wallpaperSource.getWallpaper({ url in
+        wallpaperSource.getWallpaper(callback: { url in
             print(url)
-            self.setWallpaper(url)
+            self.setWallpaper(url: url)
+        }, failure: {
+        
         })
         
     }
@@ -123,7 +125,7 @@ class MenuController: NSObject, SourceMenuDelegate {
     
     func getSource()->String? {
         
-        var source: String? = defaults.stringForKey(sourcePreferenceKey)
+        var source: String? = defaults.string(forKey: sourcePreferenceKey)
         
         if source == nil {
             source = sourceFeaturedArt
@@ -133,12 +135,12 @@ class MenuController: NSObject, SourceMenuDelegate {
 
     }
     
-    func setWallpaper(url: NSURL) {
+    func setWallpaper(url: URL) {
         
         do {
-            let workspace = NSWorkspace.sharedWorkspace()
-            if let screen = NSScreen.mainScreen()  {
-                try workspace.setDesktopImageURL(url, forScreen: screen, options: [:])
+            let workspace = NSWorkspace.shared()
+            if let screen = NSScreen.main()  {
+                try workspace.setDesktopImageURL(url, for: screen, options: [:])
             }
         } catch {
             print(error)
@@ -147,11 +149,11 @@ class MenuController: NSObject, SourceMenuDelegate {
        
     }
     
-    func menuWillOpen(menu: NSMenu) {
+    func menuWillOpen(_ menu: NSMenu) {
         //empty
     }
     
-    func menuNeedsUpdate(menu: NSMenu) {
+    func menuNeedsUpdate(_ menu: NSMenu) {
         updateSourceMenuState()
 
     }

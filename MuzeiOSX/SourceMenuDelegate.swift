@@ -11,16 +11,16 @@ import Cocoa
 
 @objc protocol SourceMenuDelegate: NSMenuDelegate {
     
-    func menuWillOpen(menu: NSMenu)
+    func menuWillOpen(_ menu: NSMenu)
     
-    func menuNeedsUpdate(menu: NSMenu)
+    func menuNeedsUpdate(_ menu: NSMenu)
     
-    optional func menuDidClose(menu: NSMenu)
+    @objc optional func menuDidClose(_ menu: NSMenu)
     
-    optional func menuHasKeyEquivalent(menu: NSMenu, forEvent event: NSEvent, target: AutoreleasingUnsafeMutablePointer<AnyObject?>, action: UnsafeMutablePointer<Selector>) -> Bool
+    @objc optional func menuHasKeyEquivalent(_ menu: NSMenu, forEvent event: NSEvent, target: AutoreleasingUnsafeMutablePointer<AnyObject?>, action: UnsafeMutablePointer<Selector>) -> Bool
     
-    optional func menu(menu: NSMenu, willHighlightItem item: NSMenuItem?)
+    @objc optional func menu(_ menu: NSMenu, willHighlightItem item: NSMenuItem?)
     
-    optional func menu(menu: NSMenu, updateItem item: NSMenuItem, atIndex index: Int, shouldCancel: Bool) -> Bool
+    @objc optional func menu(_ menu: NSMenu, updateItem item: NSMenuItem, atIndex index: Int, shouldCancel: Bool) -> Bool
   
 }
