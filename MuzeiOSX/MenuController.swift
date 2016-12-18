@@ -21,6 +21,7 @@ class MenuController: NSObject, SourceMenuDelegate {
     @IBOutlet weak var updateItem: NSMenuItem!
     @IBOutlet weak var featuredArtSourceItem: NSMenuItem!
     @IBOutlet weak var redditSourceItem: NSMenuItem!
+    @IBOutlet weak var saveWallpaperItem: NSMenuItem!
 
     let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
     
@@ -52,6 +53,15 @@ class MenuController: NSObject, SourceMenuDelegate {
     @IBAction func redditSourceClicked(_ sender: NSMenuItem) {
         updateSource(sourceReddit)
     }
+    
+    @IBAction func saveWallpaperClicked(_ sender: NSMenuItem) {
+        if WPProcessor().saveCurrentWallpaper() {
+            print("Wallpaper saved")
+        } else {
+            print("Failed to save wallpaper")
+        }
+    }
+
     
     func setupMenu() {
         let icon = NSImage(named: "statusicon")
