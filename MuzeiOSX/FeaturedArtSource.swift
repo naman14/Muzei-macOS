@@ -28,13 +28,9 @@ class FeaturedArtSource: WPSourceProtocol {
 
                 ImageDownloader.default.downloadImage(with: URL(string: httpsUri)!, options: [], progressBlock: nil) {
                     (image, error, url, data) in
-//                    
-//                    let processor = BlurImageProcessor(blurRadius: 4)
-//                    let processedImage = processor.process(item: ImageProcessItem.image(image!),
-//                                                             options: [])
-//                    
-//                    let processedData = processedImage?.tiffRepresentation
                     
+                   let processedImage = WPProcessor().processImage(originalImage: image!)
+                                        
                     if (error != nil) {
                         failure()
                         print(error?.description ?? "Error occurred")
@@ -44,7 +40,7 @@ class FeaturedArtSource: WPSourceProtocol {
                   let fullURL = WPProcessor().getWallpaperFileUrl(
                     fileName: (imageUri as NSString).lastPathComponent)
                     
-                    if WPProcessor().imageToFile(image: image!, imageURL: fullURL!, ext:(imageUri as NSString).pathExtension) {
+                    if WPProcessor().imageToFile(image: processedImage, imageURL: fullURL!, ext:(imageUri as NSString).pathExtension) {
                         callback(fullURL!)
                     } else {
                         failure()

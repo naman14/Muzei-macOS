@@ -167,6 +167,7 @@ class MenuController: NSObject, SourceMenuDelegate {
         workspace.notificationCenter.addObserver(forName: NSNotification.Name.NSWorkspaceActiveSpaceDidChange, object: nil, queue: nil) { (Notification) in
             
             self.setWallpaper(url: url)
+    
         }
         
         

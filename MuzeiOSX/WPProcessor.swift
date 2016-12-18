@@ -8,6 +8,7 @@
 
 import Foundation
 import Cocoa
+import Kingfisher
 
 class WPProcessor {
     
@@ -58,6 +59,16 @@ class WPProcessor {
             }
         }
         return false
+    }
+    
+    func processImage(originalImage: Image) ->Image {
+        var processedImage: Image
+        
+        let processor = BlurImageProcessor(blurRadius: 20)
+        processedImage = processor.process(item: ImageProcessItem.image(originalImage),
+                                               options:[])!
+        
+        return processedImage
     }
     
     func saveCurrentWallpaper() -> Bool {
