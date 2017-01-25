@@ -12,7 +12,7 @@ import Kingfisher
 
 class WPProcessor {
     
-    func getWallpaperFileUrl(fileName: String) -> URL? {
+    func getWallpaperFileUrl(fileName: NSString) -> URL? {
         
         var url: URL?
         
@@ -35,8 +35,12 @@ class WPProcessor {
                 
             }
             
-            let fullURL = NSURL.fileURL(withPathComponents: [dirPath, fileName])
-            url = fullURL
+            let random = 2 + Int(arc4random_uniform(UInt32(999 - 2 + 1)))
+            
+            let fullURL = NSURL.fileURL(withPathComponents: [dirPath, fileName.deletingPathExtension.appending(String(random)).appending(".").appending(fileName.pathExtension)])
+                
+          url = fullURL
+
         }
         
         return url
@@ -117,6 +121,31 @@ class WPProcessor {
         return false
     }
     
+    func deletePreviousWallpaper(current : URL) {
+        
+        let nsApplicationDirectory = FileManager.SearchPathDirectory.applicationSupportDirectory
+        let nsUserDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+        let path = NSSearchPathForDirectoriesInDomains(nsApplicationDirectory, nsUserDomainMask, true)
+            .first as NSString?
+        
+        let dataPath = path?.appendingPathComponent("Muzei")
+        
+        let fileManager = FileManager.default
+        let enumerator = fileManager.enumerator(atPath: dataPath!)
+        
+        while let file = enumerator?.nextObject() as? String {
+            print(file)
+            if !(file == current.lastPathComponent) {
+                do {
+                    let fullURL = NSURL.fileURL(withPathComponents: [dataPath!, file])
+                    try fileManager.removeItem(at: fullURL!)
+                } catch {
+                    print(error)
+                }
+            }
+        }
+        
+    }
 }
 
 

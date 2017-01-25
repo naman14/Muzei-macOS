@@ -17,6 +17,7 @@
         <customObject id="qbP-ia-k4W" userLabel="MenuController" customClass="MenuController" customModule="MuzeiOSX" customModuleProvider="target">
             <connections>
                 <outlet property="featuredArtSourceItem" destination="y4v-GH-Bbv" id="4b5-f2-bqa"/>
+                <outlet property="preferencesItem" destination="U8Q-BM-Eqm" id="O6C-W0-P88"/>
                 <outlet property="quitItem" destination="b5f-Xn-06e" id="pqU-VO-rCT"/>
                 <outlet property="redditSourceItem" destination="fpK-lT-lBl" id="7qc-1C-4iC"/>
                 <outlet property="saveWallpaperItem" destination="RF3-Bc-au6" id="ZlQ-dR-TuF"/>
@@ -61,14 +62,17 @@
                         <action selector="saveWallpaperClicked:" target="qbP-ia-k4W" id="AZn-1k-BCN"/>
                     </connections>
                 </menuItem>
+                <menuItem title="Preferences" id="U8Q-BM-Eqm">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="preferenceClicked:" target="qbP-ia-k4W" id="htB-mq-WVK"/>
+                    </connections>
+                </menuItem>
                 <menuItem title="Quit" keyEquivalent="Q" id="b5f-Xn-06e">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="quitClicked:" target="qbP-ia-k4W" id="5r5-AD-bwI"/>
                     </connections>
-                </menuItem>
-                <menuItem title="Item" id="U8Q-BM-Eqm">
-                    <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
             </items>
             <point key="canvasLocation" x="138.5" y="185.5"/>

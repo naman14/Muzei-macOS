@@ -22,6 +22,7 @@ class MenuController: NSObject, SourceMenuDelegate {
     @IBOutlet weak var featuredArtSourceItem: NSMenuItem!
     @IBOutlet weak var redditSourceItem: NSMenuItem!
     @IBOutlet weak var saveWallpaperItem: NSMenuItem!
+    @IBOutlet weak var preferencesItem: NSMenuItem!
 
     let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
     
@@ -60,6 +61,10 @@ class MenuController: NSObject, SourceMenuDelegate {
         } else {
             print("Failed to save wallpaper")
         }
+    }
+    
+    @IBAction func preferenceClicked(_ sender: NSMenuItem) {
+        
     }
 
     
@@ -152,6 +157,7 @@ class MenuController: NSObject, SourceMenuDelegate {
             let workspace = NSWorkspace.shared()
             if let screen = NSScreen.main()  {
                 try workspace.setDesktopImageURL(url, for: screen, options: [:])
+                WPProcessor().deletePreviousWallpaper(current: url)
             }
         } catch {
             print(error)

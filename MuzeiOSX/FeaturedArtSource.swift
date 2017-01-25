@@ -38,8 +38,7 @@ class FeaturedArtSource: WPSourceProtocol {
                     }
                 
                   let fullURL = WPProcessor().getWallpaperFileUrl(
-                    fileName: (imageUri as NSString).lastPathComponent)
-                    
+                    fileName: (imageUri as NSString).lastPathComponent as NSString)
                     if WPProcessor().imageToFile(image: processedImage, imageURL: fullURL!, ext:(imageUri as NSString).pathExtension) {
                         callback(fullURL!)
                     } else {
