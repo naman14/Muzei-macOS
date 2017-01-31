@@ -21,15 +21,19 @@ class MenuController: NSObject, SourceMenuDelegate {
     @IBOutlet weak var updateItem: NSMenuItem!
     @IBOutlet weak var featuredArtSourceItem: NSMenuItem!
     @IBOutlet weak var redditSourceItem: NSMenuItem!
+    @IBOutlet weak var viewWallpaperItem: NSMenuItem!
     @IBOutlet weak var saveWallpaperItem: NSMenuItem!
     @IBOutlet weak var preferencesItem: NSMenuItem!
 
     let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
     
     var defaults: UserDefaults
+    var preferenceController: NSWindowController
     
     override init() {
         defaults = UserDefaults.standard
+        preferenceController = PreferenceWindowController(windowNibName: "PreferenceWindow")
+
         super.init()
 
     }
@@ -55,6 +59,10 @@ class MenuController: NSObject, SourceMenuDelegate {
         updateSource(sourceReddit)
     }
     
+    @IBAction func viewWallpaperClicked(_ sender: NSMenuItem) {
+       
+    }
+    
     @IBAction func saveWallpaperClicked(_ sender: NSMenuItem) {
         if WPProcessor().saveCurrentWallpaper() {
             print("Wallpaper saved")
@@ -64,6 +72,7 @@ class MenuController: NSObject, SourceMenuDelegate {
     }
     
     @IBAction func preferenceClicked(_ sender: NSMenuItem) {
+        preferenceController.showWindow(nil)
         
     }
 

@@ -24,6 +24,7 @@
                 <outlet property="sourcesMenu" destination="evo-nV-ihv" id="emD-fT-UjS"/>
                 <outlet property="statusMenu" destination="iCc-DG-iXA" id="mHo-Zu-hbF"/>
                 <outlet property="updateItem" destination="lYO-s6-bss" id="KWe-NI-wbL"/>
+                <outlet property="viewWallpaperItem" destination="ZtU-ij-WRz" id="hXk-UN-nOJ"/>
             </connections>
         </customObject>
         <menu id="iCc-DG-iXA">
@@ -55,6 +56,12 @@
                             </menuItem>
                         </items>
                     </menu>
+                </menuItem>
+                <menuItem title="View current wallpaper" id="ZtU-ij-WRz">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="viewWallpaperClicked:" target="qbP-ia-k4W" id="Qe2-v4-8Mu"/>
+                    </connections>
                 </menuItem>
                 <menuItem title="Save current wallpaper" id="RF3-Bc-au6">
                     <modifierMask key="keyEquivalentModifierMask"/>

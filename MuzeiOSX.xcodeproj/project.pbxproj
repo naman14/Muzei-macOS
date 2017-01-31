@@ -17,6 +17,8 @@
 		ED271FF71E047ECF00241BD2 /* RedditSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED271FF61E047ECF00241BD2 /* RedditSource.swift */; };
 		ED3CD2181E0520E7006368FE /* SourceMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3CD2171E0520E7006368FE /* SourceMenuDelegate.swift */; };
 		ED9008621E067B4100F42AF3 /* WPProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9008611E067B4100F42AF3 /* WPProcessor.swift */; };
+		ED9B9B901E40DFB700322CA3 /* PreferenceWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED9B9B8F1E40DFB700322CA3 /* PreferenceWindow.xib */; };
+		ED9B9B921E40E70A00322CA3 /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9B9B911E40E70A00322CA3 /* PreferenceWindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		ED271FF61E047ECF00241BD2 /* RedditSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditSource.swift; sourceTree = "<group>"; };
 		ED3CD2171E0520E7006368FE /* SourceMenuDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceMenuDelegate.swift; sourceTree = "<group>"; };
 		ED9008611E067B4100F42AF3 /* WPProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WPProcessor.swift; sourceTree = "<group>"; };
+		ED9B9B8F1E40DFB700322CA3 /* PreferenceWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferenceWindow.xib; sourceTree = "<group>"; };
+		ED9B9B911E40E70A00322CA3 /* PreferenceWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,8 @@
 				ED271FF61E047ECF00241BD2 /* RedditSource.swift */,
 				ED3CD2171E0520E7006368FE /* SourceMenuDelegate.swift */,
 				ED9008611E067B4100F42AF3 /* WPProcessor.swift */,
+				ED9B9B8F1E40DFB700322CA3 /* PreferenceWindow.xib */,
+				ED9B9B911E40E70A00322CA3 /* PreferenceWindowController.swift */,
 			);
 			path = MuzeiOSX;
 			sourceTree = "<group>";
@@ -163,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED271FE41E04351400241BD2 /* Assets.xcassets in Resources */,
+				ED9B9B901E40DFB700322CA3 /* PreferenceWindow.xib in Resources */,
 				ED271FE71E04351400241BD2 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,6 +233,7 @@
 				ED3CD2181E0520E7006368FE /* SourceMenuDelegate.swift in Sources */,
 				ED271FEF1E04467400241BD2 /* MenuController.swift in Sources */,
 				ED271FF11E04491000241BD2 /* FeaturedArtSource.swift in Sources */,
+				ED9B9B921E40E70A00322CA3 /* PreferenceWindowController.swift in Sources */,
 				ED271FE21E04351400241BD2 /* AppDelegate.swift in Sources */,
 				ED271FF51E04771000241BD2 /* WPSourceProtocol.swift in Sources */,
 				ED271FF71E047ECF00241BD2 /* RedditSource.swift in Sources */,
