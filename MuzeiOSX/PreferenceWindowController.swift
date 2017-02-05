@@ -10,10 +10,11 @@ import Foundation
 import Cocoa
 
 class PreferenceWindowController : NSWindowController {
-    
+        
     override func windowDidLoad() {
-
+        NSApp.activate(ignoringOtherApps: true)
+        window?.title = "Preferences"
     }
-    
+
 
 }

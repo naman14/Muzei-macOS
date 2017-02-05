@@ -73,9 +73,6 @@ class MenuController: NSObject, SourceMenuDelegate {
     
     @IBAction func preferenceClicked(_ sender: NSMenuItem) {
         preferenceController.showWindow(self)
-        preferenceController.window?.makeKeyAndOrderFront(NSApp)
-        NSApp.activate(ignoringOtherApps: true)
-        
     }
 
     
