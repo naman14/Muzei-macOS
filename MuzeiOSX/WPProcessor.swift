@@ -164,3 +164,14 @@ extension NSImage {
         try imageJPEGRepresentation.write(to: path)
     }
 }
+
+extension NSURL {
+    
+    func absoluteStringByTrimmingQuery() -> NSString? {
+        if let urlcomponents = NSURLComponents(url: self as URL, resolvingAgainstBaseURL: false) {
+            urlcomponents.query = nil
+            return NSString(string: urlcomponents.string!)
+        }
+        return nil
+    }
+}

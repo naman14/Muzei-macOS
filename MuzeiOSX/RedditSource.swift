@@ -45,10 +45,12 @@ class RedditSource: WPSourceProtocol {
                         return
                     }
                     
+                    let trimmedUrl =  NSURL(string: imageUri)?.absoluteStringByTrimmingQuery()
+
                     let fullURL = WPProcessor().getWallpaperFileUrl(
-                        fileName: (imageUri as NSString).lastPathComponent as NSString)
-                    print(fullURL)
-                    if WPProcessor().imageToFile(image: processedImage, imageURL: fullURL!, ext:(imageUri as NSString).pathExtension) {
+                        fileName: (trimmedUrl! as NSString).lastPathComponent as NSString)
+                    
+                    if WPProcessor().imageToFile(image: processedImage, imageURL: fullURL!, ext:((trimmedUrl)?.pathExtension)!) {
                         callback(fullURL!)
                     } else {
                         failure()
