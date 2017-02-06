@@ -26,20 +26,8 @@ class PreferenceWindowController : NSWindowController {
     let prefs = UserDefaults.standard
     
     override func windowDidLoad() {
-        NSApp.activate(ignoringOtherApps: true)
         window?.title = "Preferences"
-        
-        if let source = prefs.string(forKey: PREF_SOURCE) {
-           updateSource(source: source)
-        } else {
-            updateSource(source: SOURCE_FEATURED)
-        }
-        
-        if let subreddit = prefs.string(forKey: PREF_SUBREDDIT) {
-            textSubredditName.stringValue = subreddit
-        } else {
-            textSubredditName.stringValue = "EarthPorn"
-        }
+        updateWindow()
         
     }
     
@@ -55,6 +43,24 @@ class PreferenceWindowController : NSWindowController {
     @IBAction func sourceDoneClicked(_ sender: NSButton) {
         prefs.set(textSubredditName.stringValue, forKey: PREF_SUBREDDIT)
         prefs.synchronize()
+        window?.close()
+    }
+    
+    func updateWindow() {
+        NSApp.activate(ignoringOtherApps: true)
+        
+
+        if let source = prefs.string(forKey: PREF_SOURCE) {
+            updateSource(source: source)
+        } else {
+            updateSource(source: SOURCE_FEATURED)
+        }
+        
+        if let subreddit = prefs.string(forKey: PREF_SUBREDDIT) {
+            textSubredditName.stringValue = subreddit
+        } else {
+            textSubredditName.stringValue = "EarthPorn"
+        }
     }
     
     func updateSource(source: String) {

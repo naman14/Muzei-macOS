@@ -29,7 +29,7 @@ class FeaturedArtSource: WPSourceProtocol {
                 ImageDownloader.default.downloadImage(with: URL(string: httpsUri)!, options: [], progressBlock: nil) {
                     (image, error, url, data) in
                     
-                   let processedImage = WPProcessor().processImage(originalImage: image!)
+                   let processedImage = image
                                         
                     if (error != nil) {
                         failure()
@@ -39,7 +39,7 @@ class FeaturedArtSource: WPSourceProtocol {
                 
                   let fullURL = WPProcessor().getWallpaperFileUrl(
                     fileName: (imageUri as NSString).lastPathComponent as NSString)
-                    if WPProcessor().imageToFile(image: processedImage, imageURL: fullURL!, ext:(imageUri as NSString).pathExtension) {
+                    if WPProcessor().imageToFile(image: processedImage!, imageURL: fullURL!, ext:(imageUri as NSString).pathExtension) {
                         callback(fullURL!)
                     } else {
                         failure()

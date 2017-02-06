@@ -10,10 +10,6 @@ import Cocoa
 
 class MenuController: NSObject, SourceMenuDelegate {
 
-    let sourcePreferenceKey = "pref_source"
-    let sourceFeaturedArt = "source_featured"
-    let sourceReddit = "source_reddit"
-    
     @IBOutlet weak var statusMenu: NSMenu!
     @IBOutlet weak var sourcesMenu: NSMenu!
     
@@ -28,7 +24,7 @@ class MenuController: NSObject, SourceMenuDelegate {
     let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
     
     var defaults: UserDefaults
-    var preferenceController: NSWindowController
+    var preferenceController: PreferenceWindowController
     
     override init() {
         defaults = UserDefaults.standard
@@ -52,11 +48,11 @@ class MenuController: NSObject, SourceMenuDelegate {
     }
     
     @IBAction func featuredArtSourceClicked(_ sender: NSMenuItem) {
-        updateSource(sourceFeaturedArt)
+        updateSource(preferenceController.SOURCE_FEATURED)
     }
     
     @IBAction func redditSourceClicked(_ sender: NSMenuItem) {
-        updateSource(sourceReddit)
+        updateSource(preferenceController.SOURCE_REDDIT)
     }
     
     @IBAction func viewWallpaperClicked(_ sender: NSMenuItem) {
@@ -72,7 +68,12 @@ class MenuController: NSObject, SourceMenuDelegate {
     }
     
     @IBAction func preferenceClicked(_ sender: NSMenuItem) {
-        preferenceController.showWindow(self)
+        if(preferenceController.isWindowLoaded) {
+            preferenceController.window?.setIsVisible(true)
+            preferenceController.updateWindow()
+        } else {
+            preferenceController.showWindow(self)
+        }
     }
 
     
@@ -87,7 +88,7 @@ class MenuController: NSObject, SourceMenuDelegate {
     }
     
     func updateSource(_ source: String) {
-        defaults.setValue(source, forKey: sourcePreferenceKey)
+        defaults.setValue(source, forKey: preferenceController.PREF_SOURCE)
         defaults.synchronize()
         
     }
@@ -100,9 +101,9 @@ class MenuController: NSObject, SourceMenuDelegate {
         
         switch getSource()! {
             
-        case sourceFeaturedArt:
+        case preferenceController.SOURCE_FEATURED:
             menuItem = featuredArtSourceItem
-        case sourceReddit:
+        case preferenceController.SOURCE_REDDIT:
             menuItem = redditSourceItem
         default:
             menuItem = featuredArtSourceItem
@@ -136,9 +137,9 @@ class MenuController: NSObject, SourceMenuDelegate {
         
         switch getSource()! {
             
-        case sourceFeaturedArt:
+        case preferenceController.SOURCE_FEATURED:
             wpsource = FeaturedArtSource()
-        case sourceReddit:
+        case preferenceController.SOURCE_REDDIT:
             wpsource = RedditSource()
         default:
             wpsource = FeaturedArtSource()
@@ -149,10 +150,10 @@ class MenuController: NSObject, SourceMenuDelegate {
     
     func getSource()->String? {
         
-        var source: String? = defaults.string(forKey: sourcePreferenceKey)
+        var source: String? = defaults.string(forKey: preferenceController.PREF_SOURCE)
         
         if source == nil {
-            source = sourceFeaturedArt
+            source = preferenceController.SOURCE_FEATURED
         }
         
         return source;

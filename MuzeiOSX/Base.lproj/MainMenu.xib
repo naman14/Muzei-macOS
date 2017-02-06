@@ -51,9 +51,6 @@
                                     <action selector="redditSourceClicked:" target="qbP-ia-k4W" id="kxq-JL-hKI"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Item 3" id="err-qU-mFL">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
