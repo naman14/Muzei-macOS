@@ -22,8 +22,6 @@ class PreferenceWindowController : NSWindowController {
     @IBOutlet weak var dimSlider: NSSlider!
     @IBOutlet weak var wallpaperDone: NSButton!
     
-    @IBOutlet weak var previewImage: NSImageView!
-    
     let SOURCE_FEATURED = "source_featured_art"
     let SOURCE_REDDIT = "source_reddit"
     

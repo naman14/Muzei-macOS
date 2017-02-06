@@ -17,6 +17,7 @@
 		ED271FF71E047ECF00241BD2 /* RedditSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED271FF61E047ECF00241BD2 /* RedditSource.swift */; };
 		ED3CD2181E0520E7006368FE /* SourceMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3CD2171E0520E7006368FE /* SourceMenuDelegate.swift */; };
 		ED63F4F61E480BAE00C0264D /* Wallpaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED63F4F51E480BAE00C0264D /* Wallpaper.swift */; };
+		ED63F4FA1E4919F400C0264D /* Alegreya-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED63F4F91E4919F400C0264D /* Alegreya-BlackItalic.ttf */; };
 		ED9008621E067B4100F42AF3 /* WPProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9008611E067B4100F42AF3 /* WPProcessor.swift */; };
 		ED9B9B901E40DFB700322CA3 /* PreferenceWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED9B9B8F1E40DFB700322CA3 /* PreferenceWindow.xib */; };
 		ED9B9B921E40E70A00322CA3 /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9B9B911E40E70A00322CA3 /* PreferenceWindowController.swift */; };
@@ -37,6 +38,7 @@
 		ED271FF61E047ECF00241BD2 /* RedditSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditSource.swift; sourceTree = "<group>"; };
 		ED3CD2171E0520E7006368FE /* SourceMenuDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceMenuDelegate.swift; sourceTree = "<group>"; };
 		ED63F4F51E480BAE00C0264D /* Wallpaper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallpaper.swift; sourceTree = "<group>"; };
+		ED63F4F91E4919F400C0264D /* Alegreya-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-BlackItalic.ttf"; sourceTree = "<group>"; };
 		ED9008611E067B4100F42AF3 /* WPProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WPProcessor.swift; sourceTree = "<group>"; };
 		ED9B9B8F1E40DFB700322CA3 /* PreferenceWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferenceWindow.xib; sourceTree = "<group>"; };
 		ED9B9B911E40E70A00322CA3 /* PreferenceWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 		ED271FE01E04351400241BD2 /* MuzeiOSX */ = {
 			isa = PBXGroup;
 			children = (
+				ED63F4F91E4919F400C0264D /* Alegreya-BlackItalic.ttf */,
 				ED271FE11E04351400241BD2 /* AppDelegate.swift */,
 				ED271FE31E04351400241BD2 /* Assets.xcassets */,
 				ED271FE51E04351400241BD2 /* MainMenu.xib */,
@@ -173,6 +176,7 @@
 			files = (
 				ED271FE41E04351400241BD2 /* Assets.xcassets in Resources */,
 				ED9B9B901E40DFB700322CA3 /* PreferenceWindow.xib in Resources */,
+				ED63F4FA1E4919F400C0264D /* Alegreya-BlackItalic.ttf in Resources */,
 				ED271FE71E04351400241BD2 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

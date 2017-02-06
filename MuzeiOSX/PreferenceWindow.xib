@@ -12,7 +12,6 @@
                 <outlet property="blurSlider" destination="sMN-Qi-4OR" id="JAT-oY-dYY"/>
                 <outlet property="dimButton" destination="X7d-3H-rpf" id="Yo7-my-nBY"/>
                 <outlet property="dimSlider" destination="MtV-hM-m65" id="f2c-Ec-KZq"/>
-                <outlet property="previewImage" destination="0yZ-FU-uET" id="YmR-GO-nJ4"/>
                 <outlet property="sourceDone" destination="NKg-7N-gXp" id="5EX-aA-3eK"/>
                 <outlet property="sourceFeaturedArt" destination="OBt-gR-XSf" id="DDF-jA-daR"/>
                 <outlet property="sourceReddit" destination="aOO-RE-IRj" id="nOw-Wd-6jl"/>
@@ -26,24 +25,24 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="596" height="306"/>
+            <rect key="contentRect" x="196" y="240" width="523" height="306"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="596" height="306"/>
+                <rect key="frame" x="0.0" y="0.0" width="523" height="306"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <tabView fixedFrame="YES" initialItem="Rqe-Zw-bUU" translatesAutoresizingMaskIntoConstraints="NO" id="mXD-Qo-hPX">
-                        <rect key="frame" x="28" y="33" width="525" height="259"/>
+                        <rect key="frame" x="21" y="21" width="481" height="259"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Source" identifier="1" id="maZ-Pp-8WK">
                                 <view key="view" id="bfk-Bh-p2V">
-                                    <rect key="frame" x="10" y="33" width="505" height="213"/>
+                                    <rect key="frame" x="10" y="33" width="461" height="213"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aOO-RE-IRj">
-                                            <rect key="frame" x="101" y="78" width="62" height="18"/>
+                                            <rect key="frame" x="89" y="105" width="62" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Reddit" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Vjl-Un-x6f">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -53,17 +52,8 @@
                                                 <action selector="redditSelected:" target="-2" id="eDu-B7-k14"/>
                                             </connections>
                                         </button>
-                                        <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hev-cd-7uU">
-                                            <rect key="frame" x="225" y="76" width="96" height="22"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" title="EarthPorn" drawsBackground="YES" id="Fbz-B0-K9r">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NKg-7N-gXp">
-                                            <rect key="frame" x="370" y="23" width="72" height="32"/>
+                                            <rect key="frame" x="347" y="10" width="72" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qA9-Gy-SEq">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -74,7 +64,7 @@
                                             </connections>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OBt-gR-XSf">
-                                            <rect key="frame" x="101" y="129" width="97" height="18"/>
+                                            <rect key="frame" x="89" y="155" width="97" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Featured art" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="WzP-SA-gJ9">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -84,16 +74,25 @@
                                                 <action selector="featuredArtSelected:" target="-2" id="HEW-fe-PMs"/>
                                             </connections>
                                         </button>
+                                        <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hev-cd-7uU">
+                                            <rect key="frame" x="191" y="103" width="96" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" title="EarthPorn" drawsBackground="YES" id="Fbz-B0-K9r">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
                                     </subviews>
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Wallpaper" identifier="2" id="Rqe-Zw-bUU">
-                                <view key="view" ambiguous="YES" id="40c-ye-F2J">
-                                    <rect key="frame" x="10" y="33" width="505" height="213"/>
+                                <view key="view" id="40c-ye-F2J">
+                                    <rect key="frame" x="10" y="33" width="461" height="213"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YFG-DQ-QvY">
-                                            <rect key="frame" x="165" y="146" width="47" height="18"/>
+                                            <rect key="frame" x="75" y="146" width="47" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Blur" bezelStyle="regularSquare" imagePosition="left" inset="2" id="TlY-JV-Wn9">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -104,28 +103,17 @@
                                             </connections>
                                         </button>
                                         <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sMN-Qi-4OR">
-                                            <rect key="frame" x="248" y="145" width="234" height="19"/>
+                                            <rect key="frame" x="167" y="145" width="234" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <sliderCell key="cell" enabled="NO" state="on" alignment="left" minValue="1" maxValue="50" doubleValue="15" tickMarkPosition="above" sliderType="linear" id="Seu-Kg-ILn"/>
                                         </slider>
                                         <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MtV-hM-m65">
-                                            <rect key="frame" x="248" y="86" width="234" height="19"/>
+                                            <rect key="frame" x="167" y="86" width="234" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <sliderCell key="cell" enabled="NO" state="on" alignment="left" minValue="0.10000000000000001" maxValue="0.80000000000000004" doubleValue="0.20000000000000001" tickMarkPosition="above" sliderType="linear" id="GhR-C0-oJ2"/>
                                         </slider>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YQS-MP-kBi">
-                                            <rect key="frame" x="362" y="10" width="85" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="push" title="Update" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bSV-ou-Rl5">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="wallpaperDoneClicked:" target="-2" id="5Iu-Cd-fnQ"/>
-                                            </connections>
-                                        </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X7d-3H-rpf">
-                                            <rect key="frame" x="165" y="87" width="46" height="18"/>
+                                            <rect key="frame" x="75" y="86" width="46" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Dim" bezelStyle="regularSquare" imagePosition="left" inset="2" id="TnD-qo-gwi">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -135,30 +123,27 @@
                                                 <action selector="dimButtonClicked:" target="-2" id="Uac-Ti-hdL"/>
                                             </connections>
                                         </button>
-                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0yZ-FU-uET">
-                                            <rect key="frame" x="9" y="81" width="127" height="87"/>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YQS-MP-kBi">
+                                            <rect key="frame" x="336" y="10" width="85" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="4kR-zC-E8u"/>
-                                        </imageView>
+                                            <buttonCell key="cell" type="push" title="Update" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bSV-ou-Rl5">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="wallpaperDoneClicked:" target="-2" id="5Iu-Cd-fnQ"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="About" identifier="" id="vlt-vd-VeP">
-                                <view key="view" id="Gkd-om-2na">
-                                    <rect key="frame" x="10" y="33" width="505" height="213"/>
+                                <view key="view" ambiguous="YES" id="Gkd-om-2na">
+                                    <rect key="frame" x="10" y="33" width="461" height="213"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxd-Mq-T38">
-                                            <rect key="frame" x="211" y="132" width="93" height="59"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Muzei" id="3XZ-ge-vxy">
-                                                <font key="font" metaFont="system" size="20"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nGy-OM-sYS">
-                                            <rect key="frame" x="122" y="57" width="270" height="85"/>
+                                            <rect key="frame" x="95" y="48" width="270" height="85"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" id="WGx-4C-8ny">
                                                 <font key="font" metaFont="system"/>
@@ -166,6 +151,15 @@
 http://muzei.co/
 
 Developed by Naman Dwivedi</string>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxd-Mq-T38">
+                                            <rect key="frame" x="184" y="132" width="93" height="59"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Muzei" id="3XZ-ge-vxy">
+                                                <font key="font" size="31" name="Alegreya-BlackItalic"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -180,7 +174,7 @@ Developed by Naman Dwivedi</string>
             <connections>
                 <outlet property="delegate" destination="-2" id="653-WK-1rZ"/>
             </connections>
-            <point key="canvasLocation" x="0.0" y="179"/>
+            <point key="canvasLocation" x="-36.5" y="179"/>
         </window>
     </objects>
 </document>

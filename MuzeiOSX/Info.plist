@@ -34,5 +34,7 @@
 	<true/>
 	<key>LSBackgroundOnly</key>
 	<false/>
+	<key>ATSApplicationFontsPath</key>
+	<string>Alegreya-BlackItalic.ttf</string>
 </dict>
 </plist>
