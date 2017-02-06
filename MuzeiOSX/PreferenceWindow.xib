@@ -8,6 +8,9 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferenceWindowController" customModule="MuzeiOSX" customModuleProvider="target">
             <connections>
+                <outlet property="sourceFeaturedArt" destination="OBt-gR-XSf" id="DDF-jA-daR"/>
+                <outlet property="sourceReddit" destination="aOO-RE-IRj" id="nOw-Wd-6jl"/>
+                <outlet property="textSubredditName" destination="hev-cd-7uU" id="b5q-tj-4Iw"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="nIh-1x-Ns7"/>
             </connections>
         </customObject>
@@ -39,6 +42,9 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="featuredArtSelected:" target="-2" id="HEW-fe-PMs"/>
+                                            </connections>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aOO-RE-IRj">
                                             <rect key="frame" x="33" y="81" width="62" height="18"/>
@@ -47,6 +53,9 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="redditSelected:" target="-2" id="eDu-B7-k14"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NKg-7N-gXp">
                                             <rect key="frame" x="267" y="10" width="72" height="32"/>
