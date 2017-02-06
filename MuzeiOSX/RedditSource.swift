@@ -42,8 +42,6 @@ class RedditSource: WPSourceProtocol {
                 let source = data["preview"]["images"][0]["source"]
                 
                 let imageUri = source["url"].stringValue
-                let width = source["width"].intValue
-                let height = source["height"].intValue
                 
                 if(ImageCache.default.isImageCached(forKey: title).cached) {
                     
@@ -68,6 +66,10 @@ class RedditSource: WPSourceProtocol {
                                 if WPProcessor().imageToFile(image: processedImage, imageURL: processedURL!, ext:(trimmedUrl! as NSString).pathExtension) {
                                     
                                     let wp: Wallpaper = Wallpaper(title: title,imageUrl: fullURL!, processedUrl: processedURL!)
+                                    
+                                    wp.byline = data["subreddit"].stringValue
+                                    wp.attribution = data["domain"].stringValue
+                                    wp.detailsUri = data["url"].stringValue
                                     
                                     callback(wp)
                                     

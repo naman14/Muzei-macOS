@@ -159,6 +159,7 @@ class WPProcessor {
         prefs.set(current.processedImageUrl, forKey: CURRENT_WP_PROCESSED_URL)
         prefs.set(current.byline, forKey: CURRENT_WP_BYLINE)
         prefs.set(current.attribution, forKey: CURRENT_WP_ATTRIBUTION)
+        prefs.set(current.detailsUri, forKey: CURRENT_WP_DETAILS_URL)
 
         prefs.synchronize()
     }

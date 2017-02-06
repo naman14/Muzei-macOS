@@ -8,6 +8,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="WallpaperWindowController" customModule="MuzeiOSX" customModuleProvider="target">
             <connections>
+                <outlet property="attributionText" destination="2d0-kM-kWd" id="gdQ-ut-A8o"/>
+                <outlet property="bylineText" destination="5BW-rX-EhS" id="JHh-BO-Q4g"/>
                 <outlet property="previewImage" destination="2FX-9k-t0v" id="Pnc-HP-wdc"/>
                 <outlet property="titleText" destination="hKI-jv-Qkj" id="7o2-qn-wQO"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="Z37-36-khV"/>
@@ -29,10 +31,28 @@
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="Ett-Qe-rQ8"/>
                     </imageView>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hKI-jv-Qkj">
-                        <rect key="frame" x="741" y="261" width="225" height="236"/>
+                        <rect key="frame" x="741" y="326" width="225" height="146"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="gPe-qZ-sMx">
                             <font key="font" size="22" name="Alegreya-BlackItalic"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5BW-rX-EhS">
+                        <rect key="frame" x="741" y="222" width="211" height="52"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Multiline Label" id="RCL-oU-lFO">
+                            <font key="font" size="15" name="Alegreya-BlackItalic"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2d0-kM-kWd">
+                        <rect key="frame" x="741" y="503" width="92" height="49"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Multiline Label" id="co1-v4-GFE">
+                            <font key="font" size="13" name="Alegreya-BlackItalic"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>

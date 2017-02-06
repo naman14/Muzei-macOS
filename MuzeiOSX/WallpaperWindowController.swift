@@ -11,11 +11,16 @@ import Cocoa
 
 class WallpaperWindowController: NSWindowController {
     
-    @IBOutlet weak var titleText: NSTextField!
     let CURRENT_WP_TITLE = "current_wallpaper_title"
     let CURRENT_WP_URL = "current_wallpaper_url"
-    
+    let CURRENT_WP_BYLINE = "current_wallpaper_byline"
+    let CURRENT_WP_ATTRIBUTION = "current_wallpaper_attribution"
+    let CURRENT_WP_DETAILS_URL = "current_wallpaper_details_url"
+
+    @IBOutlet weak var titleText: NSTextField!
     @IBOutlet weak var previewImage: NSImageView!
+    @IBOutlet weak var bylineText: NSTextField!
+    @IBOutlet weak var attributionText: NSTextField!
     
     override func windowDidLoad() {
         window?.title = "Preferences"
@@ -38,6 +43,9 @@ class WallpaperWindowController: NSWindowController {
                 var image: NSImage
             
             titleText.stringValue = prefs.string(forKey: CURRENT_WP_TITLE)!
+            bylineText.stringValue = prefs.string(forKey: CURRENT_WP_BYLINE)!
+            attributionText.stringValue = prefs.string(forKey: CURRENT_WP_ATTRIBUTION)!
+
             do {
                 try image = NSImage.init(data: Data.init(contentsOf: url, options: []))!
                 previewImage.image = image
