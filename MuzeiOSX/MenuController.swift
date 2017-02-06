@@ -29,9 +29,8 @@ class MenuController: NSObject, SourceMenuDelegate {
     override init() {
         defaults = UserDefaults.standard
         preferenceController = PreferenceWindowController(windowNibName: "PreferenceWindow")
-
         super.init()
-
+        preferenceController.setMenuController(controller: self)
     }
     
    override func awakeFromNib() {

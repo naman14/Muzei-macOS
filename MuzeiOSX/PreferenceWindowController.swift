@@ -35,10 +35,19 @@ class PreferenceWindowController : NSWindowController {
 
     let prefs = UserDefaults.standard
     
+    var menuController: MenuController?
+    
     override func windowDidLoad() {
         window?.title = "Preferences"
         updateWindow()
-        
+    }
+    
+    override func showWindow(_ sender: Any?) {
+        super.showWindow(sender)
+    }
+    
+    func setMenuController(controller: MenuController) {
+        self.menuController = controller
     }
     
     @IBAction func featuredArtSelected(_ sender: NSButton) {
@@ -72,7 +81,8 @@ class PreferenceWindowController : NSWindowController {
         prefs.set(blurSlider.floatValue, forKey: PREF_BLUR_AMOUNT)
         prefs.set(dimSlider.floatValue, forKey: PREF_DIM_AMOUNT)
         prefs.synchronize()
-
+        menuController?.getWallpaper()
+        window?.close()
     }
     
     func updateWindow() {

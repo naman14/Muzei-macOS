@@ -16,6 +16,11 @@ class WPProcessor {
     let CURRENT_WP_URL = "current_wallpaper_url"
     let CURRENT_WP_PROCESSED_URL = "current_wallpaper_processed_url"
     
+    let PREF_BLUR_ACTIVE = "pref_blur_active"
+    let PREF_DIM_ACTIVE = "pref_dim_active"
+    let PREF_BLUR_AMOUNT = "pref_blur_amount"
+    let PREF_DIM_AMOUNT = "pref_dim_amount"
+    
     func getWallpaperFileUrl(fileName: NSString, processed: Bool, random: Int) -> URL? {
         
         var url: URL?
@@ -72,11 +77,15 @@ class WPProcessor {
     }
     
     func processImage(originalImage: Image) ->Image {
-        var processedImage: Image
+        var processedImage: Image = originalImage
         
-        let processor = BlurImageProcessor(blurRadius: 20)
+        let prefs = UserDefaults.standard
+        
+        if(prefs.bool(forKey: PREF_BLUR_ACTIVE)) {
+        let processor = BlurImageProcessor(blurRadius: CGFloat(prefs.float(forKey: PREF_BLUR_AMOUNT)))
         processedImage = processor.process(item: ImageProcessItem.image(originalImage),
                                                options:[])!
+        }
         
         return processedImage
     }

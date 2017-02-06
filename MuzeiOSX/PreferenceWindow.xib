@@ -105,7 +105,7 @@
                                         <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sMN-Qi-4OR">
                                             <rect key="frame" x="136" y="120" width="234" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <sliderCell key="cell" enabled="NO" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="Seu-Kg-ILn"/>
+                                            <sliderCell key="cell" enabled="NO" state="on" alignment="left" maxValue="50" doubleValue="10" tickMarkPosition="above" sliderType="linear" id="Seu-Kg-ILn"/>
                                         </slider>
                                         <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MtV-hM-m65">
                                             <rect key="frame" x="136" y="76" width="234" height="19"/>
