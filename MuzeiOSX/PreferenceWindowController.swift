@@ -100,6 +100,16 @@ class PreferenceWindowController : NSWindowController {
         } else {
             textSubredditName.stringValue = "EarthPorn"
         }
+        
+        blurButton.state = prefs.bool(forKey: PREF_BLUR_ACTIVE) == true ? NSOnState : NSOffState
+        dimButton.state = prefs.bool(forKey: PREF_DIM_ACTIVE) == true ? NSOnState : NSOffState
+        
+        blurSlider.isEnabled = (blurButton.state ==  NSOnState)
+        dimSlider.isEnabled = (dimButton.state ==  NSOnState)
+
+        
+        blurSlider.floatValue = prefs.float(forKey: PREF_BLUR_AMOUNT) != 0 ? prefs.float(forKey: PREF_BLUR_AMOUNT) : 15
+        dimSlider.floatValue = prefs.float(forKey: PREF_DIM_AMOUNT) != 0 ? prefs.float(forKey: PREF_DIM_AMOUNT) : 15
     }
     
     func updateSource(source: String) {
