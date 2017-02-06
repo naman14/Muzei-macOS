@@ -31,10 +31,10 @@
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="Ett-Qe-rQ8"/>
                     </imageView>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hKI-jv-Qkj">
-                        <rect key="frame" x="741" y="326" width="225" height="146"/>
+                        <rect key="frame" x="741" y="326" width="47" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="gPe-qZ-sMx">
-                            <font key="font" size="22" name="Alegreya-BlackItalic"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Title" id="gPe-qZ-sMx">
+                            <font key="font" size="23" name="Alegreya-BlackItalic"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
@@ -42,8 +42,8 @@
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5BW-rX-EhS">
                         <rect key="frame" x="741" y="222" width="211" height="52"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Multiline Label" id="RCL-oU-lFO">
-                            <font key="font" size="15" name="Alegreya-BlackItalic"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Byline" id="RCL-oU-lFO">
+                            <font key="font" size="20" name="Alegreya-Italic"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
@@ -51,8 +51,8 @@
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2d0-kM-kWd">
                         <rect key="frame" x="741" y="503" width="92" height="49"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Multiline Label" id="co1-v4-GFE">
-                            <font key="font" size="13" name="Alegreya-BlackItalic"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Attribution" id="co1-v4-GFE">
+                            <font key="font" size="13" name="AlegreyaSans-Medium"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
