@@ -17,7 +17,7 @@ class RedditSource: WPSourceProtocol {
 
     var base_url = "https://www.reddit.com/r/{subreddit}/top.json?t=day&limit=10"
     
-    func getWallpaper(callback: @escaping (URL, String) -> Void, failure: @escaping () -> Void) {
+    func getWallpaper(callback: @escaping (Wallpaper) -> Void, failure: @escaping () -> Void) {
         
         let prefs = UserDefaults.standard
         
@@ -48,24 +48,38 @@ class RedditSource: WPSourceProtocol {
                 ImageDownloader.default.downloadImage(with: URL(string: imageUri)!) {
                     (image, error, url, data) in
                     
-                    let processedImage = image
-                    
                     if (error != nil) {
                         failure()
                         print(error?.description ?? "Error occurred")
                         return
                     }
                     
-                    let trimmedUrl =  NSURL(string: imageUri)?.absoluteStringByTrimmingQuery()
-
                     let fullURL = WPProcessor().getWallpaperFileUrl(
-                        fileName: (trimmedUrl! as NSString).lastPathComponent as NSString)
+                        fileName: (imageUri as NSString).lastPathComponent as NSString, processed: false)
                     
-                    if WPProcessor().imageToFile(image: processedImage!, imageURL: fullURL!, ext:((trimmedUrl)?.pathExtension)!) {
-                        callback(fullURL!, title)
+                    if WPProcessor().imageToFile(image: image!, imageURL: fullURL!, ext:(imageUri as NSString).pathExtension) {
+                        
+                        let processedImage = WPProcessor().processImage(originalImage: image!)
+                        
+                        let processedURL = WPProcessor().getWallpaperFileUrl(
+                            fileName: (imageUri as NSString).lastPathComponent as NSString, processed: true)
+                        
+                        if WPProcessor().imageToFile(image: processedImage, imageURL: processedURL!, ext:(imageUri as NSString).pathExtension) {
+                            
+                            let wp: Wallpaper = Wallpaper(title: title,imageUrl: fullURL!, processedUrl: processedURL!)
+                            
+                            callback(wp)
+                            
+                        } else {
+                            failure()
+                            print("Error occurred")
+                            
+                        }
+                        
+                        
                     } else {
                         failure()
-                        print("Error occurred2")
+                        print("Error occurred")
                         
                     }
                     

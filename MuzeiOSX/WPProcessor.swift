@@ -14,8 +14,9 @@ class WPProcessor {
     
     let CURRENT_WP_TITLE = "current_wallpaper_title"
     let CURRENT_WP_URL = "current_wallpaper_url"
+    let CURRENT_WP_PROCESSED_URL = "current_wallpaper_processed_url"
     
-    func getWallpaperFileUrl(fileName: NSString) -> URL? {
+    func getWallpaperFileUrl(fileName: NSString, processed: Bool) -> URL? {
         
         var url: URL?
         
@@ -24,7 +25,11 @@ class WPProcessor {
         let path = NSSearchPathForDirectoriesInDomains(nsApplicationDirectory, nsUserDomainMask, true)
             .first as NSString?
         
-        let dataPath = path?.appendingPathComponent("Muzei")
+        var dataPath = path?.appendingPathComponent("Muzei")
+        
+        if(processed) {
+            dataPath = path?.appendingPathComponent("Muzei/processed")
+        }
         
         if let dirPath = dataPath {
             var isDir : ObjCBool = true
@@ -124,14 +129,15 @@ class WPProcessor {
         return false
     }
     
-    func saveWallpaperDetails(title: String, url: URL) {
+    func saveWallpaperDetails(current: Wallpaper) {
         let prefs = UserDefaults.standard
-        prefs.set(title, forKey: CURRENT_WP_TITLE)
-        prefs.set(url, forKey: CURRENT_WP_URL)
+        prefs.set(current.title, forKey: CURRENT_WP_TITLE)
+        prefs.set(current.imageUrl, forKey: CURRENT_WP_URL)
+        prefs.set(current.processedImageUrl, forKey: CURRENT_WP_PROCESSED_URL)
         prefs.synchronize()
     }
     
-    func deletePreviousWallpaper(current : URL) {
+    func deletePreviousWallpaper(current : Wallpaper) {
         
         let nsApplicationDirectory = FileManager.SearchPathDirectory.applicationSupportDirectory
         let nsUserDomainMask = FileManager.SearchPathDomainMask.userDomainMask
@@ -141,11 +147,26 @@ class WPProcessor {
         let dataPath = path?.appendingPathComponent("Muzei")
         
         let fileManager = FileManager.default
-        let enumerator = fileManager.enumerator(atPath: dataPath!)
+        var enumerator = fileManager.enumerator(atPath: dataPath!)
         
         while let file = enumerator?.nextObject() as? String {
             print(file)
-            if !(file == current.lastPathComponent) {
+            if !(file == current.imageUrl.lastPathComponent) {
+                do {
+                    let fullURL = NSURL.fileURL(withPathComponents: [dataPath!, file])
+                    try fileManager.removeItem(at: fullURL!)
+                } catch {
+                    print(error)
+                }
+            }
+        }
+        
+        let processedPath = path?.appendingPathComponent("Muzei/processed")
+        enumerator = fileManager.enumerator(atPath: processedPath!)
+        
+        while let file = enumerator?.nextObject() as? String {
+            print(file)
+            if !(file == current.imageUrl.lastPathComponent) {
                 do {
                     let fullURL = NSURL.fileURL(withPathComponents: [dataPath!, file])
                     try fileManager.removeItem(at: fullURL!)

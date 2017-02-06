@@ -121,10 +121,9 @@ class MenuController: NSObject, SourceMenuDelegate {
     
     func getWallpaper() {
         let wallpaperSource = self.getWallpaperSource()
-        wallpaperSource.getWallpaper(callback: { url, title in
-            print(url)
-            self.setActiveWorkspaceObserver( url: url, title: title)
-            self.setWallpaper(url: url, title: title)
+        wallpaperSource.getWallpaper(callback: { wp in
+            self.setActiveWorkspaceObserver(wallpaper: wp )
+            self.setWallpaper(wallpaper: wp)
         }, failure: {
         
         })
@@ -160,14 +159,14 @@ class MenuController: NSObject, SourceMenuDelegate {
 
     }
     
-    func setWallpaper(url: URL, title: String) {
+    func setWallpaper(wallpaper: Wallpaper) {
         
         do {
             let workspace = NSWorkspace.shared()
             if let screen = NSScreen.main()  {
-                try workspace.setDesktopImageURL(url, for: screen, options: [:])
-                WPProcessor().deletePreviousWallpaper(current: url)
-                WPProcessor().saveWallpaperDetails(title: title, url: url)
+                try workspace.setDesktopImageURL(wallpaper.processedImageUrl, for: screen, options: [:])
+                WPProcessor().deletePreviousWallpaper(current: wallpaper)
+                WPProcessor().saveWallpaperDetails(current: wallpaper)
             }
         } catch {
             print(error)
@@ -176,13 +175,13 @@ class MenuController: NSObject, SourceMenuDelegate {
        
     }
     
-    func setActiveWorkspaceObserver(url: URL, title: String) {
+    func setActiveWorkspaceObserver(wallpaper: Wallpaper) {
         
         let workspace = NSWorkspace.shared()
         
         workspace.notificationCenter.addObserver(forName: NSNotification.Name.NSWorkspaceActiveSpaceDidChange, object: nil, queue: nil) { (Notification) in
             
-            self.setWallpaper(url: url, title: title)
+            self.setWallpaper(wallpaper: wallpaper)
     
         }
         

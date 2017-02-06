@@ -8,10 +8,15 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferenceWindowController" customModule="MuzeiOSX" customModuleProvider="target">
             <connections>
+                <outlet property="blurButton" destination="YFG-DQ-QvY" id="KZd-tk-QAr"/>
+                <outlet property="blurSlider" destination="sMN-Qi-4OR" id="JAT-oY-dYY"/>
+                <outlet property="dimButton" destination="X7d-3H-rpf" id="Yo7-my-nBY"/>
+                <outlet property="dimSlider" destination="MtV-hM-m65" id="f2c-Ec-KZq"/>
                 <outlet property="sourceDone" destination="NKg-7N-gXp" id="5EX-aA-3eK"/>
                 <outlet property="sourceFeaturedArt" destination="OBt-gR-XSf" id="DDF-jA-daR"/>
                 <outlet property="sourceReddit" destination="aOO-RE-IRj" id="nOw-Wd-6jl"/>
                 <outlet property="textSubredditName" destination="hev-cd-7uU" id="b5q-tj-4Iw"/>
+                <outlet property="wallpaperDone" destination="YQS-MP-kBi" id="qYt-sw-Bvd"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="nIh-1x-Ns7"/>
             </connections>
         </customObject>
@@ -32,7 +37,7 @@
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Source" identifier="1" id="maZ-Pp-8WK">
-                                <view key="view" ambiguous="YES" id="bfk-Bh-p2V">
+                                <view key="view" id="bfk-Bh-p2V">
                                     <rect key="frame" x="10" y="33" width="385" height="155"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -82,7 +87,7 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Wallpaper" identifier="2" id="Rqe-Zw-bUU">
-                                <view key="view" id="40c-ye-F2J">
+                                <view key="view" ambiguous="YES" id="40c-ye-F2J">
                                     <rect key="frame" x="10" y="33" width="385" height="155"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -93,6 +98,9 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="blurButtonClicked:" target="-2" id="eRI-nM-eVN"/>
+                                            </connections>
                                         </button>
                                         <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sMN-Qi-4OR">
                                             <rect key="frame" x="136" y="120" width="234" height="19"/>
@@ -111,6 +119,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="wallpaperDoneClicked:" target="-2" id="5Iu-Cd-fnQ"/>
+                                            </connections>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X7d-3H-rpf">
                                             <rect key="frame" x="28" y="76" width="46" height="18"/>
@@ -119,6 +130,9 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="dimButtonClicked:" target="-2" id="Uac-Ti-hdL"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </view>

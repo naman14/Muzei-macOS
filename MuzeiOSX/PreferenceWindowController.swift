@@ -14,8 +14,13 @@ class PreferenceWindowController : NSWindowController {
     @IBOutlet weak var sourceFeaturedArt: NSButton!
     @IBOutlet weak var sourceReddit: NSButton!
     @IBOutlet weak var textSubredditName: NSTextField!
-
     @IBOutlet weak var sourceDone: NSButton!
+    
+    @IBOutlet weak var blurButton: NSButton!
+    @IBOutlet weak var dimButton: NSButton!
+    @IBOutlet weak var blurSlider: NSSlider!
+    @IBOutlet weak var dimSlider: NSSlider!
+    @IBOutlet weak var wallpaperDone: NSButton!
     
     let SOURCE_FEATURED = "source_featured_art"
     let SOURCE_REDDIT = "source_reddit"
@@ -44,6 +49,15 @@ class PreferenceWindowController : NSWindowController {
         prefs.set(textSubredditName.stringValue, forKey: PREF_SUBREDDIT)
         prefs.synchronize()
         window?.close()
+    }
+    
+    @IBAction func blurButtonClicked(_ sender: NSButton) {
+    }
+    
+    @IBAction func dimButtonClicked(_ sender: NSButton) {
+    }
+    
+    @IBAction func wallpaperDoneClicked(_ sender: NSButton) {
     }
     
     func updateWindow() {
