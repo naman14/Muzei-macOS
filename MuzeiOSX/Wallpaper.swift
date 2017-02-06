@@ -14,6 +14,10 @@ class Wallpaper {
     var imageUrl: URL
     var processedImageUrl: URL
     
+    var byline: String = ""
+    var attribution: String = ""
+    var detailsUri: String = ""
+    
     init(title: String, imageUrl: URL, processedUrl: URL) {
         self.title = title
         self.imageUrl = imageUrl

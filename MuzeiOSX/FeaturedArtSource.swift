@@ -50,6 +50,11 @@ class FeaturedArtSource: WPSourceProtocol {
                                 if WPProcessor().imageToFile(image: processedImage, imageURL: processedURL!, ext:(imageUri as NSString).pathExtension) {
                                     
                                     let wp: Wallpaper = Wallpaper(title: title,imageUrl: fullURL!, processedUrl: processedURL!)
+                                    
+                                    wp.byline = json["byline"].stringValue
+                                    wp.attribution = json["attribution"].stringValue
+                                    wp.detailsUri = json["detailsUri"].stringValue
+                                    
                                     callback(wp)
                                     
                                 } else {

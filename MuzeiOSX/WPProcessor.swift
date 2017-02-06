@@ -15,7 +15,10 @@ class WPProcessor {
     let CURRENT_WP_TITLE = "current_wallpaper_title"
     let CURRENT_WP_URL = "current_wallpaper_url"
     let CURRENT_WP_PROCESSED_URL = "current_wallpaper_processed_url"
-    
+    let CURRENT_WP_BYLINE = "current_wallpaper_byline"
+    let CURRENT_WP_ATTRIBUTION = "current_wallpaper_attribution"
+    let CURRENT_WP_DETAILS_URL = "current_wallpaper_details_url"
+
     let PREF_BLUR_ACTIVE = "pref_blur_active"
     let PREF_DIM_ACTIVE = "pref_dim_active"
     let PREF_BLUR_AMOUNT = "pref_blur_amount"
@@ -154,6 +157,9 @@ class WPProcessor {
         prefs.set(current.title, forKey: CURRENT_WP_TITLE)
         prefs.set(current.imageUrl, forKey: CURRENT_WP_URL)
         prefs.set(current.processedImageUrl, forKey: CURRENT_WP_PROCESSED_URL)
+        prefs.set(current.byline, forKey: CURRENT_WP_BYLINE)
+        prefs.set(current.attribution, forKey: CURRENT_WP_ATTRIBUTION)
+
         prefs.synchronize()
     }
     

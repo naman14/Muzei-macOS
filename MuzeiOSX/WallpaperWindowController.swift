@@ -44,7 +44,7 @@ class WallpaperWindowController: NSWindowController {
                 
                 previewImage.shadow = NSShadow()
                 previewImage.layer?.shadowColor = NSColor.black.cgColor
-                previewImage.layer?.shadowOpacity = 1
+                previewImage.layer?.shadowOpacity = 0.5
                 previewImage.layer?.shadowOffset = CGSize.zero
                 previewImage.layer?.shadowRadius = 5
             }
