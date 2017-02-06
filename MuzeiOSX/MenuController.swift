@@ -35,6 +35,8 @@ class MenuController: NSObject, SourceMenuDelegate {
         wallpaperWindowController = WallpaperWindowController(windowNibName: "WallpaperWindow")
         super.init()
         preferenceController.setMenuController(controller: self)
+        
+        getWallpaper()
     }
     
    override func awakeFromNib() {

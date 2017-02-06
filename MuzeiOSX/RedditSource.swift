@@ -35,7 +35,9 @@ class RedditSource: WPSourceProtocol {
                 
                 let children = json["data"]["children"].arrayValue
                 
-                let data = children[0]["data"]
+                let random = Int(arc4random_uniform(UInt32(5)))
+
+                let data = children[random]["data"]
                 
                 let title = data["title"].stringValue
                 

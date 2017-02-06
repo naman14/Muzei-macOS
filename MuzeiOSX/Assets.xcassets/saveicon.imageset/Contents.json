@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "mac",
-      "filename" : "ic_launch_black_24dp.png",
+      "filename" : "ic_get_app_black_24dp.png",
       "scale" : "1x"
     },
     {
       "idiom" : "mac",
-      "filename" : "ic_launch_black_48dp.png",
+      "filename" : "ic_get_app_black_48dp.png",
       "scale" : "2x"
     }
   ],

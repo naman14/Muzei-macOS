@@ -49,6 +49,17 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TUp-Dj-mBG">
+                        <rect key="frame" x="719" y="145" width="60" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" alignment="justified" imageScaling="proportionallyDown" inset="2" id="9GF-qs-8L3">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="20" name="AlegreyaSans-Medium"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="linkClick:" target="-2" id="MkE-8d-2Ud"/>
+                        </connections>
+                    </button>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5BW-rX-EhS">
                         <rect key="frame" x="717" y="435" width="256" height="27"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -58,17 +69,6 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TUp-Dj-mBG">
-                        <rect key="frame" x="719" y="145" width="60" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="Link" bezelStyle="rounded" image="linkicon" imagePosition="right" alignment="justified" imageScaling="proportionallyDown" inset="2" id="9GF-qs-8L3">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" size="20" name="AlegreyaSans-Medium"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="linkClick:" target="-2" id="MkE-8d-2Ud"/>
-                        </connections>
-                    </button>
                 </subviews>
             </view>
             <connections>
@@ -77,7 +77,4 @@
             <point key="canvasLocation" x="413" y="935"/>
         </window>
     </objects>
-    <resources>
-        <image name="linkicon" width="16" height="24"/>
-    </resources>
 </document>
