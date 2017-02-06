@@ -18,6 +18,9 @@
 		ED3CD2181E0520E7006368FE /* SourceMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3CD2171E0520E7006368FE /* SourceMenuDelegate.swift */; };
 		ED63F4F61E480BAE00C0264D /* Wallpaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED63F4F51E480BAE00C0264D /* Wallpaper.swift */; };
 		ED63F4FA1E4919F400C0264D /* Alegreya-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED63F4F91E4919F400C0264D /* Alegreya-BlackItalic.ttf */; };
+		ED63F4FE1E491ACD00C0264D /* WallpaperWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED63F4FD1E491ACD00C0264D /* WallpaperWindowController.swift */; };
+		ED63F5001E491D5900C0264D /* WallpaperWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED63F4FF1E491D5900C0264D /* WallpaperWindow.xib */; };
+		ED63F5021E491EAD00C0264D /* AlegreyaSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED63F5011E491EAD00C0264D /* AlegreyaSans-Medium.ttf */; };
 		ED9008621E067B4100F42AF3 /* WPProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9008611E067B4100F42AF3 /* WPProcessor.swift */; };
 		ED9B9B901E40DFB700322CA3 /* PreferenceWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED9B9B8F1E40DFB700322CA3 /* PreferenceWindow.xib */; };
 		ED9B9B921E40E70A00322CA3 /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9B9B911E40E70A00322CA3 /* PreferenceWindowController.swift */; };
@@ -39,6 +42,9 @@
 		ED3CD2171E0520E7006368FE /* SourceMenuDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceMenuDelegate.swift; sourceTree = "<group>"; };
 		ED63F4F51E480BAE00C0264D /* Wallpaper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallpaper.swift; sourceTree = "<group>"; };
 		ED63F4F91E4919F400C0264D /* Alegreya-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-BlackItalic.ttf"; sourceTree = "<group>"; };
+		ED63F4FD1E491ACD00C0264D /* WallpaperWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallpaperWindowController.swift; sourceTree = "<group>"; };
+		ED63F4FF1E491D5900C0264D /* WallpaperWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WallpaperWindow.xib; sourceTree = "<group>"; };
+		ED63F5011E491EAD00C0264D /* AlegreyaSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSans-Medium.ttf"; sourceTree = "<group>"; };
 		ED9008611E067B4100F42AF3 /* WPProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WPProcessor.swift; sourceTree = "<group>"; };
 		ED9B9B8F1E40DFB700322CA3 /* PreferenceWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferenceWindow.xib; sourceTree = "<group>"; };
 		ED9B9B911E40E70A00322CA3 /* PreferenceWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
@@ -94,6 +100,7 @@
 		ED271FE01E04351400241BD2 /* MuzeiOSX */ = {
 			isa = PBXGroup;
 			children = (
+				ED63F5011E491EAD00C0264D /* AlegreyaSans-Medium.ttf */,
 				ED63F4F91E4919F400C0264D /* Alegreya-BlackItalic.ttf */,
 				ED271FE11E04351400241BD2 /* AppDelegate.swift */,
 				ED271FE31E04351400241BD2 /* Assets.xcassets */,
@@ -108,6 +115,8 @@
 				ED9B9B8F1E40DFB700322CA3 /* PreferenceWindow.xib */,
 				ED9B9B911E40E70A00322CA3 /* PreferenceWindowController.swift */,
 				ED63F4F51E480BAE00C0264D /* Wallpaper.swift */,
+				ED63F4FD1E491ACD00C0264D /* WallpaperWindowController.swift */,
+				ED63F4FF1E491D5900C0264D /* WallpaperWindow.xib */,
 			);
 			path = MuzeiOSX;
 			sourceTree = "<group>";
@@ -175,6 +184,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED271FE41E04351400241BD2 /* Assets.xcassets in Resources */,
+				ED63F5001E491D5900C0264D /* WallpaperWindow.xib in Resources */,
+				ED63F5021E491EAD00C0264D /* AlegreyaSans-Medium.ttf in Resources */,
 				ED9B9B901E40DFB700322CA3 /* PreferenceWindow.xib in Resources */,
 				ED63F4FA1E4919F400C0264D /* Alegreya-BlackItalic.ttf in Resources */,
 				ED271FE71E04351400241BD2 /* MainMenu.xib in Resources */,
@@ -242,6 +253,7 @@
 				ED271FEF1E04467400241BD2 /* MenuController.swift in Sources */,
 				ED271FF11E04491000241BD2 /* FeaturedArtSource.swift in Sources */,
 				ED9B9B921E40E70A00322CA3 /* PreferenceWindowController.swift in Sources */,
+				ED63F4FE1E491ACD00C0264D /* WallpaperWindowController.swift in Sources */,
 				ED271FE21E04351400241BD2 /* AppDelegate.swift in Sources */,
 				ED271FF51E04771000241BD2 /* WPSourceProtocol.swift in Sources */,
 				ED271FF71E047ECF00241BD2 /* RedditSource.swift in Sources */,

@@ -26,9 +26,13 @@ class MenuController: NSObject, SourceMenuDelegate {
     var defaults: UserDefaults
     var preferenceController: PreferenceWindowController
     
+    var wallpaperWindowController: WallpaperWindowController
+
+    
     override init() {
         defaults = UserDefaults.standard
         preferenceController = PreferenceWindowController(windowNibName: "PreferenceWindow")
+        wallpaperWindowController = WallpaperWindowController(windowNibName: "WallpaperWindow")
         super.init()
         preferenceController.setMenuController(controller: self)
     }
@@ -55,7 +59,12 @@ class MenuController: NSObject, SourceMenuDelegate {
     }
     
     @IBAction func viewWallpaperClicked(_ sender: NSMenuItem) {
-       
+        if(wallpaperWindowController.isWindowLoaded) {
+            wallpaperWindowController.window?.setIsVisible(true)
+            wallpaperWindowController.updateWindow()
+        } else {
+            wallpaperWindowController.showWindow(self)
+        }
     }
     
     @IBAction func saveWallpaperClicked(_ sender: NSMenuItem) {

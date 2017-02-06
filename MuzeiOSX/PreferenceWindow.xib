@@ -87,7 +87,7 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Wallpaper" identifier="2" id="Rqe-Zw-bUU">
-                                <view key="view" id="40c-ye-F2J">
+                                <view key="view" ambiguous="YES" id="40c-ye-F2J">
                                     <rect key="frame" x="10" y="33" width="461" height="213"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -138,7 +138,7 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="About" identifier="" id="vlt-vd-VeP">
-                                <view key="view" ambiguous="YES" id="Gkd-om-2na">
+                                <view key="view" id="Gkd-om-2na">
                                     <rect key="frame" x="10" y="33" width="461" height="213"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
