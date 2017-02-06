@@ -28,6 +28,11 @@ class PreferenceWindowController : NSWindowController {
     let PREF_SOURCE = "pref_source"
     let PREF_SUBREDDIT = "pref_subreddit"
     
+    let PREF_BLUR_ACTIVE = "pref_blur_active"
+    let PREF_DIM_ACTIVE = "pref_dim_active"
+    let PREF_BLUR_AMOUNT = "pref_blur_amount"
+    let PREF_DIM_AMOUNT = "pref_dim_amount"
+
     let prefs = UserDefaults.standard
     
     override func windowDidLoad() {
@@ -52,12 +57,22 @@ class PreferenceWindowController : NSWindowController {
     }
     
     @IBAction func blurButtonClicked(_ sender: NSButton) {
+        blurSlider.isEnabled = (sender.state ==  NSOnState)
+        prefs.set(sender.state == NSOnState, forKey: PREF_BLUR_ACTIVE)
+        prefs.synchronize()
     }
     
     @IBAction func dimButtonClicked(_ sender: NSButton) {
+        dimSlider.isEnabled = (sender.state ==  NSOnState)
+        prefs.set(sender.state == NSOnState, forKey: PREF_DIM_ACTIVE)
+        prefs.synchronize()
     }
     
     @IBAction func wallpaperDoneClicked(_ sender: NSButton) {
+        prefs.set(blurSlider.floatValue, forKey: PREF_BLUR_AMOUNT)
+        prefs.set(dimSlider.floatValue, forKey: PREF_DIM_AMOUNT)
+        prefs.synchronize()
+
     }
     
     func updateWindow() {
