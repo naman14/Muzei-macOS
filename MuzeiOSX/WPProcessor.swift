@@ -82,9 +82,20 @@ class WPProcessor {
         let prefs = UserDefaults.standard
         
         if(prefs.bool(forKey: PREF_BLUR_ACTIVE)) {
-        let processor = BlurImageProcessor(blurRadius: CGFloat(prefs.float(forKey: PREF_BLUR_AMOUNT)))
-        processedImage = processor.process(item: ImageProcessItem.image(originalImage),
+            let blurProcessor = BlurImageProcessor(blurRadius: CGFloat(prefs.float(forKey: PREF_BLUR_AMOUNT)))
+            processedImage = blurProcessor.process(item: ImageProcessItem.image(originalImage),
                                                options:[])!
+        }
+        
+        if(prefs.bool(forKey: PREF_DIM_ACTIVE)) {
+
+            let dimColor: NSColor = NSColor(red:CGFloat(0), green:CGFloat(0), blue:CGFloat(0), alpha:CGFloat(1.0))
+
+            
+            let dimProcessor = OverlayImageProcessor(overlay: dimColor, fraction: CGFloat(1.0) - CGFloat(prefs.float(forKey: PREF_DIM_AMOUNT)))
+            processedImage = dimProcessor.process(item: ImageProcessItem.image(originalImage),
+                                                   options:[])!
+
         }
         
         return processedImage

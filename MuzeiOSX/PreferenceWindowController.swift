@@ -109,7 +109,7 @@ class PreferenceWindowController : NSWindowController {
 
         
         blurSlider.floatValue = prefs.float(forKey: PREF_BLUR_AMOUNT) != 0 ? prefs.float(forKey: PREF_BLUR_AMOUNT) : 15
-        dimSlider.floatValue = prefs.float(forKey: PREF_DIM_AMOUNT) != 0 ? prefs.float(forKey: PREF_DIM_AMOUNT) : 15
+        dimSlider.floatValue = prefs.float(forKey: PREF_DIM_AMOUNT) != 0 ? prefs.float(forKey: PREF_DIM_AMOUNT) : 0.3
     }
     
     func updateSource(source: String) {
