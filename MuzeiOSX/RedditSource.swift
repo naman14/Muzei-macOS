@@ -17,7 +17,7 @@ class RedditSource: WPSourceProtocol {
 
     var base_url = "https://www.reddit.com/r/{subreddit}/top.json?t=day&limit=10"
     
-    func getWallpaper(callback: @escaping (URL) -> Void, failure: @escaping () -> Void) {
+    func getWallpaper(callback: @escaping (URL, String) -> Void, failure: @escaping () -> Void) {
         
         let prefs = UserDefaults.standard
         
@@ -62,7 +62,7 @@ class RedditSource: WPSourceProtocol {
                         fileName: (trimmedUrl! as NSString).lastPathComponent as NSString)
                     
                     if WPProcessor().imageToFile(image: processedImage!, imageURL: fullURL!, ext:((trimmedUrl)?.pathExtension)!) {
-                        callback(fullURL!)
+                        callback(fullURL!, title)
                     } else {
                         failure()
                         print("Error occurred2")

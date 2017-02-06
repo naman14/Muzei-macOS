@@ -12,6 +12,9 @@ import Kingfisher
 
 class WPProcessor {
     
+    let CURRENT_WP_TITLE = "current_wallpaper_title"
+    let CURRENT_WP_URL = "current_wallpaper_url"
+    
     func getWallpaperFileUrl(fileName: NSString) -> URL? {
         
         var url: URL?
@@ -119,6 +122,13 @@ class WPProcessor {
         }
         
         return false
+    }
+    
+    func saveWallpaperDetails(title: String, url: URL) {
+        let prefs = UserDefaults.standard
+        prefs.set(title, forKey: CURRENT_WP_TITLE)
+        prefs.set(url, forKey: CURRENT_WP_URL)
+        prefs.synchronize()
     }
     
     func deletePreviousWallpaper(current : URL) {

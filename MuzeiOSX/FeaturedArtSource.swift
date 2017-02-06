@@ -15,7 +15,7 @@ class FeaturedArtSource: WPSourceProtocol {
 
     let API_URL: String = "https://muzeiapi.appspot.com/featured?cachebust=1"
     
-    func getWallpaper(callback: @escaping (URL) -> Void,  failure: @escaping () -> Void) {
+    func getWallpaper(callback: @escaping (URL, String) -> Void,  failure: @escaping () -> Void) {
         
         Alamofire.request(API_URL).responseJSON { response in
             if let responseStr = response.result.value {
@@ -23,6 +23,7 @@ class FeaturedArtSource: WPSourceProtocol {
                 let json = JSON(responseStr)
                 
                 let imageUri: String = json["imageUri"].stringValue
+                let title: String = json["title"].stringValue
             
                 let httpsUri = imageUri.replacingOccurrences(of: "http://", with: "https://", options: .literal, range: nil)
 
@@ -40,7 +41,7 @@ class FeaturedArtSource: WPSourceProtocol {
                   let fullURL = WPProcessor().getWallpaperFileUrl(
                     fileName: (imageUri as NSString).lastPathComponent as NSString)
                     if WPProcessor().imageToFile(image: processedImage!, imageURL: fullURL!, ext:(imageUri as NSString).pathExtension) {
-                        callback(fullURL!)
+                        callback(fullURL!, title)
                     } else {
                         failure()
                         print("Error occurred2")
