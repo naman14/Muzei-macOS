@@ -16,7 +16,7 @@ class WPProcessor {
     let CURRENT_WP_URL = "current_wallpaper_url"
     let CURRENT_WP_PROCESSED_URL = "current_wallpaper_processed_url"
     
-    func getWallpaperFileUrl(fileName: NSString, processed: Bool) -> URL? {
+    func getWallpaperFileUrl(fileName: NSString, processed: Bool, random: Int) -> URL? {
         
         var url: URL?
         
@@ -36,14 +36,12 @@ class WPProcessor {
             
             if !FileManager.default.fileExists(atPath: dirPath, isDirectory: &isDir) {
                 do {
-                    try FileManager.default.createDirectory(atPath: dirPath, withIntermediateDirectories: false, attributes: nil)
+                    try FileManager.default.createDirectory(atPath: dirPath, withIntermediateDirectories: true, attributes: nil)
                 } catch  {
                     
                 }
                 
             }
-            
-            let random = 2 + Int(arc4random_uniform(UInt32(999 - 2 + 1)))
             
             let fullURL = NSURL.fileURL(withPathComponents: [dirPath, fileName.deletingPathExtension.appending(String(random)).appending(".").appending(fileName.pathExtension)])
                 
@@ -85,6 +83,7 @@ class WPProcessor {
     
     func saveCurrentWallpaper() -> Bool {
         
+        
         let nsPicturesDirectory = FileManager.SearchPathDirectory.picturesDirectory
         let nsUserDomainMask    = FileManager.SearchPathDomainMask.userDomainMask
         let paths               = NSSearchPathForDirectoriesInDomains(nsPicturesDirectory, nsUserDomainMask, true).first as NSString?
@@ -103,27 +102,28 @@ class WPProcessor {
                 }
                 
             }
-
-            let workspace = NSWorkspace.shared()
-            if let screen = NSScreen.main()  {
-                let url = workspace.desktopImageURL(for: screen)
+            
+            let prefs = UserDefaults.standard
+            
+            if let url = prefs.url(forKey: CURRENT_WP_URL) {
+            
+            let name: String = url.lastPathComponent
+            let ext: String = url.pathExtension
+            
+            let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent(name as String)
+            
+            let image: NSImage
+            
+            do {
+                try image = NSImage.init(data: Data.init(contentsOf: url, options: []))!
                 
-                let name: String = (url?.lastPathComponent)!
-                let ext: String = (url?.pathExtension)!
-                
-                let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent(name as String)
-                
-                let image: NSImage
-                
-                do {
-                    try image = NSImage.init(data: Data.init(contentsOf: url!, options: []))!
-                    
-                    return imageToFile(image: image, imageURL: imageURL, ext: ext)
-                }
-                catch {
-                    print("Error reading data")
-                }
+                return imageToFile(image: image, imageURL: imageURL, ext: ext)
             }
+            catch {
+                print("Error reading data")
+            }
+            }
+            
         }
         
         return false
@@ -150,8 +150,7 @@ class WPProcessor {
         var enumerator = fileManager.enumerator(atPath: dataPath!)
         
         while let file = enumerator?.nextObject() as? String {
-            print(file)
-            if !(file == current.imageUrl.lastPathComponent) {
+            if !(file == current.imageUrl.lastPathComponent || file == "processed") {
                 do {
                     let fullURL = NSURL.fileURL(withPathComponents: [dataPath!, file])
                     try fileManager.removeItem(at: fullURL!)
@@ -165,10 +164,9 @@ class WPProcessor {
         enumerator = fileManager.enumerator(atPath: processedPath!)
         
         while let file = enumerator?.nextObject() as? String {
-            print(file)
-            if !(file == current.imageUrl.lastPathComponent) {
+            if !(file == current.processedImageUrl.lastPathComponent) {
                 do {
-                    let fullURL = NSURL.fileURL(withPathComponents: [dataPath!, file])
+                    let fullURL = NSURL.fileURL(withPathComponents: [processedPath!, file])
                     try fileManager.removeItem(at: fullURL!)
                 } catch {
                     print(error)

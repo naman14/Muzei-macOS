@@ -36,15 +36,17 @@ class FeaturedArtSource: WPSourceProtocol {
                         return
                     }
                     
+                    let random = 2 + Int(arc4random_uniform(UInt32(999 - 2 + 1)))
+
                     let fullURL = WPProcessor().getWallpaperFileUrl(
-                        fileName: (imageUri as NSString).lastPathComponent as NSString, processed: false)
+                        fileName: (imageUri as NSString).lastPathComponent as NSString, processed: false, random: random)
                     
                     if WPProcessor().imageToFile(image: image!, imageURL: fullURL!, ext:(imageUri as NSString).pathExtension) {
                         
                         let processedImage = WPProcessor().processImage(originalImage: image!)
                         
                         let processedURL = WPProcessor().getWallpaperFileUrl(
-                            fileName: (imageUri as NSString).lastPathComponent as NSString, processed: true)
+                            fileName: (imageUri as NSString).lastPathComponent as NSString, processed: true, random: random)
                         
                         if WPProcessor().imageToFile(image: processedImage, imageURL: processedURL!, ext:(imageUri as NSString).pathExtension) {
                             
