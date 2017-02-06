@@ -110,7 +110,7 @@
                                         <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MtV-hM-m65">
                                             <rect key="frame" x="136" y="76" width="234" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <sliderCell key="cell" enabled="NO" state="on" alignment="left" minValue="0.10000000000000001" maxValue="1" doubleValue="0.29999999999999999" tickMarkPosition="above" sliderType="linear" id="GhR-C0-oJ2"/>
+                                            <sliderCell key="cell" enabled="NO" state="on" alignment="left" minValue="0.10000000000000001" maxValue="0.80000000000000004" doubleValue="0.20000000000000001" tickMarkPosition="above" sliderType="linear" id="GhR-C0-oJ2"/>
                                         </slider>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YQS-MP-kBi">
                                             <rect key="frame" x="270" y="10" width="85" height="32"/>

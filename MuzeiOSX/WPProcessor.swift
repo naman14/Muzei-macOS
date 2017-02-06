@@ -93,7 +93,7 @@ class WPProcessor {
 
             
             let dimProcessor = OverlayImageProcessor(overlay: dimColor, fraction: CGFloat(1.0) - CGFloat(prefs.float(forKey: PREF_DIM_AMOUNT)))
-            processedImage = dimProcessor.process(item: ImageProcessItem.image(originalImage),
+            processedImage = dimProcessor.process(item: ImageProcessItem.image(processedImage),
                                                    options:[])!
 
         }
