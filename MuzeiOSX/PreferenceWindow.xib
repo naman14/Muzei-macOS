@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferenceWindowController" customModule="MuzeiOSX" customModuleProvider="target">
             <connections>
+                <outlet property="sourceDone" destination="NKg-7N-gXp" id="5EX-aA-3eK"/>
                 <outlet property="sourceFeaturedArt" destination="OBt-gR-XSf" id="DDF-jA-daR"/>
                 <outlet property="sourceReddit" destination="aOO-RE-IRj" id="nOw-Wd-6jl"/>
                 <outlet property="textSubredditName" destination="hev-cd-7uU" id="b5q-tj-4Iw"/>
@@ -64,8 +65,11 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="sourceDoneClicked:" target="-2" id="4jk-cp-f0d"/>
+                                            </connections>
                                         </button>
-                                        <textField hidden="YES" focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hev-cd-7uU">
+                                        <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hev-cd-7uU">
                                             <rect key="frame" x="101" y="79" width="96" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" title="EarthPorn" drawsBackground="YES" id="Fbz-B0-K9r">

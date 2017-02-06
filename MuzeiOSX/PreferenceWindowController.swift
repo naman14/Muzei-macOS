@@ -14,6 +14,8 @@ class PreferenceWindowController : NSWindowController {
     @IBOutlet weak var sourceFeaturedArt: NSButton!
     @IBOutlet weak var sourceReddit: NSButton!
     @IBOutlet weak var textSubredditName: NSTextField!
+
+    @IBOutlet weak var sourceDone: NSButton!
     
     let SOURCE_FEATURED = "source_featured_art"
     let SOURCE_REDDIT = "source_reddit"
@@ -49,6 +51,12 @@ class PreferenceWindowController : NSWindowController {
         updateSource(source: SOURCE_REDDIT)
     }
     
+    
+    @IBAction func sourceDoneClicked(_ sender: NSButton) {
+        prefs.set(textSubredditName.stringValue, forKey: PREF_SUBREDDIT)
+        prefs.synchronize()
+    }
+    
     func updateSource(source: String) {
         prefs.set(source, forKey: PREF_SOURCE)
 
@@ -57,13 +65,13 @@ class PreferenceWindowController : NSWindowController {
         case SOURCE_FEATURED:
             sourceReddit.state = NSOffState
             sourceFeaturedArt.state = NSOnState
+            textSubredditName.isEnabled = false
             break
             
         case SOURCE_REDDIT:
             sourceReddit.state = NSOnState
             sourceFeaturedArt.state = NSOffState
-            
-            prefs.set(textSubredditName.stringValue, forKey: PREF_SUBREDDIT)
+            textSubredditName.isEnabled = true
             break
             
         default: break

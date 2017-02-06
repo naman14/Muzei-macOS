@@ -13,11 +13,22 @@ import Kingfisher
 
 class RedditSource: WPSourceProtocol {
     
-    let BASE_URL = "https://www.reddit.com/r/earthporn/top.json?t=day&limit=10"
+    let PREF_SUBREDDIT = "pref_subreddit"
+
+    var base_url = "https://www.reddit.com/r/{subreddit}/top.json?t=day&limit=10"
     
     func getWallpaper(callback: @escaping (URL) -> Void, failure: @escaping () -> Void) {
         
-        Alamofire.request(BASE_URL).responseJSON { (response) in
+        let prefs = UserDefaults.standard
+        
+        if let subreddit = prefs.string(forKey: PREF_SUBREDDIT) {
+            base_url = base_url.replacingOccurrences(of: "{subreddit}", with: subreddit)
+        } else {
+            base_url = base_url.replacingOccurrences(of: "{subreddit}", with: "EarthPorn")
+
+        }
+        
+        Alamofire.request(base_url).responseJSON { (response) in
             
             if let responseStr = response.result.value {
                 let json = JSON(responseStr)
@@ -37,7 +48,7 @@ class RedditSource: WPSourceProtocol {
                 ImageDownloader.default.downloadImage(with: URL(string: imageUri)!) {
                     (image, error, url, data) in
                     
-                    let processedImage = WPProcessor().processImage(originalImage: image!)
+                    let processedImage = image
                     
                     if (error != nil) {
                         failure()
@@ -50,7 +61,7 @@ class RedditSource: WPSourceProtocol {
                     let fullURL = WPProcessor().getWallpaperFileUrl(
                         fileName: (trimmedUrl! as NSString).lastPathComponent as NSString)
                     
-                    if WPProcessor().imageToFile(image: processedImage, imageURL: fullURL!, ext:((trimmedUrl)?.pathExtension)!) {
+                    if WPProcessor().imageToFile(image: processedImage!, imageURL: fullURL!, ext:((trimmedUrl)?.pathExtension)!) {
                         callback(fullURL!)
                     } else {
                         failure()

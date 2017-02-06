@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MuzeiOSX/RedditSource.swift"
-            timestampString = "508022213.269657"
+            timestampString = "508033566.541989"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "getWallpaper(callback:failure:)"
             landmarkType = "7">
          </BreakpointContent>
