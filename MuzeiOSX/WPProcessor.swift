@@ -150,7 +150,7 @@ class WPProcessor {
         var enumerator = fileManager.enumerator(atPath: dataPath!)
         
         while let file = enumerator?.nextObject() as? String {
-            if !(file == current.imageUrl.lastPathComponent || file == "processed") {
+            if !(file == current.imageUrl.lastPathComponent || file.contains("processed")) {
                 do {
                     let fullURL = NSURL.fileURL(withPathComponents: [dataPath!, file])
                     try fileManager.removeItem(at: fullURL!)

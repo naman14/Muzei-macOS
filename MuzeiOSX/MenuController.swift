@@ -165,7 +165,7 @@ class MenuController: NSObject, SourceMenuDelegate {
             let workspace = NSWorkspace.shared()
             if let screen = NSScreen.main()  {
                 try workspace.setDesktopImageURL(wallpaper.processedImageUrl, for: screen, options: [:])
-//                WPProcessor().deletePreviousWallpaper(current: wallpaper)
+                WPProcessor().deletePreviousWallpaper(current: wallpaper)
                 WPProcessor().saveWallpaperDetails(current: wallpaper)
             }
         } catch {

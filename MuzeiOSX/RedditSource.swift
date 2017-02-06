@@ -56,18 +56,20 @@ class RedditSource: WPSourceProtocol {
                     
                     let random = 2 + Int(arc4random_uniform(UInt32(999 - 2 + 1)))
 
+                    let trimmedUrl =  NSURL(string: imageUri)?.absoluteStringByTrimmingQuery()
+
                     
                     let fullURL = WPProcessor().getWallpaperFileUrl(
-                        fileName: (imageUri as NSString).lastPathComponent as NSString, processed: false, random: random)
+                        fileName: (trimmedUrl! as NSString).lastPathComponent as NSString, processed: false, random: random)
                     
-                    if WPProcessor().imageToFile(image: image!, imageURL: fullURL!, ext:(imageUri as NSString).pathExtension) {
+                    if WPProcessor().imageToFile(image: image!, imageURL: fullURL!, ext:(trimmedUrl! as NSString).pathExtension) {
                         
                         let processedImage = WPProcessor().processImage(originalImage: image!)
                         
                         let processedURL = WPProcessor().getWallpaperFileUrl(
-                            fileName: (imageUri as NSString).lastPathComponent as NSString, processed: true, random: random)
+                            fileName: (trimmedUrl! as NSString).lastPathComponent as NSString, processed: true, random: random)
                         
-                        if WPProcessor().imageToFile(image: processedImage, imageURL: processedURL!, ext:(imageUri as NSString).pathExtension) {
+                        if WPProcessor().imageToFile(image: processedImage, imageURL: processedURL!, ext:(trimmedUrl! as NSString).pathExtension) {
                             
                             let wp: Wallpaper = Wallpaper(title: title,imageUrl: fullURL!, processedUrl: processedURL!)
                             
