@@ -41,6 +41,7 @@
 		ED63F4F51E480BAE00C0264D /* Wallpaper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallpaper.swift; sourceTree = "<group>"; };
 		ED63F4FD1E491ACD00C0264D /* WallpaperWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallpaperWindowController.swift; sourceTree = "<group>"; };
 		ED63F4FF1E491D5900C0264D /* WallpaperWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WallpaperWindow.xib; sourceTree = "<group>"; };
+		ED63F5031E49665E00C0264D /* MuzeiOSX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MuzeiOSX.entitlements; sourceTree = "<group>"; };
 		ED9008611E067B4100F42AF3 /* WPProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WPProcessor.swift; sourceTree = "<group>"; };
 		ED9B9B8F1E40DFB700322CA3 /* PreferenceWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferenceWindow.xib; sourceTree = "<group>"; };
 		ED9B9B911E40E70A00322CA3 /* PreferenceWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
@@ -96,6 +97,7 @@
 		ED271FE01E04351400241BD2 /* MuzeiOSX */ = {
 			isa = PBXGroup;
 			children = (
+				ED63F5031E49665E00C0264D /* MuzeiOSX.entitlements */,
 				ED271FE11E04351400241BD2 /* AppDelegate.swift */,
 				ED271FE31E04351400241BD2 /* Assets.xcassets */,
 				ED271FE51E04351400241BD2 /* MainMenu.xib */,
@@ -150,7 +152,14 @@
 				TargetAttributes = {
 					ED271FDD1E04351400241BD2 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = V3237NN4PA;
 						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -351,10 +360,14 @@
 			baseConfigurationReference = 0A1FA76390E44129EB74AD6A /* Pods-MuzeiOSX.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MuzeiOSX/MuzeiOSX.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = V3237NN4PA;
 				INFOPLIST_FILE = MuzeiOSX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.naman14.MuzeiOSX;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.naman14.muzeimacos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -365,10 +378,14 @@
 			baseConfigurationReference = 573BA1F0ACADB94860E33FAD /* Pods-MuzeiOSX.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MuzeiOSX/MuzeiOSX.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = V3237NN4PA;
 				INFOPLIST_FILE = MuzeiOSX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.naman14.MuzeiOSX;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.naman14.muzeimacos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
