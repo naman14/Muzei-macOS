@@ -86,6 +86,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "Muzei"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
