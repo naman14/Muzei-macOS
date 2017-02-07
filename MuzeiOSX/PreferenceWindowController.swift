@@ -21,6 +21,7 @@ class PreferenceWindowController : NSWindowController {
     @IBOutlet weak var blurSlider: NSSlider!
     @IBOutlet weak var dimSlider: NSSlider!
     @IBOutlet weak var wallpaperDone: NSButton!
+    @IBOutlet weak var showInfoButton: NSButton!
     
     let SOURCE_FEATURED = "source_featured_art"
     let SOURCE_REDDIT = "source_reddit"
@@ -32,6 +33,7 @@ class PreferenceWindowController : NSWindowController {
     let PREF_DIM_ACTIVE = "pref_dim_active"
     let PREF_BLUR_AMOUNT = "pref_blur_amount"
     let PREF_DIM_AMOUNT = "pref_dim_amount"
+    let PREF_SHOW_WP_LAUNCH_INACTIVE = "pref_show_wp_launch"
 
     let prefs = UserDefaults.standard
     
@@ -76,6 +78,10 @@ class PreferenceWindowController : NSWindowController {
         prefs.set(sender.state == NSOnState, forKey: PREF_DIM_ACTIVE)
         prefs.synchronize()
     }
+    @IBAction func showInfoClicked(_ sender: NSButton) {
+        prefs.set(sender.state == NSOffState, forKey: PREF_SHOW_WP_LAUNCH_INACTIVE)
+        prefs.synchronize()
+    }
     
     @IBAction func wallpaperDoneClicked(_ sender: NSButton) {
         prefs.set(blurSlider.floatValue, forKey: PREF_BLUR_AMOUNT)
@@ -110,6 +116,8 @@ class PreferenceWindowController : NSWindowController {
         
         blurSlider.floatValue = prefs.float(forKey: PREF_BLUR_AMOUNT) != 0 ? prefs.float(forKey: PREF_BLUR_AMOUNT) : 15
         dimSlider.floatValue = prefs.float(forKey: PREF_DIM_AMOUNT) != 0 ? prefs.float(forKey: PREF_DIM_AMOUNT) : 0.2
+        
+        showInfoButton.state = !prefs.bool(forKey: PREF_SHOW_WP_LAUNCH_INACTIVE) ? NSOnState : NSOffState
     }
     
     func updateSource(source: String) {

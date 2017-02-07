@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="PreferenceWindowController" customModule="MuzeiOSX" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="PreferenceWindowController" customModule="Muzei" customModuleProvider="target">
             <connections>
                 <outlet property="blurButton" destination="YFG-DQ-QvY" id="KZd-tk-QAr"/>
                 <outlet property="blurSlider" destination="sMN-Qi-4OR" id="JAT-oY-dYY"/>
                 <outlet property="dimButton" destination="X7d-3H-rpf" id="Yo7-my-nBY"/>
                 <outlet property="dimSlider" destination="MtV-hM-m65" id="f2c-Ec-KZq"/>
+                <outlet property="showInfoButton" destination="idC-qi-AIx" id="ZHu-RB-OW7"/>
                 <outlet property="sourceDone" destination="NKg-7N-gXp" id="5EX-aA-3eK"/>
                 <outlet property="sourceFeaturedArt" destination="OBt-gR-XSf" id="DDF-jA-daR"/>
                 <outlet property="sourceReddit" destination="aOO-RE-IRj" id="nOw-Wd-6jl"/>
@@ -38,11 +38,11 @@
                         <tabViewItems>
                             <tabViewItem label="Source" identifier="1" id="maZ-Pp-8WK">
                                 <view key="view" id="bfk-Bh-p2V">
-                                    <rect key="frame" x="10" y="33" width="461" height="213"/>
+                                    <rect key="frame" x="10" y="33" width="193" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aOO-RE-IRj">
-                                            <rect key="frame" x="89" y="105" width="62" height="18"/>
+                                            <rect key="frame" x="89" y="-108" width="62" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Reddit" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Vjl-Un-x6f">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -53,7 +53,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NKg-7N-gXp">
-                                            <rect key="frame" x="347" y="10" width="72" height="32"/>
+                                            <rect key="frame" x="347" y="-203" width="72" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qA9-Gy-SEq">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -64,7 +64,7 @@
                                             </connections>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OBt-gR-XSf">
-                                            <rect key="frame" x="89" y="155" width="97" height="18"/>
+                                            <rect key="frame" x="89" y="-58" width="97" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Featured art" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="WzP-SA-gJ9">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -75,7 +75,7 @@
                                             </connections>
                                         </button>
                                         <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hev-cd-7uU">
-                                            <rect key="frame" x="191" y="103" width="96" height="22"/>
+                                            <rect key="frame" x="191" y="-110" width="96" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" title="EarthPorn" drawsBackground="YES" id="Fbz-B0-K9r">
                                                 <font key="font" metaFont="system"/>
@@ -87,12 +87,12 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Wallpaper" identifier="2" id="Rqe-Zw-bUU">
-                                <view key="view" id="40c-ye-F2J">
+                                <view key="view" ambiguous="YES" id="40c-ye-F2J">
                                     <rect key="frame" x="10" y="33" width="461" height="213"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YFG-DQ-QvY">
-                                            <rect key="frame" x="75" y="163" width="47" height="18"/>
+                                            <rect key="frame" x="75" y="173" width="47" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Blur" bezelStyle="regularSquare" imagePosition="left" inset="2" id="TlY-JV-Wn9">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -103,7 +103,7 @@
                                             </connections>
                                         </button>
                                         <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sMN-Qi-4OR">
-                                            <rect key="frame" x="167" y="162" width="234" height="19"/>
+                                            <rect key="frame" x="167" y="173" width="234" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <sliderCell key="cell" enabled="NO" state="on" alignment="left" minValue="1" maxValue="50" doubleValue="15" tickMarkPosition="above" sliderType="linear" id="Seu-Kg-ILn"/>
                                         </slider>
@@ -119,7 +119,7 @@
                                             </connections>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X7d-3H-rpf">
-                                            <rect key="frame" x="76" y="118" width="46" height="18"/>
+                                            <rect key="frame" x="75" y="131" width="46" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Dim" bezelStyle="regularSquare" imagePosition="left" inset="2" id="TnD-qo-gwi">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -129,11 +129,6 @@
                                                 <action selector="dimButtonClicked:" target="-2" id="Uac-Ti-hdL"/>
                                             </connections>
                                         </button>
-                                        <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MtV-hM-m65">
-                                            <rect key="frame" x="167" y="118" width="234" height="19"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <sliderCell key="cell" enabled="NO" state="on" alignment="left" minValue="0.10000000000000001" maxValue="0.80000000000000004" doubleValue="0.20000000000000001" tickMarkPosition="above" sliderType="linear" id="GhR-C0-oJ2"/>
-                                        </slider>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fbh-kx-df9">
                                             <rect key="frame" x="24" y="5" width="298" height="58"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -145,11 +140,27 @@ Settings-&gt;Users and groups -&gt; Login items</string>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="idC-qi-AIx">
+                                            <rect key="frame" x="75" y="91" width="233" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" title="Show wallpaper info on app launch" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Pa0-5u-3G9">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="showInfoClicked:" target="-2" id="ec3-Qg-Fci"/>
+                                            </connections>
+                                        </button>
+                                        <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MtV-hM-m65">
+                                            <rect key="frame" x="167" y="130" width="234" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <sliderCell key="cell" enabled="NO" state="on" alignment="left" minValue="0.10000000000000001" maxValue="0.80000000000000004" doubleValue="0.20000000000000001" tickMarkPosition="above" sliderType="linear" id="GhR-C0-oJ2"/>
+                                        </slider>
                                     </subviews>
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="About" identifier="" id="vlt-vd-VeP">
-                                <view key="view" ambiguous="YES" id="Gkd-om-2na">
+                                <view key="view" id="Gkd-om-2na">
                                     <rect key="frame" x="10" y="33" width="461" height="213"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>

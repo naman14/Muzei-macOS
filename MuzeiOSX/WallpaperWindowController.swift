@@ -39,6 +39,10 @@ class WallpaperWindowController: NSWindowController {
     
     func updateWindow() {
         
+        previewImage.image = nil
+        previewImage.alphaValue = 0
+        previewImage.animator().alphaValue = 0
+        
         NSApp.activate(ignoringOtherApps: true)
         
         let prefs = UserDefaults.standard

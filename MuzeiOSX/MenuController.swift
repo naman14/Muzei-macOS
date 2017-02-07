@@ -22,6 +22,7 @@ class MenuController: NSObject, SourceMenuDelegate {
     @IBOutlet weak var preferencesItem: NSMenuItem!
     
     let CURRENT_WP_URL = "current_wallpaper_url"
+    let PREF_SHOW_WP_LAUNCH_INACTIVE = "pref_show_wp_launch"
 
     let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
     
@@ -98,7 +99,8 @@ class MenuController: NSObject, SourceMenuDelegate {
         
         statusMenu.delegate = self
         
-        if (UserDefaults.standard.string(forKey: CURRENT_WP_URL) == nil) {
+        if (UserDefaults.standard.string(forKey: CURRENT_WP_URL) == nil
+            || !UserDefaults.standard.bool(forKey: PREF_SHOW_WP_LAUNCH_INACTIVE)) {
             viewWallpaperClicked(viewWallpaperItem)
         }
         
