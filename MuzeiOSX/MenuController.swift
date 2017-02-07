@@ -72,6 +72,7 @@ class MenuController: NSObject, SourceMenuDelegate {
     @IBAction func saveWallpaperClicked(_ sender: NSMenuItem) {
         if WPProcessor().saveCurrentWallpaper() {
             print("Wallpaper saved")
+            showNotification(title: "Wallpaper saved", desc: "Wallpaper saved in Pictures -> Muzei")
         } else {
             print("Failed to save wallpaper")
         }
@@ -132,7 +133,7 @@ class MenuController: NSObject, SourceMenuDelegate {
     func getWallpaper() {
         let wallpaperSource = self.getWallpaperSource()
         wallpaperSource.getWallpaper(callback: { wp in
-            self.setActiveWorkspaceObserver(wallpaper: wp )
+//            self.setActiveWorkspaceObserver(wallpaper: wp )
             self.setWallpaper(wallpaper: wp)
         }, failure: {
         
@@ -207,5 +208,12 @@ class MenuController: NSObject, SourceMenuDelegate {
 
     }
     
+    func showNotification(title: String, desc: String) -> Void {
+        var notification = NSUserNotification()
+        notification.title = title
+        notification.informativeText = desc
+        notification.soundName = NSUserNotificationDefaultSoundName
+        NSUserNotificationCenter.default.deliver(notification)
+    }
     
 }
