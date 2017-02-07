@@ -20,6 +20,8 @@ class MenuController: NSObject, SourceMenuDelegate {
     @IBOutlet weak var viewWallpaperItem: NSMenuItem!
     @IBOutlet weak var saveWallpaperItem: NSMenuItem!
     @IBOutlet weak var preferencesItem: NSMenuItem!
+    
+    let CURRENT_WP_URL = "current_wallpaper_url"
 
     let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
     
@@ -95,6 +97,12 @@ class MenuController: NSObject, SourceMenuDelegate {
         statusItem.menu = statusMenu
         
         statusMenu.delegate = self
+        
+        if (UserDefaults.standard.string(forKey: CURRENT_WP_URL) != nil) {
+            viewWallpaperItem.isEnabled = true
+        } else {
+            viewWallpaperItem.isEnabled = false
+        }
         
     }
     

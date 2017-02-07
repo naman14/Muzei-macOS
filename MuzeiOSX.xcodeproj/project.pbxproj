@@ -28,7 +28,7 @@
 		0A1FA76390E44129EB74AD6A /* Pods-MuzeiOSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuzeiOSX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MuzeiOSX/Pods-MuzeiOSX.debug.xcconfig"; sourceTree = "<group>"; };
 		573BA1F0ACADB94860E33FAD /* Pods-MuzeiOSX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuzeiOSX.release.xcconfig"; path = "Pods/Target Support Files/Pods-MuzeiOSX/Pods-MuzeiOSX.release.xcconfig"; sourceTree = "<group>"; };
 		863FA31CA8DC312D0BF93284 /* Pods_MuzeiOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MuzeiOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ED271FDE1E04351400241BD2 /* MuzeiOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MuzeiOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED271FDE1E04351400241BD2 /* Muzei.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muzei.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED271FE11E04351400241BD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED271FE31E04351400241BD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED271FE61E04351400241BD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		ED271FDF1E04351400241BD2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ED271FDE1E04351400241BD2 /* MuzeiOSX.app */,
+				ED271FDE1E04351400241BD2 /* Muzei.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -137,7 +137,7 @@
 			);
 			name = MuzeiOSX;
 			productName = MuzeiOSX;
-			productReference = ED271FDE1E04351400241BD2 /* MuzeiOSX.app */;
+			productReference = ED271FDE1E04351400241BD2 /* Muzei.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -375,7 +375,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.naman14.muzeimacos;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Muzei;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -394,7 +394,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.naman14.muzeimacos;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Muzei;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
