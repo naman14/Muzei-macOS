@@ -21,13 +21,6 @@ class WallpaperWindowController: NSWindowController {
     @IBOutlet weak var previewImage: NSImageView!
     @IBOutlet weak var bylineText: NSTextField!
     @IBOutlet weak var attributionText: NSTextField!
-    @IBOutlet weak var linkButton: NSButton!
-    
-    @IBAction func linkClick(_ sender: NSButton) {
-        let prefs = UserDefaults.standard
-        let url: URL =  URL(string: prefs.string(forKey: CURRENT_WP_DETAILS_URL)!)!
-        NSWorkspace.shared().open(url)
-    }
     
     override func windowDidLoad() {
         window?.title = "Preferences"

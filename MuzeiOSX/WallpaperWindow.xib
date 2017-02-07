@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +9,6 @@
             <connections>
                 <outlet property="attributionText" destination="2d0-kM-kWd" id="gdQ-ut-A8o"/>
                 <outlet property="bylineText" destination="5BW-rX-EhS" id="JHh-BO-Q4g"/>
-                <outlet property="linkButton" destination="TUp-Dj-mBG" id="fG8-AZ-tBD"/>
                 <outlet property="previewImage" destination="2FX-9k-t0v" id="Pnc-HP-wdc"/>
                 <outlet property="titleText" destination="hKI-jv-Qkj" id="7o2-qn-wQO"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="Z37-36-khV"/>
@@ -21,7 +19,7 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <rect key="contentRect" x="196" y="240" width="1018" height="572"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="1018" height="572"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -49,17 +47,6 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TUp-Dj-mBG">
-                        <rect key="frame" x="719" y="145" width="60" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" alignment="justified" imageScaling="proportionallyDown" inset="2" id="9GF-qs-8L3">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" size="20" name="AlegreyaSans-Medium"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="linkClick:" target="-2" id="MkE-8d-2Ud"/>
-                        </connections>
-                    </button>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5BW-rX-EhS">
                         <rect key="frame" x="717" y="435" width="256" height="27"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
