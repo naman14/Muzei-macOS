@@ -98,10 +98,8 @@ class MenuController: NSObject, SourceMenuDelegate {
         
         statusMenu.delegate = self
         
-        if (UserDefaults.standard.string(forKey: CURRENT_WP_URL) != nil) {
-            viewWallpaperItem.isEnabled = true
-        } else {
-            viewWallpaperItem.isEnabled = false
+        if (UserDefaults.standard.string(forKey: CURRENT_WP_URL) == nil) {
+            viewWallpaperClicked(viewWallpaperItem)
         }
         
     }
@@ -112,7 +110,6 @@ class MenuController: NSObject, SourceMenuDelegate {
         
     }
     
-
     
     func updateSourceMenuState() {
         
@@ -186,6 +183,10 @@ class MenuController: NSObject, SourceMenuDelegate {
                 try workspace.setDesktopImageURL(wallpaper.processedImageUrl, for: screen, options: [:])
                 WPProcessor().deletePreviousWallpaper(current: wallpaper)
                 WPProcessor().saveWallpaperDetails(current: wallpaper)
+                
+                if (wallpaperWindowController.isWindowLoaded && (wallpaperWindowController.window?.isVisible)!) {
+                    wallpaperWindowController.updateWindow()
+                }
             }
         } catch {
             print(error)

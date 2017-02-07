@@ -22,13 +22,17 @@ class WallpaperWindowController: NSWindowController {
     @IBOutlet weak var bylineText: NSTextField!
     @IBOutlet weak var attributionText: NSTextField!
     
+    @IBOutlet weak var loadingIndicator: NSProgressIndicator!
+    
     override func windowDidLoad() {
-        window?.title = "Preferences"
+        window?.title = "Wallpaper"
         
         window?.titlebarAppearsTransparent = true
         window?.isMovableByWindowBackground  = true
         window?.titleVisibility = NSWindowTitleVisibility.hidden;
-
+        loadingIndicator.isHidden = false
+        loadingIndicator.isIndeterminate = true
+        loadingIndicator.startAnimation(nil)
         updateWindow()
     }
     
@@ -49,6 +53,9 @@ class WallpaperWindowController: NSWindowController {
             do {
                 try image = NSImage.init(data: Data.init(contentsOf: url, options: []))!
                 previewImage.image = image
+                
+                loadingIndicator.stopAnimation(nil)
+                loadingIndicator.isHidden = true
                 
                 NSAnimationContext.runAnimationGroup({ (context) in
                     context.duration = 1

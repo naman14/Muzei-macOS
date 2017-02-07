@@ -25,10 +25,14 @@ class FeaturedArtSource: WPSourceProtocol {
                 let imageUri: String = json["imageUri"].stringValue
                 let title: String = json["title"].stringValue
                 
+                let byline = json["byline"].stringValue
+                let attribution = json["attribution"].stringValue
+                let detailsUri = json["detailsUri"].stringValue
+
                 let httpsUri = imageUri.replacingOccurrences(of: "http://", with: "https://", options: .literal, range: nil)
                 
                 
-                if(ImageCache.default.isImageCached(forKey: title).cached) {
+                if(false) {
                     ImageCache.default.retrieveImage(forKey: title, options: nil) {
                         image, cacheType in
                         if let image = image {
@@ -51,9 +55,9 @@ class FeaturedArtSource: WPSourceProtocol {
                                     
                                     let wp: Wallpaper = Wallpaper(title: title,imageUrl: fullURL!, processedUrl: processedURL!)
                                     
-                                    wp.byline = json["byline"].stringValue
-                                    wp.attribution = json["attribution"].stringValue
-                                    wp.detailsUri = json["detailsUri"].stringValue
+                                    wp.byline = byline
+                                    wp.attribution = attribution
+                                    wp.detailsUri = detailsUri
                                     
                                     callback(wp)
                                     
@@ -103,6 +107,10 @@ class FeaturedArtSource: WPSourceProtocol {
                             if WPProcessor().imageToFile(image: processedImage, imageURL: processedURL!, ext:(imageUri as NSString).pathExtension) {
                                 
                                 let wp: Wallpaper = Wallpaper(title: title,imageUrl: fullURL!, processedUrl: processedURL!)
+                                
+                                wp.byline = byline
+                                wp.attribution = attribution
+                                wp.detailsUri = detailsUri
                                 
                                 ImageCache.default.store(image!, forKey: title)
                                 

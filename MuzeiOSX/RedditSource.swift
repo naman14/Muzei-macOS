@@ -44,6 +44,9 @@ class RedditSource: WPSourceProtocol {
                 let source = data["preview"]["images"][0]["source"]
                 
                 let imageUri = source["url"].stringValue
+                let byline = data["subreddit"].stringValue
+                let attribution = data["domain"].stringValue
+                let detailsUri = data["url"].stringValue
                 
                 if(ImageCache.default.isImageCached(forKey: title).cached) {
                     
@@ -69,9 +72,9 @@ class RedditSource: WPSourceProtocol {
                                     
                                     let wp: Wallpaper = Wallpaper(title: title,imageUrl: fullURL!, processedUrl: processedURL!)
                                     
-                                    wp.byline = data["subreddit"].stringValue
-                                    wp.attribution = data["domain"].stringValue
-                                    wp.detailsUri = data["url"].stringValue
+                                    wp.byline = byline
+                                    wp.attribution = attribution
+                                    wp.detailsUri = detailsUri
                                     
                                     callback(wp)
                                     
@@ -124,6 +127,10 @@ class RedditSource: WPSourceProtocol {
                                 let wp: Wallpaper = Wallpaper(title: title,imageUrl: fullURL!, processedUrl: processedURL!)
                                 ImageCache.default.store(image!, forKey: title)
                                 
+                                wp.byline = byline
+                                wp.attribution = attribution
+                                wp.detailsUri = detailsUri
+
                                 callback(wp)
                                 
                             } else {

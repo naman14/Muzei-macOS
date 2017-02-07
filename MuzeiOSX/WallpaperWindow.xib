@@ -5,10 +5,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="WallpaperWindowController" customModule="MuzeiOSX" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="WallpaperWindowController" customModule="Muzei" customModuleProvider="target">
             <connections>
                 <outlet property="attributionText" destination="2d0-kM-kWd" id="gdQ-ut-A8o"/>
                 <outlet property="bylineText" destination="5BW-rX-EhS" id="JHh-BO-Q4g"/>
+                <outlet property="loadingIndicator" destination="ci5-fA-5EB" id="dWH-NZ-HRN"/>
                 <outlet property="previewImage" destination="2FX-9k-t0v" id="Pnc-HP-wdc"/>
                 <outlet property="titleText" destination="hKI-jv-Qkj" id="7o2-qn-wQO"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="Z37-36-khV"/>
@@ -19,20 +20,20 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <rect key="contentRect" x="196" y="240" width="1018" height="572"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="1018" height="572"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2FX-9k-t0v">
-                        <rect key="frame" x="93" y="143" width="520" height="342"/>
+                        <rect key="frame" x="86" y="143" width="520" height="342"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="Ett-Qe-rQ8"/>
                     </imageView>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hKI-jv-Qkj">
                         <rect key="frame" x="717" y="174" width="256" height="234"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Title" id="gPe-qZ-sMx">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="gPe-qZ-sMx">
                             <font key="font" size="24" name="Alegreya-BlackItalic"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -41,7 +42,7 @@
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2d0-kM-kWd">
                         <rect key="frame" x="717" y="464" width="256" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Attribution" id="co1-v4-GFE">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="co1-v4-GFE">
                             <font key="font" size="14" name="AlegreyaSans-Medium"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -50,12 +51,16 @@
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5BW-rX-EhS">
                         <rect key="frame" x="717" y="435" width="256" height="27"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Byline" id="RCL-oU-lFO">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="RCL-oU-lFO">
                             <font key="font" size="20" name="Alegreya-Italic"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="ci5-fA-5EB">
+                        <rect key="frame" x="493" y="298" width="32" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </progressIndicator>
                 </subviews>
             </view>
             <connections>
