@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "mac",
-      "filename" : "statusicon1.png",
+      "filename" : "menuicon16.png",
       "scale" : "1x"
     },
     {
       "idiom" : "mac",
-      "filename" : "statusicon2.png",
+      "filename" : "menuicon.png",
       "scale" : "2x"
     }
   ],
