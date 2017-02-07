@@ -57,6 +57,15 @@ class WallpaperWindowController: NSWindowController {
                 try image = NSImage.init(data: Data.init(contentsOf: url, options: []))!
                 previewImage.image = image
                 
+                NSAnimationContext.runAnimationGroup({ (context) in
+                    context.duration = 1
+                    previewImage.alphaValue = 0
+                    previewImage.animator().alphaValue = 1
+                    
+                }, completionHandler: {
+                    //empty
+                })
+
                 previewImage.shadow = NSShadow()
                 previewImage.layer?.shadowColor = NSColor.black.cgColor
                 previewImage.layer?.shadowOpacity = 0.5

@@ -87,7 +87,7 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Wallpaper" identifier="2" id="Rqe-Zw-bUU">
-                                <view key="view" ambiguous="YES" id="40c-ye-F2J">
+                                <view key="view" id="40c-ye-F2J">
                                     <rect key="frame" x="10" y="33" width="461" height="213"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -149,12 +149,12 @@ Settings-&gt;Users and groups -&gt; Login items</string>
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="About" identifier="" id="vlt-vd-VeP">
-                                <view key="view" id="Gkd-om-2na">
+                                <view key="view" ambiguous="YES" id="Gkd-om-2na">
                                     <rect key="frame" x="10" y="33" width="461" height="213"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nGy-OM-sYS">
-                                            <rect key="frame" x="95" y="48" width="270" height="85"/>
+                                            <rect key="frame" x="95" y="30" width="270" height="85"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" id="WGx-4C-8ny">
                                                 <font key="font" metaFont="system"/>
@@ -167,10 +167,10 @@ Developed by Naman Dwivedi</string>
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxd-Mq-T38">
-                                            <rect key="frame" x="184" y="132" width="93" height="59"/>
+                                            <rect key="frame" x="184" y="133" width="93" height="59"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Muzei" id="3XZ-ge-vxy">
-                                                <font key="font" size="31" name="Alegreya-BlackItalic"/>
+                                                <font key="font" size="33" name="Alegreya-BlackItalic"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
