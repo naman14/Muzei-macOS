@@ -9,10 +9,7 @@
 import Cocoa
 
 class HoverButton: NSButton{
-    var backgroundColor: NSColor?
-    var hoveredBackgroundColor: NSColor?
-    var pressedBackgroundColor: NSColor?
-    
+ 
     fileprivate var hovered: Bool = false
     
     override var wantsUpdateLayer:Bool{
@@ -33,10 +30,6 @@ class HoverButton: NSButton{
         self.wantsLayer = true
         self.createTrackingArea()
         self.hovered = false
-        self.hoveredBackgroundColor = NSColor.selectedTextBackgroundColor
-        self.pressedBackgroundColor = NSColor.selectedTextBackgroundColor
-        self.backgroundColor = NSColor.clear
-        
     }
     
     fileprivate var trackingArea: NSTrackingArea!
@@ -62,22 +55,19 @@ class HoverButton: NSButton{
     
     override func updateLayer() {
         if(hovered){
-            if (self.cell!.isHighlighted){
-                self.layer?.cornerRadius = 15.0
-                self.layer?.borderColor = pressedBackgroundColor?.cgColor
-                self.layer?.borderWidth = 2
-                
-            }
-            else{
-                self.layer?.cornerRadius = 15.0
-                self.layer?.borderColor = hoveredBackgroundColor?.cgColor
-                self.layer?.borderWidth = 2
-                
-            }
+            self.alphaValue = 0.6
+            
+            self.shadow = NSShadow()
+            self.layer?.shadowColor = NSColor.black.cgColor
+            self.layer?.shadowOpacity = 0.5
+            self.layer?.shadowOffset = CGSize.zero
+            self.layer?.shadowRadius = 5
         }
-        else{
-            self.layer?.backgroundColor = backgroundColor?.cgColor
-            self.layer?.borderWidth = 0
+        else {
+            self.alphaValue = 1
+            
+            self.shadow = nil
+
             
         }
         

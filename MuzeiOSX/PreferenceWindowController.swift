@@ -8,6 +8,7 @@
 
 import Foundation
 import Cocoa
+import Kingfisher
 
 class PreferenceWindowController : NSWindowController {
     
@@ -23,12 +24,14 @@ class PreferenceWindowController : NSWindowController {
     @IBOutlet weak var wallpaperDone: NSButton!
     @IBOutlet weak var showInfoButton: NSButton!
     
+    @IBOutlet weak var previewImage: NSImageView!
     let SOURCE_FEATURED = "source_featured_art"
     let SOURCE_REDDIT = "source_reddit"
     
     let PREF_SOURCE = "pref_source"
     let PREF_SUBREDDIT = "pref_subreddit"
     
+    let CURRENT_WP_URL = "current_wallpaper_url"
     let PREF_BLUR_ACTIVE = "pref_blur_active"
     let PREF_DIM_ACTIVE = "pref_dim_active"
     let PREF_BLUR_AMOUNT = "pref_blur_amount"
@@ -71,13 +74,16 @@ class PreferenceWindowController : NSWindowController {
         blurSlider.isEnabled = (sender.state ==  NSOnState)
         prefs.set(sender.state == NSOnState, forKey: PREF_BLUR_ACTIVE)
         prefs.synchronize()
+        updatePreviewImage()
     }
     
     @IBAction func dimButtonClicked(_ sender: NSButton) {
         dimSlider.isEnabled = (sender.state ==  NSOnState)
         prefs.set(sender.state == NSOnState, forKey: PREF_DIM_ACTIVE)
         prefs.synchronize()
+        updatePreviewImage()
     }
+    
     @IBAction func showInfoClicked(_ sender: NSButton) {
         prefs.set(sender.state == NSOffState, forKey: PREF_SHOW_WP_LAUNCH_INACTIVE)
         prefs.synchronize()
@@ -89,6 +95,14 @@ class PreferenceWindowController : NSWindowController {
         prefs.synchronize()
         menuController?.getWallpaper()
         window?.close()
+    }
+    
+    @IBAction func blurAmountChanged(_ sender: NSSlider) {
+        updatePreviewImage()
+    }
+    
+    @IBAction func dimAmountChanged(_ sender: NSSlider) {
+        updatePreviewImage()
     }
     
     func updateWindow() {
@@ -118,6 +132,14 @@ class PreferenceWindowController : NSWindowController {
         dimSlider.floatValue = prefs.float(forKey: PREF_DIM_AMOUNT) != 0 ? prefs.float(forKey: PREF_DIM_AMOUNT) : 0.2
         
         showInfoButton.state = !prefs.bool(forKey: PREF_SHOW_WP_LAUNCH_INACTIVE) ? NSOnState : NSOffState
+        
+        updatePreviewImage()
+        
+        previewImage.shadow = NSShadow()
+        previewImage.layer?.shadowColor = NSColor.black.cgColor
+        previewImage.layer?.shadowOpacity = 0.5
+        previewImage.layer?.shadowOffset = CGSize.zero
+        previewImage.layer?.shadowRadius = 5
     }
     
     func updateSource(source: String) {
@@ -141,6 +163,41 @@ class PreferenceWindowController : NSWindowController {
             
         }
         prefs.synchronize()
+    }
+    
+    func updatePreviewImage() {
+        
+        if let url = prefs.url(forKey: CURRENT_WP_URL) {
+            
+            var processor: ImageProcessor?
+            
+            if(prefs.bool(forKey: PREF_BLUR_ACTIVE)) {
+                let blurProcessor = BlurImageProcessor(blurRadius: CGFloat(blurSlider.floatValue))
+                processor = blurProcessor
+            }
+            
+            if(prefs.bool(forKey: PREF_DIM_ACTIVE)) {
+                
+                let dimColor: NSColor = NSColor(red:CGFloat(0), green:CGFloat(0), blue:CGFloat(0), alpha:CGFloat(1.0))
+                
+                let dimProcessor = OverlayImageProcessor(overlay: dimColor, fraction: CGFloat(1.0) - CGFloat(dimSlider.floatValue))
+                
+                if(processor != nil) {
+                    processor = processor! >> dimProcessor
+                }
+                else {
+                    processor = dimProcessor
+                }
+                
+            }
+            
+            if(processor != nil) {
+                previewImage.kf.setImage(with: url, placeholder: nil, options: [.processor(processor!)])
+            } else {
+                previewImage.kf.setImage(with: url)            }
+            
+        }
+        
     }
     
 }
