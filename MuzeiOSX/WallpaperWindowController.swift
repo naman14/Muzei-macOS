@@ -21,8 +21,26 @@ class WallpaperWindowController: NSWindowController {
     @IBOutlet weak var previewImage: NSImageView!
     @IBOutlet weak var bylineText: NSTextField!
     @IBOutlet weak var attributionText: NSTextField!
-    
     @IBOutlet weak var loadingIndicator: NSProgressIndicator!
+    
+    var menuController: MenuController?
+
+    @IBAction func configureClick(_ sender: NSButton) {
+        if(menuController != nil) {
+            menuController?.openPreferences()
+        }
+    }
+    
+    @IBAction func linkClick(_ sender: NSButton) {
+        if let URL = URL(string: UserDefaults.standard.string(forKey: CURRENT_WP_DETAILS_URL)!) {
+            if NSWorkspace.shared().open(URL) {
+            }
+        }
+    }
+    
+    func setMenuController(controller: MenuController) {
+        self.menuController = controller
+    }
     
     override func windowDidLoad() {
         window?.title = "Wallpaper"

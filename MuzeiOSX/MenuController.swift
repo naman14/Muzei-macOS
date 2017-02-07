@@ -38,6 +38,7 @@ class MenuController: NSObject, SourceMenuDelegate {
         wallpaperWindowController = WallpaperWindowController(windowNibName: "WallpaperWindow")
         super.init()
         preferenceController.setMenuController(controller: self)
+        wallpaperWindowController.setMenuController(controller: self)
         
         getWallpaper()
     }
@@ -82,12 +83,7 @@ class MenuController: NSObject, SourceMenuDelegate {
     }
     
     @IBAction func preferenceClicked(_ sender: NSMenuItem) {
-        if(preferenceController.isWindowLoaded) {
-            preferenceController.window?.setIsVisible(true)
-            preferenceController.updateWindow()
-        } else {
-            preferenceController.showWindow(self)
-        }
+       openPreferences()
     }
 
     
@@ -217,6 +213,15 @@ class MenuController: NSObject, SourceMenuDelegate {
     func menuNeedsUpdate(_ menu: NSMenu) {
         updateSourceMenuState()
 
+    }
+    
+    func openPreferences() {
+        if(preferenceController.isWindowLoaded) {
+            preferenceController.window?.setIsVisible(true)
+            preferenceController.updateWindow()
+        } else {
+            preferenceController.showWindow(self)
+        }
     }
     
     func showNotification(title: String, desc: String) -> Void {

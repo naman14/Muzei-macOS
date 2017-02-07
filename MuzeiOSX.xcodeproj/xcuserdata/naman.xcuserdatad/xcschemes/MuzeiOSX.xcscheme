@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ED271FDD1E04351400241BD2"
-               BuildableName = "MuzeiOSX.app"
+               BuildableName = "Muzei.app"
                BlueprintName = "MuzeiOSX"
                ReferencedContainer = "container:MuzeiOSX.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED271FDD1E04351400241BD2"
-            BuildableName = "MuzeiOSX.app"
+            BuildableName = "Muzei.app"
             BlueprintName = "MuzeiOSX"
             ReferencedContainer = "container:MuzeiOSX.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED271FDD1E04351400241BD2"
-            BuildableName = "MuzeiOSX.app"
+            BuildableName = "Muzei.app"
             BlueprintName = "MuzeiOSX"
             ReferencedContainer = "container:MuzeiOSX.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED271FDD1E04351400241BD2"
-            BuildableName = "MuzeiOSX.app"
+            BuildableName = "Muzei.app"
             BlueprintName = "MuzeiOSX"
             ReferencedContainer = "container:MuzeiOSX.xcodeproj">
          </BuildableReference>
