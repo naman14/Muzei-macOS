@@ -9,7 +9,7 @@
             <connections>
                 <outlet property="attributionText" destination="2d0-kM-kWd" id="gdQ-ut-A8o"/>
                 <outlet property="bylineText" destination="5BW-rX-EhS" id="JHh-BO-Q4g"/>
-                <outlet property="linkButton" destination="5Si-lu-i7M" id="cOD-S4-Vld"/>
+                <outlet property="linkButton" destination="5Si-lu-i7M" id="ftz-fu-oTA"/>
                 <outlet property="loadingIndicator" destination="ci5-fA-5EB" id="dWH-NZ-HRN"/>
                 <outlet property="previewImage" destination="2FX-9k-t0v" id="Pnc-HP-wdc"/>
                 <outlet property="titleText" destination="hKI-jv-Qkj" id="7o2-qn-wQO"/>
@@ -62,7 +62,7 @@
                         <rect key="frame" x="493" y="298" width="32" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </progressIndicator>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Si-lu-i7M">
+                    <button verticalHuggingPriority="750" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Si-lu-i7M" customClass="HoverButton" customModule="Muzei" customModuleProvider="target">
                         <rect key="frame" x="731" y="143" width="57" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="ic_open_in_new" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="kH1-Fy-nGp">

@@ -22,6 +22,7 @@
 		ED9008621E067B4100F42AF3 /* WPProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9008611E067B4100F42AF3 /* WPProcessor.swift */; };
 		ED9B9B901E40DFB700322CA3 /* PreferenceWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED9B9B8F1E40DFB700322CA3 /* PreferenceWindow.xib */; };
 		ED9B9B921E40E70A00322CA3 /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9B9B911E40E70A00322CA3 /* PreferenceWindowController.swift */; };
+		EDD7E2431E4A24B5007E2406 /* HoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD7E2421E4A24B5007E2406 /* HoverButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		ED9008611E067B4100F42AF3 /* WPProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WPProcessor.swift; sourceTree = "<group>"; };
 		ED9B9B8F1E40DFB700322CA3 /* PreferenceWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferenceWindow.xib; sourceTree = "<group>"; };
 		ED9B9B911E40E70A00322CA3 /* PreferenceWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
+		EDD7E2421E4A24B5007E2406 /* HoverButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoverButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				ED63F4F51E480BAE00C0264D /* Wallpaper.swift */,
 				ED63F4FD1E491ACD00C0264D /* WallpaperWindowController.swift */,
 				ED63F4FF1E491D5900C0264D /* WallpaperWindow.xib */,
+				EDD7E2421E4A24B5007E2406 /* HoverButton.swift */,
 			);
 			path = MuzeiOSX;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				ED271FEF1E04467400241BD2 /* MenuController.swift in Sources */,
 				ED271FF11E04491000241BD2 /* FeaturedArtSource.swift in Sources */,
 				ED9B9B921E40E70A00322CA3 /* PreferenceWindowController.swift in Sources */,
+				EDD7E2431E4A24B5007E2406 /* HoverButton.swift in Sources */,
 				ED63F4FE1E491ACD00C0264D /* WallpaperWindowController.swift in Sources */,
 				ED271FE21E04351400241BD2 /* AppDelegate.swift in Sources */,
 				ED271FF51E04771000241BD2 /* WPSourceProtocol.swift in Sources */,

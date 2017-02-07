@@ -22,6 +22,7 @@ class WallpaperWindowController: NSWindowController {
     @IBOutlet weak var bylineText: NSTextField!
     @IBOutlet weak var attributionText: NSTextField!
     @IBOutlet weak var loadingIndicator: NSProgressIndicator!
+    @IBOutlet weak var linkButton: NSButton!
     
     var menuController: MenuController?
 
@@ -52,7 +53,9 @@ class WallpaperWindowController: NSWindowController {
         loadingIndicator.isIndeterminate = true
         loadingIndicator.startAnimation(nil)
         updateWindow()
+        
     }
+    
     
     
     func updateWindow() {
