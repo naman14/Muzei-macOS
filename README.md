@@ -7,8 +7,8 @@ Wallpaper app for macOS inspired by [Muzei live wallpaper](https://github.com/ro
 Muzei is a menu bar app that lets you use daily updated famous works of art as the wallpaper.
 Muzei also supports using top scoring images from Reddit as the wallpaper. Customisation options like blurring, dimming and specifying the subreddit are present.
 
-<img src="https://raw.githubusercontent.com/naman14/Muzei-macOS/master/screenshots/screenshot2.png" width="450" height="282" >
-<img src="https://raw.githubusercontent.com/naman14/Muzei-macOS/master/screenshots/screenshot3.png" width="450" height="282" >
+<img src="https://raw.githubusercontent.com/naman14/Muzei-macOS/master/screenshots/screenshot2.png">
+<img src="https://raw.githubusercontent.com/naman14/Muzei-macOS/master/screenshots/screenshot3.png" >
 
 ##Credits
    [Roman Nurik](https://github.com/romannurik) - Author of Muzei live wallpaper for Android.
