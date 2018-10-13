@@ -24,7 +24,7 @@ class MenuController: NSObject, SourceMenuDelegate {
     let CURRENT_WP_URL = "current_wallpaper_url"
     let PREF_SHOW_WP_LAUNCH_INACTIVE = "pref_show_wp_launch"
 
-    let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
+    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     
     var defaults: UserDefaults
     var preferenceController: PreferenceWindowController
@@ -49,7 +49,7 @@ class MenuController: NSObject, SourceMenuDelegate {
     }
     
     @IBAction func quitClicked(_ sender: NSMenuItem) {
-        NSApplication.shared().terminate(self)
+        NSApplication.shared.terminate(self)
     }
 
     @IBAction func updateClicked(_ sender: NSMenuItem) {
@@ -125,10 +125,10 @@ class MenuController: NSObject, SourceMenuDelegate {
         }
         
         for item in sourcesMenu.items {
-            item.state = NSOffState
+            item.state = NSControl.StateValue.off
         }
         
-         menuItem.state = NSOnState
+         menuItem.state = NSControl.StateValue.on
         
     }
 
@@ -176,9 +176,9 @@ class MenuController: NSObject, SourceMenuDelegate {
     func setWallpaper(wallpaper: Wallpaper) {
         
         do {
-            let workspace = NSWorkspace.shared()
-            if let screen = NSScreen.main()  {
-                try workspace.setDesktopImageURL(wallpaper.processedImageUrl, for: screen, options: [:])
+            let workspace = NSWorkspace.shared
+            if let screen = NSScreen.main {
+                try workspace.setDesktopImageURL(wallpaper.processedImageUrl, for: screen, options: convertToNSWorkspaceDesktopImageOptionKeyDictionary([:]))
                 WPProcessor().deletePreviousWallpaper(current: wallpaper)
                 WPProcessor().saveWallpaperDetails(current: wallpaper)
                 
@@ -195,9 +195,9 @@ class MenuController: NSObject, SourceMenuDelegate {
     
     func setActiveWorkspaceObserver(wallpaper: Wallpaper) {
         
-        let workspace = NSWorkspace.shared()
+        let workspace = NSWorkspace.shared
         
-        workspace.notificationCenter.addObserver(forName: NSNotification.Name.NSWorkspaceActiveSpaceDidChange, object: nil, queue: nil) { (Notification) in
+        workspace.notificationCenter.addObserver(forName: NSWorkspace.activeSpaceDidChangeNotification, object: nil, queue: nil) { (Notification) in
             
             self.setWallpaper(wallpaper: wallpaper)
     
@@ -225,11 +225,16 @@ class MenuController: NSObject, SourceMenuDelegate {
     }
     
     func showNotification(title: String, desc: String) -> Void {
-        var notification = NSUserNotification()
+        let notification = NSUserNotification()
         notification.title = title
         notification.informativeText = desc
         notification.soundName = NSUserNotificationDefaultSoundName
         NSUserNotificationCenter.default.deliver(notification)
     }
     
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToNSWorkspaceDesktopImageOptionKeyDictionary(_ input: [String: Any]) -> [NSWorkspace.DesktopImageOptionKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSWorkspace.DesktopImageOptionKey(rawValue: key), value)})
 }

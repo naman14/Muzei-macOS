@@ -71,21 +71,21 @@ class PreferenceWindowController : NSWindowController {
     }
     
     @IBAction func blurButtonClicked(_ sender: NSButton) {
-        blurSlider.isEnabled = (sender.state ==  NSOnState)
-        prefs.set(sender.state == NSOnState, forKey: PREF_BLUR_ACTIVE)
+        blurSlider.isEnabled = (sender.state ==  NSControl.StateValue.on)
+        prefs.set(sender.state == NSControl.StateValue.on, forKey: PREF_BLUR_ACTIVE)
         prefs.synchronize()
         updatePreviewImage()
     }
     
     @IBAction func dimButtonClicked(_ sender: NSButton) {
-        dimSlider.isEnabled = (sender.state ==  NSOnState)
-        prefs.set(sender.state == NSOnState, forKey: PREF_DIM_ACTIVE)
+        dimSlider.isEnabled = (sender.state ==  NSControl.StateValue.on)
+        prefs.set(sender.state == NSControl.StateValue.on, forKey: PREF_DIM_ACTIVE)
         prefs.synchronize()
         updatePreviewImage()
     }
     
     @IBAction func showInfoClicked(_ sender: NSButton) {
-        prefs.set(sender.state == NSOffState, forKey: PREF_SHOW_WP_LAUNCH_INACTIVE)
+        prefs.set(sender.state == NSControl.StateValue.off, forKey: PREF_SHOW_WP_LAUNCH_INACTIVE)
         prefs.synchronize()
     }
     
@@ -121,17 +121,17 @@ class PreferenceWindowController : NSWindowController {
             textSubredditName.stringValue = "EarthPorn"
         }
         
-        blurButton.state = prefs.bool(forKey: PREF_BLUR_ACTIVE) == true ? NSOnState : NSOffState
-        dimButton.state = prefs.bool(forKey: PREF_DIM_ACTIVE) == true ? NSOnState : NSOffState
+        blurButton.state = prefs.bool(forKey: PREF_BLUR_ACTIVE) == true ? NSControl.StateValue.on : NSControl.StateValue.off
+        dimButton.state = prefs.bool(forKey: PREF_DIM_ACTIVE) == true ? NSControl.StateValue.on : NSControl.StateValue.off
         
-        blurSlider.isEnabled = (blurButton.state ==  NSOnState)
-        dimSlider.isEnabled = (dimButton.state ==  NSOnState)
+        blurSlider.isEnabled = (blurButton.state ==  NSControl.StateValue.on)
+        dimSlider.isEnabled = (dimButton.state ==  NSControl.StateValue.on)
 
         
         blurSlider.floatValue = prefs.float(forKey: PREF_BLUR_AMOUNT) != 0 ? prefs.float(forKey: PREF_BLUR_AMOUNT) : 15
         dimSlider.floatValue = prefs.float(forKey: PREF_DIM_AMOUNT) != 0 ? prefs.float(forKey: PREF_DIM_AMOUNT) : 0.2
         
-        showInfoButton.state = !prefs.bool(forKey: PREF_SHOW_WP_LAUNCH_INACTIVE) ? NSOnState : NSOffState
+        showInfoButton.state = !prefs.bool(forKey: PREF_SHOW_WP_LAUNCH_INACTIVE) ? NSControl.StateValue.on : NSControl.StateValue.off
         
         updatePreviewImage()
         
@@ -148,14 +148,14 @@ class PreferenceWindowController : NSWindowController {
         switch(source) {
             
         case SOURCE_FEATURED:
-            sourceReddit.state = NSOffState
-            sourceFeaturedArt.state = NSOnState
+            sourceReddit.state = NSControl.StateValue.off
+            sourceFeaturedArt.state = NSControl.StateValue.on
             textSubredditName.isEnabled = false
             break
             
         case SOURCE_REDDIT:
-            sourceReddit.state = NSOnState
-            sourceFeaturedArt.state = NSOffState
+            sourceReddit.state = NSControl.StateValue.on
+            sourceFeaturedArt.state = NSControl.StateValue.off
             textSubredditName.isEnabled = true
             break
             
