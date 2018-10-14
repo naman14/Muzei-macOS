@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -12,9 +12,9 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="MuzeiOSX" customModuleProvider="target"/>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Muzei" customModuleProvider="target"/>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
-        <customObject id="qbP-ia-k4W" userLabel="MenuController" customClass="MenuController" customModule="MuzeiOSX" customModuleProvider="target">
+        <customObject id="qbP-ia-k4W" userLabel="MenuController" customClass="MenuController" customModule="Muzei" customModuleProvider="target">
             <connections>
                 <outlet property="featuredArtSourceItem" destination="y4v-GH-Bbv" id="4b5-f2-bqa"/>
                 <outlet property="preferencesItem" destination="U8Q-BM-Eqm" id="O6C-W0-P88"/>
@@ -37,7 +37,7 @@
                 </menuItem>
                 <menuItem title="Source" id="GqG-D4-bFS">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" id="evo-nV-ihv" userLabel="Source Menu">
+                    <menu key="submenu" title="Source" id="evo-nV-ihv" userLabel="Source Menu">
                         <items>
                             <menuItem title="Featured Art" id="y4v-GH-Bbv" userLabel="Featured Art">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -54,6 +54,7 @@
                         </items>
                     </menu>
                 </menuItem>
+                <menuItem isSeparatorItem="YES" id="3vw-FN-nWy"/>
                 <menuItem title="View current wallpaper" id="ZtU-ij-WRz">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -66,6 +67,7 @@
                         <action selector="saveWallpaperClicked:" target="qbP-ia-k4W" id="AZn-1k-BCN"/>
                     </connections>
                 </menuItem>
+                <menuItem isSeparatorItem="YES" id="CFe-T9-78W"/>
                 <menuItem title="Preferences" id="U8Q-BM-Eqm">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
