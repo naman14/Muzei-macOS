@@ -34,7 +34,7 @@ class WallpaperWindowController: NSWindowController {
     
     @IBAction func linkClick(_ sender: NSButton) {
         if let URL = URL(string: UserDefaults.standard.string(forKey: CURRENT_WP_DETAILS_URL)!) {
-            if NSWorkspace.shared().open(URL) {
+            if NSWorkspace.shared.open(URL) {
             }
         }
     }
@@ -48,7 +48,7 @@ class WallpaperWindowController: NSWindowController {
         
         window?.titlebarAppearsTransparent = true
         window?.isMovableByWindowBackground  = true
-        window?.titleVisibility = NSWindowTitleVisibility.hidden;
+        window?.titleVisibility = NSWindow.TitleVisibility.hidden;
         loadingIndicator.isHidden = false
         loadingIndicator.isIndeterminate = true
         loadingIndicator.startAnimation(nil)

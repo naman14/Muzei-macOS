@@ -208,10 +208,10 @@ class WPProcessor {
 
 extension NSImage {
     var imagePNGRepresentation: Data {
-        return NSBitmapImageRep(data: tiffRepresentation!)!.representation(using: .PNG, properties: [:])!
+        return NSBitmapImageRep(data: tiffRepresentation!)!.representation(using: .png, properties: convertToNSBitmapImageRepPropertyKeyDictionary([:]))!
     }
     var imageJPEGRepresentation: Data {
-        return NSBitmapImageRep(data: tiffRepresentation!)!.representation(using: .JPEG, properties: [:])!
+        return NSBitmapImageRep(data: tiffRepresentation!)!.representation(using: .jpeg, properties: convertToNSBitmapImageRepPropertyKeyDictionary([:]))!
     }
     
     func savePNG(path: URL) throws {
@@ -231,4 +231,9 @@ extension NSURL {
         }
         return nil
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToNSBitmapImageRepPropertyKeyDictionary(_ input: [String: Any]) -> [NSBitmapImageRep.PropertyKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSBitmapImageRep.PropertyKey(rawValue: key), value)})
 }

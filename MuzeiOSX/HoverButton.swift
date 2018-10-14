@@ -38,8 +38,8 @@ class HoverButton: NSButton{
             self.removeTrackingArea(self.trackingArea!)
         }
         let circleRect = self.bounds
-        let flag = NSTrackingAreaOptions.mouseEnteredAndExited.rawValue + NSTrackingAreaOptions.activeInActiveApp.rawValue
-        self.trackingArea = NSTrackingArea(rect: circleRect, options: NSTrackingAreaOptions(rawValue: flag), owner: self, userInfo: nil)
+        let flag = NSTrackingArea.Options.mouseEnteredAndExited.rawValue + NSTrackingArea.Options.activeInActiveApp.rawValue
+        self.trackingArea = NSTrackingArea(rect: circleRect, options: NSTrackingArea.Options(rawValue: flag), owner: self, userInfo: nil)
         self.addTrackingArea(self.trackingArea)
     }
     
