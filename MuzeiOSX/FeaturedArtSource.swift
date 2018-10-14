@@ -32,7 +32,7 @@ class FeaturedArtSource: WPSourceProtocol {
                 let httpsUri = imageUri.replacingOccurrences(of: "http://", with: "https://", options: .literal, range: nil)
                 
                 
-                if(ImageCache.default.isImageCached(forKey: title).cached) {
+                if(ImageCache.default.imageCachedType(forKey: title).cached) {
                     ImageCache.default.retrieveImage(forKey: title, options: nil) {
                         image, cacheType in
                         if let image = image {

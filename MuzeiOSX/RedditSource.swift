@@ -48,7 +48,7 @@ class RedditSource: WPSourceProtocol {
                 let attribution = data["domain"].stringValue
                 let detailsUri = data["url"].stringValue
                 
-                if(ImageCache.default.isImageCached(forKey: title).cached) {
+                if(ImageCache.default.imageCachedType(forKey: title).cached) {
                     
                     ImageCache.default.retrieveImage(forKey: title, options: nil) {
                         image, cacheType in
