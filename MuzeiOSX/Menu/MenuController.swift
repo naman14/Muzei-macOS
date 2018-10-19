@@ -174,23 +174,19 @@ class MenuController: NSObject, SourceMenuDelegate {
     }
     
     func setWallpaper(wallpaper: Wallpaper) {
+        let workspace = NSWorkspace.shared
+        let screens = NSScreen.screens
         
-        do {
-            let workspace = NSWorkspace.shared
-            if let screen = NSScreen.main {
-                try workspace.setDesktopImageURL(wallpaper.processedImageUrl, for: screen, options: convertToNSWorkspaceDesktopImageOptionKeyDictionary([:]))
-                WallpaperProcessor().deletePreviousWallpaper(current: wallpaper)
-                WallpaperProcessor().saveWallpaperDetails(current: wallpaper)
-                
-                if (wallpaperWindowController.isWindowLoaded && (wallpaperWindowController.window?.isVisible)!) {
-                    wallpaperWindowController.updateWindow()
-                }
-            }
-        } catch {
-            print(error)
+        for screen in screens {
+            try! workspace.setDesktopImageURL(wallpaper.processedImageUrl, for: screen, options: convertToNSWorkspaceDesktopImageOptionKeyDictionary([:]))
         }
         
-       
+        WallpaperProcessor().deletePreviousWallpaper(current: wallpaper)
+        WallpaperProcessor().saveWallpaperDetails(current: wallpaper)
+        
+        if (wallpaperWindowController.isWindowLoaded && (wallpaperWindowController.window?.isVisible)!) {
+            wallpaperWindowController.updateWindow()
+        }
     }
     
     func setActiveWorkspaceObserver(wallpaper: Wallpaper) {
