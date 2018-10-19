@@ -10,7 +10,7 @@ import Foundation
 import Cocoa
 import Kingfisher
 
-class WPProcessor {
+class WallpaperProcessor {
     
     let CURRENT_WP_TITLE = "current_wallpaper_title"
     let CURRENT_WP_URL = "current_wallpaper_url"

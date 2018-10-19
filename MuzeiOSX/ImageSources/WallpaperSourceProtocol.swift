@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol WPSourceProtocol {
+protocol WallpaperSourceProtocol {
     
     func getWallpaper(callback: @escaping (Wallpaper) -> Void, failure: @escaping ()-> Void)
 }

@@ -1,74 +1,57 @@
 //
-//  RedditSource.swift
+//  WallpaperSource.swift
 //  MuzeiOSX
 //
-//  Created by Naman on 17/12/16.
+//  Created by Naman on 16/12/16.
 //  Copyright © 2016 naman14. All rights reserved.
 //
 
 import Foundation
-import SwiftyJSON
 import Alamofire
+import SwiftyJSON
 import Kingfisher
 
-class RedditSource: WPSourceProtocol {
+class FeaturedArtSource: WallpaperSourceProtocol {
     
-    let PREF_SUBREDDIT = "pref_subreddit"
+    let API_URL: String = "https://muzeiapi.appspot.com/featured?cachebust=1"
     
-    var base_url = "https://www.reddit.com/r/{subreddit}/top.json?t=day&limit=10"
-    
-    func getWallpaper(callback: @escaping (Wallpaper) -> Void, failure: @escaping () -> Void) {
+    func getWallpaper(callback: @escaping (Wallpaper) -> Void,  failure: @escaping () -> Void) {
         
-        let prefs = UserDefaults.standard
-        
-        if let subreddit = prefs.string(forKey: PREF_SUBREDDIT) {
-            base_url = base_url.replacingOccurrences(of: "{subreddit}", with: subreddit)
-        } else {
-            base_url = base_url.replacingOccurrences(of: "{subreddit}", with: "EarthPorn")
-            
-        }
-        
-        Alamofire.request(base_url).responseJSON { (response) in
-            
+        Alamofire.request(API_URL).responseJSON { response in
             if let responseStr = response.result.value {
+                
                 let json = JSON(responseStr)
                 
-                let children = json["data"]["children"].arrayValue
+                let imageUri: String = json["imageUri"].stringValue
+                let title: String = json["title"].stringValue
                 
-                let random = Int(arc4random_uniform(UInt32(5)))
+                let byline = json["byline"].stringValue
+                let attribution = json["attribution"].stringValue
+                let detailsUri = json["detailsUri"].stringValue
 
-                let data = children[random]["data"]
+                let httpsUri = imageUri.replacingOccurrences(of: "http://", with: "https://", options: .literal, range: nil)
                 
-                let title = data["title"].stringValue
-                
-                let source = data["preview"]["images"][0]["source"]
-                
-                let imageUri = source["url"].stringValue
-                let byline = data["subreddit"].stringValue
-                let attribution = data["domain"].stringValue
-                let detailsUri = data["url"].stringValue
                 
                 if(ImageCache.default.imageCachedType(forKey: title).cached) {
-                    
                     ImageCache.default.retrieveImage(forKey: title, options: nil) {
                         image, cacheType in
                         if let image = image {
                             
                             let random = 2 + Int(arc4random_uniform(UInt32(999 - 2 + 1)))
                             
-                            let trimmedUrl =  NSURL(string: imageUri)?.absoluteStringByTrimmingQuery()
+                            let fileName: NSString = (imageUri as NSString).lastPathComponent as NSString
                             
-                            let fullURL = WPProcessor().getWallpaperFileUrl(
-                                fileName: (trimmedUrl! as NSString).lastPathComponent as NSString, processed: false, random: random)
+                            let fullURL = WallpaperProcessor().getWallpaperFileUrl(
+                                fileName: fileName, processed: false, random: random)
                             
-                            if WPProcessor().imageToFile(image: image, imageURL: fullURL!, ext:(trimmedUrl! as NSString).pathExtension) {
+                            if WallpaperProcessor().imageToFile(image: image, imageURL: fullURL!, ext:(imageUri as NSString).pathExtension) {
                                 
-                                let processedImage = WPProcessor().processImage(originalImage: image)
+                                let processedImage = WallpaperProcessor().processImage(originalImage: image)
                                 
-                                let processedURL = WPProcessor().getWallpaperFileUrl(
-                                    fileName: (trimmedUrl! as NSString).lastPathComponent as NSString, processed: true, random: random)
+                                let processedURL = WallpaperProcessor().getWallpaperFileUrl(
+                                    fileName: fileName, processed: true, random: random)
                                 
-                                if WPProcessor().imageToFile(image: processedImage, imageURL: processedURL!, ext:(trimmedUrl! as NSString).pathExtension) {
+                                if WallpaperProcessor().imageToFile(image: processedImage, imageURL: processedURL!, ext:(imageUri as NSString).pathExtension) {
                                     
                                     let wp: Wallpaper = Wallpaper(title: title,imageUrl: fullURL!, processedUrl: processedURL!)
                                     
@@ -90,15 +73,15 @@ class RedditSource: WPSourceProtocol {
                                 print("Error occurred")
                                 
                             }
-                            
+
                             
                         } else {
                             print("Not exist in cache.")
                         }
                     }
-                    
                 } else {
-                    ImageDownloader.default.downloadImage(with: URL(string: imageUri)!) {
+                    
+                    ImageDownloader.default.downloadImage(with: URL(string: httpsUri)!, options: [], progressBlock: nil) {
                         (image, error, url, data) in
                         
                         if (error != nil) {
@@ -109,28 +92,28 @@ class RedditSource: WPSourceProtocol {
                         
                         let random = 2 + Int(arc4random_uniform(UInt32(999 - 2 + 1)))
                         
-                        let trimmedUrl =  NSURL(string: imageUri)?.absoluteStringByTrimmingQuery()
+                        let fileName: NSString = (imageUri as NSString).lastPathComponent as NSString
                         
+                        let fullURL = WallpaperProcessor().getWallpaperFileUrl(
+                            fileName: fileName, processed: false, random: random)
                         
-                        let fullURL = WPProcessor().getWallpaperFileUrl(
-                            fileName: (trimmedUrl! as NSString).lastPathComponent as NSString, processed: false, random: random)
-                        
-                        if WPProcessor().imageToFile(image: image!, imageURL: fullURL!, ext:(trimmedUrl! as NSString).pathExtension) {
+                        if WallpaperProcessor().imageToFile(image: image!, imageURL: fullURL!, ext:(imageUri as NSString).pathExtension) {
                             
-                            let processedImage = WPProcessor().processImage(originalImage: image!)
+                            let processedImage = WallpaperProcessor().processImage(originalImage: image!)
                             
-                            let processedURL = WPProcessor().getWallpaperFileUrl(
-                                fileName: (trimmedUrl! as NSString).lastPathComponent as NSString, processed: true, random: random)
+                            let processedURL = WallpaperProcessor().getWallpaperFileUrl(
+                                fileName: fileName, processed: true, random: random)
                             
-                            if WPProcessor().imageToFile(image: processedImage, imageURL: processedURL!, ext:(trimmedUrl! as NSString).pathExtension) {
+                            if WallpaperProcessor().imageToFile(image: processedImage, imageURL: processedURL!, ext:(imageUri as NSString).pathExtension) {
                                 
                                 let wp: Wallpaper = Wallpaper(title: title,imageUrl: fullURL!, processedUrl: processedURL!)
-                                ImageCache.default.store(image!, forKey: title)
                                 
                                 wp.byline = byline
                                 wp.attribution = attribution
                                 wp.detailsUri = detailsUri
-
+                                
+                                ImageCache.default.store(image!, forKey: title)
+                                
                                 callback(wp)
                                 
                             } else {
@@ -146,17 +129,14 @@ class RedditSource: WPSourceProtocol {
                             
                         }
                         
+                        
                     }
                 }
+                
             }
         }
         
         
     }
+    
 }
-
-
-
-
-
-

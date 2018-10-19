@@ -13,16 +13,15 @@
 		ED271FE71E04351400241BD2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED271FE51E04351400241BD2 /* MainMenu.xib */; };
 		ED271FEF1E04467400241BD2 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED271FEE1E04467400241BD2 /* MenuController.swift */; };
 		ED271FF11E04491000241BD2 /* FeaturedArtSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED271FF01E04491000241BD2 /* FeaturedArtSource.swift */; };
-		ED271FF51E04771000241BD2 /* WPSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED271FF41E04771000241BD2 /* WPSourceProtocol.swift */; };
+		ED271FF51E04771000241BD2 /* WallpaperSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED271FF41E04771000241BD2 /* WallpaperSourceProtocol.swift */; };
 		ED271FF71E047ECF00241BD2 /* RedditSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED271FF61E047ECF00241BD2 /* RedditSource.swift */; };
 		ED3CD2181E0520E7006368FE /* SourceMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3CD2171E0520E7006368FE /* SourceMenuDelegate.swift */; };
 		ED63F4F61E480BAE00C0264D /* Wallpaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED63F4F51E480BAE00C0264D /* Wallpaper.swift */; };
 		ED63F4FE1E491ACD00C0264D /* WallpaperWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED63F4FD1E491ACD00C0264D /* WallpaperWindowController.swift */; };
 		ED63F5001E491D5900C0264D /* WallpaperWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED63F4FF1E491D5900C0264D /* WallpaperWindow.xib */; };
-		ED9008621E067B4100F42AF3 /* WPProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9008611E067B4100F42AF3 /* WPProcessor.swift */; };
+		ED9008621E067B4100F42AF3 /* WallpaperProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9008611E067B4100F42AF3 /* WallpaperProcessor.swift */; };
 		ED9B9B901E40DFB700322CA3 /* PreferenceWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED9B9B8F1E40DFB700322CA3 /* PreferenceWindow.xib */; };
 		ED9B9B921E40E70A00322CA3 /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9B9B911E40E70A00322CA3 /* PreferenceWindowController.swift */; };
-		EDD7E2431E4A24B5007E2406 /* HoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD7E2421E4A24B5007E2406 /* HoverButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,17 +35,16 @@
 		ED271FE81E04351400241BD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED271FEE1E04467400241BD2 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		ED271FF01E04491000241BD2 /* FeaturedArtSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedArtSource.swift; sourceTree = "<group>"; };
-		ED271FF41E04771000241BD2 /* WPSourceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WPSourceProtocol.swift; sourceTree = "<group>"; };
+		ED271FF41E04771000241BD2 /* WallpaperSourceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallpaperSourceProtocol.swift; sourceTree = "<group>"; };
 		ED271FF61E047ECF00241BD2 /* RedditSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditSource.swift; sourceTree = "<group>"; };
 		ED3CD2171E0520E7006368FE /* SourceMenuDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceMenuDelegate.swift; sourceTree = "<group>"; };
 		ED63F4F51E480BAE00C0264D /* Wallpaper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallpaper.swift; sourceTree = "<group>"; };
 		ED63F4FD1E491ACD00C0264D /* WallpaperWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallpaperWindowController.swift; sourceTree = "<group>"; };
 		ED63F4FF1E491D5900C0264D /* WallpaperWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WallpaperWindow.xib; sourceTree = "<group>"; };
 		ED63F5031E49665E00C0264D /* MuzeiOSX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MuzeiOSX.entitlements; sourceTree = "<group>"; };
-		ED9008611E067B4100F42AF3 /* WPProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WPProcessor.swift; sourceTree = "<group>"; };
+		ED9008611E067B4100F42AF3 /* WallpaperProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallpaperProcessor.swift; sourceTree = "<group>"; };
 		ED9B9B8F1E40DFB700322CA3 /* PreferenceWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferenceWindow.xib; sourceTree = "<group>"; };
 		ED9B9B911E40E70A00322CA3 /* PreferenceWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
-		EDD7E2421E4A24B5007E2406 /* HoverButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoverButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +65,46 @@
 				863FA31CA8DC312D0BF93284 /* Pods_MuzeiOSX.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8007B811217A304A007361DD /* ImageSources */ = {
+			isa = PBXGroup;
+			children = (
+				ED271FF41E04771000241BD2 /* WallpaperSourceProtocol.swift */,
+				ED271FF61E047ECF00241BD2 /* RedditSource.swift */,
+				ED271FF01E04491000241BD2 /* FeaturedArtSource.swift */,
+			);
+			path = ImageSources;
+			sourceTree = "<group>";
+		};
+		8007B812217A307B007361DD /* PreferenceWindow */ = {
+			isa = PBXGroup;
+			children = (
+				ED9B9B8F1E40DFB700322CA3 /* PreferenceWindow.xib */,
+				ED9B9B911E40E70A00322CA3 /* PreferenceWindowController.swift */,
+			);
+			path = PreferenceWindow;
+			sourceTree = "<group>";
+		};
+		8007B813217A308E007361DD /* WallpaperWindow */ = {
+			isa = PBXGroup;
+			children = (
+				ED63F4F51E480BAE00C0264D /* Wallpaper.swift */,
+				ED9008611E067B4100F42AF3 /* WallpaperProcessor.swift */,
+				ED63F4FF1E491D5900C0264D /* WallpaperWindow.xib */,
+				ED63F4FD1E491ACD00C0264D /* WallpaperWindowController.swift */,
+			);
+			path = WallpaperWindow;
+			sourceTree = "<group>";
+		};
+		8007B814217A30AD007361DD /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				ED271FE51E04351400241BD2 /* MainMenu.xib */,
+				ED271FEE1E04467400241BD2 /* MenuController.swift */,
+				ED3CD2171E0520E7006368FE /* SourceMenuDelegate.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		DA69F7EC0954EB34C32E071F /* Pods */ = {
@@ -99,23 +137,14 @@
 		ED271FE01E04351400241BD2 /* MuzeiOSX */ = {
 			isa = PBXGroup;
 			children = (
-				ED63F5031E49665E00C0264D /* MuzeiOSX.entitlements */,
 				ED271FE11E04351400241BD2 /* AppDelegate.swift */,
+				8007B814217A30AD007361DD /* Menu */,
+				8007B813217A308E007361DD /* WallpaperWindow */,
+				8007B812217A307B007361DD /* PreferenceWindow */,
+				8007B811217A304A007361DD /* ImageSources */,
+				ED63F5031E49665E00C0264D /* MuzeiOSX.entitlements */,
 				ED271FE31E04351400241BD2 /* Assets.xcassets */,
-				ED271FE51E04351400241BD2 /* MainMenu.xib */,
 				ED271FE81E04351400241BD2 /* Info.plist */,
-				ED271FEE1E04467400241BD2 /* MenuController.swift */,
-				ED271FF01E04491000241BD2 /* FeaturedArtSource.swift */,
-				ED271FF41E04771000241BD2 /* WPSourceProtocol.swift */,
-				ED271FF61E047ECF00241BD2 /* RedditSource.swift */,
-				ED3CD2171E0520E7006368FE /* SourceMenuDelegate.swift */,
-				ED9008611E067B4100F42AF3 /* WPProcessor.swift */,
-				ED9B9B8F1E40DFB700322CA3 /* PreferenceWindow.xib */,
-				ED9B9B911E40E70A00322CA3 /* PreferenceWindowController.swift */,
-				ED63F4F51E480BAE00C0264D /* Wallpaper.swift */,
-				ED63F4FD1E491ACD00C0264D /* WallpaperWindowController.swift */,
-				ED63F4FF1E491D5900C0264D /* WallpaperWindow.xib */,
-				EDD7E2421E4A24B5007E2406 /* HoverButton.swift */,
 			);
 			path = MuzeiOSX;
 			sourceTree = "<group>";
@@ -245,16 +274,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED9008621E067B4100F42AF3 /* WPProcessor.swift in Sources */,
+				ED9008621E067B4100F42AF3 /* WallpaperProcessor.swift in Sources */,
 				ED63F4F61E480BAE00C0264D /* Wallpaper.swift in Sources */,
 				ED3CD2181E0520E7006368FE /* SourceMenuDelegate.swift in Sources */,
 				ED271FEF1E04467400241BD2 /* MenuController.swift in Sources */,
 				ED271FF11E04491000241BD2 /* FeaturedArtSource.swift in Sources */,
 				ED9B9B921E40E70A00322CA3 /* PreferenceWindowController.swift in Sources */,
-				EDD7E2431E4A24B5007E2406 /* HoverButton.swift in Sources */,
 				ED63F4FE1E491ACD00C0264D /* WallpaperWindowController.swift in Sources */,
 				ED271FE21E04351400241BD2 /* AppDelegate.swift in Sources */,
-				ED271FF51E04771000241BD2 /* WPSourceProtocol.swift in Sources */,
+				ED271FF51E04771000241BD2 /* WallpaperSourceProtocol.swift in Sources */,
 				ED271FF71E047ECF00241BD2 /* RedditSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

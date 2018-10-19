@@ -74,7 +74,7 @@ class MenuController: NSObject, SourceMenuDelegate {
     }
     
     @IBAction func saveWallpaperClicked(_ sender: NSMenuItem) {
-        if WPProcessor().saveCurrentWallpaper() {
+        if WallpaperProcessor().saveCurrentWallpaper() {
             print("Wallpaper saved")
             showNotification(title: "Wallpaper saved", desc: "Wallpaper saved in Pictures -> Muzei")
         } else {
@@ -144,9 +144,9 @@ class MenuController: NSObject, SourceMenuDelegate {
         
     }
     
-    func getWallpaperSource()->WPSourceProtocol {
+    func getWallpaperSource()->WallpaperSourceProtocol {
         
-        var wpsource: WPSourceProtocol
+        var wpsource: WallpaperSourceProtocol
         
         switch getSource()! {
             
@@ -179,8 +179,8 @@ class MenuController: NSObject, SourceMenuDelegate {
             let workspace = NSWorkspace.shared
             if let screen = NSScreen.main {
                 try workspace.setDesktopImageURL(wallpaper.processedImageUrl, for: screen, options: convertToNSWorkspaceDesktopImageOptionKeyDictionary([:]))
-                WPProcessor().deletePreviousWallpaper(current: wallpaper)
-                WPProcessor().saveWallpaperDetails(current: wallpaper)
+                WallpaperProcessor().deletePreviousWallpaper(current: wallpaper)
+                WallpaperProcessor().saveWallpaperDetails(current: wallpaper)
                 
                 if (wallpaperWindowController.isWindowLoaded && (wallpaperWindowController.window?.isVisible)!) {
                     wallpaperWindowController.updateWindow()
