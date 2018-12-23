@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,7 +22,7 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <rect key="contentRect" x="196" y="240" width="803" height="423"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="803" height="423"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -53,7 +53,6 @@
                             <constraint firstAttribute="width" constant="520" id="LPq-so-1o0"/>
                             <constraint firstAttribute="height" constant="342" id="xp7-2b-9fw"/>
                         </constraints>
-                        <font key="titleFont" metaFont="smallSystem"/>
                     </box>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mJ1-3U-Snh" customClass="HoverButton" customModule="Muzei" customModuleProvider="target">
                         <rect key="frame" x="20" y="8" width="24" height="24"/>
@@ -61,7 +60,7 @@
                             <constraint firstAttribute="height" constant="24" id="9hx-PE-Btc"/>
                             <constraint firstAttribute="width" constant="24" id="d4S-be-UF0"/>
                         </constraints>
-                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="ic_settings" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="IMr-cK-xWx">
+                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="NSActionTemplate" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="IMr-cK-xWx">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system" size="17"/>
                         </buttonCell>
@@ -83,7 +82,7 @@
                             <constraint firstAttribute="height" constant="24" id="AGw-Dc-7fy"/>
                             <constraint firstAttribute="width" constant="24" id="m8f-1U-AFv"/>
                         </constraints>
-                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="ic_open_in_new" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="kH1-Fy-nGp">
+                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="NSShareTemplate" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="kH1-Fy-nGp">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -141,7 +140,7 @@
         </window>
     </objects>
     <resources>
-        <image name="ic_open_in_new" width="24" height="24"/>
-        <image name="ic_settings" width="24" height="24"/>
+        <image name="NSActionTemplate" width="14" height="14"/>
+        <image name="NSShareTemplate" width="11" height="16"/>
     </resources>
 </document>

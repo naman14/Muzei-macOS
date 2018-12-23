@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -121,11 +121,15 @@
                                             </gridCells>
                                         </gridView>
                                         <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="n5L-3g-45F">
-                                            <rect key="frame" x="8" y="35" width="627" height="5"/>
+                                            <rect key="frame" x="8" y="38" width="627" height="5"/>
                                         </box>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NKg-7N-gXp">
-                                            <rect key="frame" x="561" y="1" width="72" height="32"/>
-                                            <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qA9-Gy-SEq">
+                                            <rect key="frame" x="603" y="8" width="24" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="24" id="2xl-dp-VjN"/>
+                                                <constraint firstAttribute="height" constant="24" id="d3R-lc-7gW"/>
+                                            </constraints>
+                                            <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="qA9-Gy-SEq">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -162,8 +166,12 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YQS-MP-kBi">
-                                            <rect key="frame" x="548" y="1" width="85" height="32"/>
-                                            <buttonCell key="cell" type="push" title="Update" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bSV-ou-Rl5">
+                                            <rect key="frame" x="603" y="8" width="24" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="24" id="spQ-2Y-yuT"/>
+                                                <constraint firstAttribute="height" constant="24" id="yDR-WR-cQ1"/>
+                                            </constraints>
+                                            <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="NSRefreshTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="bSV-ou-Rl5">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -254,7 +262,7 @@
                                             </constraints>
                                         </box>
                                         <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="9vy-Vh-rWh">
-                                            <rect key="frame" x="8" y="35" width="627" height="5"/>
+                                            <rect key="frame" x="8" y="38" width="627" height="5"/>
                                         </box>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fbh-kx-df9">
                                             <rect key="frame" x="261" y="110" width="201" height="60"/>
@@ -340,4 +348,7 @@ Developed by Naman Dwivedi</string>
             <point key="canvasLocation" x="305.5" y="263.5"/>
         </window>
     </objects>
+    <resources>
+        <image name="NSRefreshTemplate" width="11" height="15"/>
+    </resources>
 </document>
