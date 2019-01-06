@@ -11,6 +11,16 @@ Muzei also supports using top scoring images from Reddit as the wallpaper. Custo
 
 Download from [Releases](https://github.com/naman14/Muzei-macOS/releases)
 
+## Building
+
+Install dependencies using [cocoapods](https://cocoapods.org):
+
+`$ pod install`
+
+Then open repository with Xcode:
+
+`$ open MuzeiOSX.xcworkspace`
+
 ## Credits
    [Roman Nurik](https://github.com/romannurik) - Author of Muzei live wallpaper for Android.
 
