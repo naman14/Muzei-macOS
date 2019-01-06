@@ -14,6 +14,7 @@ class PreferenceWindowController : NSWindowController {
     
     @IBOutlet weak var sourceFeaturedArt: NSButton!
     @IBOutlet weak var sourceReddit: NSButton!
+    @IBOutlet weak var sourceUnsplash: NSButton!
     @IBOutlet weak var textSubredditName: NSTextField!
     @IBOutlet weak var sourceDone: NSButton!
     
@@ -26,6 +27,7 @@ class PreferenceWindowController : NSWindowController {
     
     @IBOutlet weak var previewImage: NSImageView!
     let SOURCE_FEATURED = "source_featured_art"
+    let SOURCE_UNSPLASH = "source_unsplash"
     let SOURCE_REDDIT = "source_reddit"
     
     let PREF_SOURCE = "pref_source"
@@ -57,6 +59,10 @@ class PreferenceWindowController : NSWindowController {
     
     @IBAction func featuredArtSelected(_ sender: NSButton) {
         updateSource(source: SOURCE_FEATURED)
+    }
+    
+    @IBAction func unsplashSelected(_ sender: NSButton) {
+        updateSource(source: SOURCE_UNSPLASH)
     }
     
     @IBAction func redditSelected(_ sender: NSButton) {
@@ -149,12 +155,21 @@ class PreferenceWindowController : NSWindowController {
             
         case SOURCE_FEATURED:
             sourceReddit.state = NSControl.StateValue.off
+            sourceUnsplash.state = NSControl.StateValue.off
             sourceFeaturedArt.state = NSControl.StateValue.on
+            textSubredditName.isEnabled = false
+            break
+        
+        case SOURCE_UNSPLASH:
+            sourceReddit.state = NSControl.StateValue.off
+            sourceUnsplash.state = NSControl.StateValue.on
+            sourceFeaturedArt.state = NSControl.StateValue.off
             textSubredditName.isEnabled = false
             break
             
         case SOURCE_REDDIT:
             sourceReddit.state = NSControl.StateValue.on
+            sourceUnsplash.state = NSControl.StateValue.off
             sourceFeaturedArt.state = NSControl.StateValue.off
             textSubredditName.isEnabled = true
             break

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		805E430D21E1911500515C27 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 805E430C21E1911500515C27 /* README.md */; };
+		80D7F7A221E188C4007C1665 /* UnsplashSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D7F7A121E188C4007C1665 /* UnsplashSource.swift */; };
 		C4DE350D867FEDC626ECDA92 /* Pods_MuzeiOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 863FA31CA8DC312D0BF93284 /* Pods_MuzeiOSX.framework */; };
 		ED271FE21E04351400241BD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED271FE11E04351400241BD2 /* AppDelegate.swift */; };
 		ED271FE41E04351400241BD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED271FE31E04351400241BD2 /* Assets.xcassets */; };
@@ -27,6 +29,8 @@
 /* Begin PBXFileReference section */
 		0A1FA76390E44129EB74AD6A /* Pods-MuzeiOSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuzeiOSX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MuzeiOSX/Pods-MuzeiOSX.debug.xcconfig"; sourceTree = "<group>"; };
 		573BA1F0ACADB94860E33FAD /* Pods-MuzeiOSX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuzeiOSX.release.xcconfig"; path = "Pods/Target Support Files/Pods-MuzeiOSX/Pods-MuzeiOSX.release.xcconfig"; sourceTree = "<group>"; };
+		805E430C21E1911500515C27 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		80D7F7A121E188C4007C1665 /* UnsplashSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashSource.swift; sourceTree = "<group>"; };
 		863FA31CA8DC312D0BF93284 /* Pods_MuzeiOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MuzeiOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED271FDE1E04351400241BD2 /* Muzei.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muzei.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED271FE11E04351400241BD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +77,7 @@
 				ED271FF41E04771000241BD2 /* WallpaperSourceProtocol.swift */,
 				ED271FF61E047ECF00241BD2 /* RedditSource.swift */,
 				ED271FF01E04491000241BD2 /* FeaturedArtSource.swift */,
+				80D7F7A121E188C4007C1665 /* UnsplashSource.swift */,
 			);
 			path = ImageSources;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 		ED271FE01E04351400241BD2 /* MuzeiOSX */ = {
 			isa = PBXGroup;
 			children = (
+				805E430C21E1911500515C27 /* README.md */,
 				ED271FE11E04351400241BD2 /* AppDelegate.swift */,
 				8007B814217A30AD007361DD /* Menu */,
 				8007B813217A308E007361DD /* WallpaperWindow */,
@@ -219,6 +225,7 @@
 			files = (
 				ED271FE41E04351400241BD2 /* Assets.xcassets in Resources */,
 				ED63F5001E491D5900C0264D /* WallpaperWindow.xib in Resources */,
+				805E430D21E1911500515C27 /* README.md in Resources */,
 				ED9B9B901E40DFB700322CA3 /* PreferenceWindow.xib in Resources */,
 				ED271FE71E04351400241BD2 /* MainMenu.xib in Resources */,
 			);
@@ -277,6 +284,7 @@
 				ED9008621E067B4100F42AF3 /* WallpaperProcessor.swift in Sources */,
 				ED63F4F61E480BAE00C0264D /* Wallpaper.swift in Sources */,
 				ED3CD2181E0520E7006368FE /* SourceMenuDelegate.swift in Sources */,
+				80D7F7A221E188C4007C1665 /* UnsplashSource.swift in Sources */,
 				ED271FEF1E04467400241BD2 /* MenuController.swift in Sources */,
 				ED271FF11E04491000241BD2 /* FeaturedArtSource.swift in Sources */,
 				ED9B9B921E40E70A00322CA3 /* PreferenceWindowController.swift in Sources */,

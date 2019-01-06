@@ -16,6 +16,7 @@ class MenuController: NSObject, SourceMenuDelegate {
     @IBOutlet weak var quitItem: NSMenuItem!
     @IBOutlet weak var updateItem: NSMenuItem!
     @IBOutlet weak var featuredArtSourceItem: NSMenuItem!
+    @IBOutlet weak var unsplashSourceItem: NSMenuItem!
     @IBOutlet weak var redditSourceItem: NSMenuItem!
     @IBOutlet weak var viewWallpaperItem: NSMenuItem!
     @IBOutlet weak var saveWallpaperItem: NSMenuItem!
@@ -58,6 +59,10 @@ class MenuController: NSObject, SourceMenuDelegate {
     
     @IBAction func featuredArtSourceClicked(_ sender: NSMenuItem) {
         updateSource(preferenceController.SOURCE_FEATURED)
+    }
+    
+    @IBAction func unsplashSourceClicked(_ sender: NSMenuItem) {
+        updateSource(preferenceController.SOURCE_UNSPLASH)
     }
     
     @IBAction func redditSourceClicked(_ sender: NSMenuItem) {
@@ -117,6 +122,8 @@ class MenuController: NSObject, SourceMenuDelegate {
             
         case preferenceController.SOURCE_FEATURED:
             menuItem = featuredArtSourceItem
+        case preferenceController.SOURCE_UNSPLASH:
+            menuItem = unsplashSourceItem
         case preferenceController.SOURCE_REDDIT:
             menuItem = redditSourceItem
         default:
@@ -152,6 +159,8 @@ class MenuController: NSObject, SourceMenuDelegate {
             
         case preferenceController.SOURCE_FEATURED:
             wpsource = FeaturedArtSource()
+        case preferenceController.SOURCE_UNSPLASH:
+            wpsource = UnsplashSource()
         case preferenceController.SOURCE_REDDIT:
             wpsource = RedditSource()
         default:

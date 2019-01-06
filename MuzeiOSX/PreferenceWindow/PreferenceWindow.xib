@@ -17,6 +17,7 @@
                 <outlet property="sourceDone" destination="NKg-7N-gXp" id="5EX-aA-3eK"/>
                 <outlet property="sourceFeaturedArt" destination="OBt-gR-XSf" id="DDF-jA-daR"/>
                 <outlet property="sourceReddit" destination="aOO-RE-IRj" id="nOw-Wd-6jl"/>
+                <outlet property="sourceUnsplash" destination="fr0-ff-2mY" id="h7D-W9-UZc"/>
                 <outlet property="textSubredditName" destination="hev-cd-7uU" id="b5q-tj-4Iw"/>
                 <outlet property="wallpaperDone" destination="YQS-MP-kBi" id="qYt-sw-Bvd"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="nIh-1x-Ns7"/>
@@ -43,9 +44,10 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <gridView xPlacement="leading" yPlacement="bottom" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="OUT-td-gq2">
-                                            <rect key="frame" x="20" y="181" width="603" height="68"/>
+                                            <rect key="frame" x="20" y="158" width="603" height="91"/>
                                             <rows>
                                                 <gridRow yPlacement="center" id="XvJ-ck-ATX"/>
+                                                <gridRow id="glN-U5-U2k"/>
                                                 <gridRow yPlacement="center" id="3H7-YG-uTU"/>
                                                 <gridRow id="TNL-mb-obo"/>
                                             </rows>
@@ -56,7 +58,7 @@
                                             <gridCells>
                                                 <gridCell row="XvJ-ck-ATX" column="jMO-9L-H89" id="l3c-cm-Vd0">
                                                     <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="I5J-7I-kIX">
-                                                        <rect key="frame" x="85" y="51" width="217" height="17"/>
+                                                        <rect key="frame" x="85" y="74" width="217" height="17"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Famous works of art updated daily:" id="3av-Hm-FYi">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -66,13 +68,35 @@
                                                 </gridCell>
                                                 <gridCell row="XvJ-ck-ATX" column="sdb-mp-c4y" id="dsc-nl-w2v">
                                                     <button key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="OBt-gR-XSf">
-                                                        <rect key="frame" x="304" y="51" width="301" height="18"/>
+                                                        <rect key="frame" x="304" y="74" width="301" height="18"/>
                                                         <buttonCell key="cell" type="check" title="Featured art" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="WzP-SA-gJ9">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
                                                         <connections>
                                                             <action selector="featuredArtSelected:" target="-2" id="HEW-fe-PMs"/>
+                                                        </connections>
+                                                    </button>
+                                                </gridCell>
+                                                <gridCell row="glN-U5-U2k" column="jMO-9L-H89" id="wMz-Ls-xnq">
+                                                    <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oLw-3h-ENI">
+                                                        <rect key="frame" x="114" y="51" width="188" height="17"/>
+                                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Random photo from Unsplash:" id="fga-EV-KnR">
+                                                            <font key="font" usesAppearanceFont="YES"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </gridCell>
+                                                <gridCell row="glN-U5-U2k" column="sdb-mp-c4y" id="d1c-ob-oQf">
+                                                    <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fr0-ff-2mY">
+                                                        <rect key="frame" x="304" y="49" width="301" height="18"/>
+                                                        <buttonCell key="cell" type="check" title="Unsplash" bezelStyle="regularSquare" imagePosition="left" inset="2" id="m8o-Ue-aUY">
+                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="unsplashSelected:" target="-2" id="wk8-HU-Txn"/>
                                                         </connections>
                                                     </button>
                                                 </gridCell>
