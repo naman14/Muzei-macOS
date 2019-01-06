@@ -4,14 +4,14 @@ language: objective-c
 xcode_workspace: MuzeiOSX.xcworkspace
 xcode_scheme: MuzeiOSX
 xcode_destination: platform=macOS
-env:
-- EXPANDED_CODE_SIGN_IDENTITY="-"
-- EXPANDED_CODE_SIGN_IDENTITY_NAME="-"
+env: EXPANDED_CODE_SIGN_IDENTITY="-"
 before_install:
 - pod update
 - pod install
-script: |
-  xcodebuild build -configuration release -workspace MuzeiOSX.xcworkspace -scheme MuzeiOSX CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO -derivedDataPath ./build
+script: 'xcodebuild build -configuration release -workspace MuzeiOSX.xcworkspace -scheme
+  MuzeiOSX CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO -derivedDataPath ./build
+
+'
 after_success:
 - cd ./build/Build/Products/Release
 - zip -9ry macOS-Muzei-continuous.zip Muzei.app
@@ -20,13 +20,9 @@ after_success:
 - mv ./build/Build/Products/Release/macOS-Muzei-continuous.zip .
 - mv ./build/Build/Products/Release/macOS-Muzei-continuous.zip.sha256 .
 deploy:
-  skip_cleanup: true
   provider: releases
   api_key:
-    secure: cHrg6FQr4OhWwZwXDrr4a0z4iWKib4waXM1JQlUtlHpGjn0cLEO0s5v+4ApjTDbfFu1jxVeK052nFTwBJ8De1TVRdQ41AYjGIBfr//ZGwD618VwOuKjSi+lfd6Wp2MadY1Dy6aWgWusxycS8MuJ2OoeQw+Xc7vTJH0DVu8uwHO30rLpJmy1svxc61C0fk9uTscxfE892FPwxR6p5M2YbAldt+/bXFqSm/PEO7wNkn/zjQTVNnz1Svn2DzDHPTQ+2z4yixVquP1C60nXlYnI1KS5LAKHUxqHYnTPMcbYv31650g1IipLK1nLX6auv7blZFAuYgSgneC47SuiDqFjQnXTG7gKJKyexKkJaEzLV7+sctHE6WwmV4dYI3b/QPbjijhfjdxzGojU5fFu7M7om/fCoyQx8sMfJmZxXBzQc9LaKcnqAw/xq+xv2sLgBunZT4Q/BaPEFXfjG9GgYolDCnOKhbLo9zyV9GgwgX84V7zbK96e+Acy8RF6wAKqN84xg0tOhzfy7neLjRS1GKsA+Ogc9fo2RS88MTN37PcGNuc2HJVh8VWt3TfHxbE/yM+f9Vk5MZOT97X32CRorUoEL2Ve+HZ0u0mO+c7TB52P0mIO4lFhVeladH3rib/V/Dxx1TbGvVVBixQP5YuT2i+VD8EKOcfwW0yX/aCwKspnCAW0=
-  file:
-    - macOS-Muzei-continuous.zip
-    - macOS-Muzei-continuous.zip.sha256
-  on:
-    repo: dotWee/macOS-Muzei
-    branch: master
+    secure: SgWyPEhHTlR4TuiSxSKd8mSw0pC7bZ0q3hs8qgXtwa6ceocnh6pKANmvYrlKJ9tYKaORqbh5EcvABqd4iIng/IVEqZPHqme64uGBgEgTbdd1YztpEjIN8lTP5oAMUYUJx3YdYxQry6aSSJdDCnSX5n8ZLQjK9etOnR7/hsanuwI8ugjLd7fBNvMyg1mS1PLxfZrtKsyCbv5Ot/wom+TqTeGTQARUXHioliSgI9Lc9kTwjUMpesaxdNwOPve/V3IJ/K83R6gZvK9i6Fgxnn4K5eEPt3pkEBmZD0CoVoq973p80y8S+33U3XouDARqKOw+7TgtDW49AYAVAjLuKab22nHZl+tRqjQ6322kzyX2h/SFBWEhV6ug98MKK8FpeyYyUfjVPZEgm7WvAef5OsV8yUPXyzqrGFmBDwyNW66ktnfYQfj8KiPG/DqZYAMkeXltqyVBstdfdSk9Y69pWp6y8mTvGbT2GT0XxeJNvK20JyYM3Osj83ghl144nyCjycmUnBG1mrj6UFxtE9arrAZ/pSasexFa0pfrAU3cQZcJHUk46r3J79pef6C6K2WqD0uErdV3hqpfS0X8ash+jKZeykcw/J5goElY+NEUxreYha/t/DJR08Yg2uZU21/eHefr5U21Q2/z5mIjxK6V04Ii2QwGl9sO8HZyaFz0CqSIBX8=
+  file: 
+  - macOS-Muzei-continuous.zip
+  - macOS-Muzei-continuous.zip.sha256
