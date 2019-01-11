@@ -184,32 +184,32 @@ class PreferenceWindowController : NSWindowController {
         
         if let url = prefs.url(forKey: CURRENT_WP_URL) {
             
-            var processor: ImageProcessor?
+            var image: NSImage
             
-            if (prefs.bool(forKey: PREF_BLUR_ACTIVE)) {
-                let blurProcessor = BlurImageProcessor(blurRadius: CGFloat(blurSlider.floatValue))
-                processor = blurProcessor
-            }
-
-            if (prefs.bool(forKey: PREF_DIM_ACTIVE)) {
-
-                let dimColor: NSColor = NSColor(red:CGFloat(0), green:CGFloat(0), blue:CGFloat(0), alpha:CGFloat(1.0))
-
-                let dimProcessor = OverlayImageProcessor(overlay: dimColor, fraction: CGFloat(1.0) - CGFloat(dimSlider.floatValue))
-
-                if (processor != nil) {
-                    processor = processor! >> dimProcessor
+            do {
+                try image = NSImage.init(data: Data.init(contentsOf: url, options: []))!
+                
+                if (prefs.bool(forKey: PREF_BLUR_ACTIVE)) {
+                    let blurProcessor = BlurImageProcessor(blurRadius: CGFloat(blurSlider.floatValue))
+                    
+                    image = blurProcessor.process(item: ImageProcessItem.image(image),
+                                          options:[])!
                 }
-                else {
-                    processor = dimProcessor
+                
+                if (prefs.bool(forKey: PREF_DIM_ACTIVE)) {
+                    
+                    let dimColor: NSColor = NSColor(red:CGFloat(0), green:CGFloat(0), blue:CGFloat(0), alpha:CGFloat(1.0))
+                    
+                    let dimProcessor = OverlayImageProcessor(overlay: dimColor, fraction: CGFloat(1.0) - CGFloat(dimSlider.floatValue))
+                    
+                    image = dimProcessor.process(item: ImageProcessItem.image(image),
+                                                          options:[])!
                 }
-
-            }
             
-            if(processor != nil) {
-                previewImage.kf.setImage(with: url, placeholder: nil, options: [.processor(processor!)])
-            } else {
-                previewImage.kf.setImage(with: url)
+                previewImage.image = image
+                
+            } catch {
+                
             }
             
         }
