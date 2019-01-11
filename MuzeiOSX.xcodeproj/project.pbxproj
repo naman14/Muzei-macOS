@@ -189,7 +189,7 @@
 				TargetAttributes = {
 					ED271FDD1E04351400241BD2 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 4EGEDRDDUV;
+						DevelopmentTeam = V3237NN4PA;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -420,14 +420,14 @@
 				CODE_SIGN_ENTITLEMENTS = MuzeiOSX/MuzeiOSX.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 4EGEDRDDUV;
+				DEVELOPMENT_TEAM = V3237NN4PA;
 				INFOPLIST_FILE = MuzeiOSX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.naman14.muzeimacos;
 				PRODUCT_NAME = Muzei;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -440,14 +440,14 @@
 				CODE_SIGN_ENTITLEMENTS = MuzeiOSX/MuzeiOSX.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 4EGEDRDDUV;
+				DEVELOPMENT_TEAM = V3237NN4PA;
 				INFOPLIST_FILE = MuzeiOSX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.naman14.muzeimacos;
 				PRODUCT_NAME = Muzei;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
