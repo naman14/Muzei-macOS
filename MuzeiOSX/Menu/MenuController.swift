@@ -35,8 +35,8 @@ class MenuController: NSObject, SourceMenuDelegate {
     
     override init() {
         defaults = UserDefaults.standard
-        preferenceController = PreferenceWindowController(windowNibName: "PreferenceWindow")
-        wallpaperWindowController = WallpaperWindowController(windowNibName: "WallpaperWindow")
+        preferenceController = PreferenceWindowController(windowNibName: NSNib.Name(rawValue: "PreferenceWindow"))
+        wallpaperWindowController = WallpaperWindowController(windowNibName: NSNib.Name(rawValue: "WallpaperWindow"))
         super.init()
         preferenceController.setMenuController(controller: self)
         wallpaperWindowController.setMenuController(controller: self)
@@ -93,7 +93,7 @@ class MenuController: NSObject, SourceMenuDelegate {
 
     
     func setupMenu() {
-        let icon = NSImage(named: "statusicon")
+        let icon = NSImage(named: NSImage.Name("statusicon"))
         icon?.isTemplate = true
         statusItem.image = icon
         statusItem.menu = statusMenu

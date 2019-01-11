@@ -4,6 +4,6 @@ use_frameworks!
 target 'MuzeiOSX' do
  pod 'Alamofire', '~> 4.7.3'
  pod 'SwiftyJSON'
- pod 'Kingfisher', '~> 4.10.0'
+ pod 'Kingfisher', '~> 5.0'
 end
 
