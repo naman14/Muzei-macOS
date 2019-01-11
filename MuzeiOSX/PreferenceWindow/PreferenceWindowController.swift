@@ -186,30 +186,31 @@ class PreferenceWindowController : NSWindowController {
             
             var processor: ImageProcessor?
             
-            if(prefs.bool(forKey: PREF_BLUR_ACTIVE)) {
+            if (prefs.bool(forKey: PREF_BLUR_ACTIVE)) {
                 let blurProcessor = BlurImageProcessor(blurRadius: CGFloat(blurSlider.floatValue))
                 processor = blurProcessor
             }
-            
-            if(prefs.bool(forKey: PREF_DIM_ACTIVE)) {
-                
+
+            if (prefs.bool(forKey: PREF_DIM_ACTIVE)) {
+
                 let dimColor: NSColor = NSColor(red:CGFloat(0), green:CGFloat(0), blue:CGFloat(0), alpha:CGFloat(1.0))
-                
+
                 let dimProcessor = OverlayImageProcessor(overlay: dimColor, fraction: CGFloat(1.0) - CGFloat(dimSlider.floatValue))
-                
-                if(processor != nil) {
+
+                if (processor != nil) {
                     processor = processor! >> dimProcessor
                 }
                 else {
                     processor = dimProcessor
                 }
-                
+
             }
             
             if(processor != nil) {
                 previewImage.kf.setImage(with: url, placeholder: nil, options: [.processor(processor!)])
             } else {
-                previewImage.kf.setImage(with: url)            }
+                previewImage.kf.setImage(with: url)
+            }
             
         }
         

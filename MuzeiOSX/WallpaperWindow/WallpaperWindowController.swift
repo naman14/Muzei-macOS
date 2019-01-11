@@ -56,8 +56,7 @@ class WallpaperWindowController: NSWindowController {
         
     }
     
-    
-    
+
     func updateWindow() {
         
         previewImage.image = nil
@@ -69,7 +68,7 @@ class WallpaperWindowController: NSWindowController {
         let prefs = UserDefaults.standard
         
         if let url = prefs.url(forKey: CURRENT_WP_URL) {
-                var image: NSImage
+            var image: NSImage
             
             titleText.stringValue = prefs.string(forKey: CURRENT_WP_TITLE)!
             bylineText.stringValue = prefs.string(forKey: CURRENT_WP_BYLINE)!
