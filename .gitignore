@@ -55,6 +55,7 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
+.idea/
 
 ## Other
 *.moved-aside
