@@ -11,6 +11,11 @@ Muzei also supports using top scoring images from Reddit and [Unsplash](https://
 
 Download from [Releases](https://github.com/naman14/Muzei-macOS/releases)
 
+### Screenshots
+
+<img src="https://raw.githubusercontent.com/naman14/Muzei-macOS/master/screenshots/screen2.png">
+<img src="https://raw.githubusercontent.com/naman14/Muzei-macOS/master/screenshots/screen3.png" >
+
 ## Building
 
 Install dependencies using [cocoapods](https://cocoapods.org):
