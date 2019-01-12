@@ -237,7 +237,7 @@
                                                 </gridCell>
                                                 <gridCell row="izr-Xd-tgn" column="AYf-vU-j5t" id="xSK-9Y-XqZ">
                                                     <button key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="X7d-3H-rpf">
-                                                        <rect key="frame" x="11" y="-1" width="50" height="18"/>
+                                                        <rect key="frame" x="-2" y="-1" width="50" height="18"/>
                                                         <buttonCell key="cell" type="check" title="Dim:" bezelStyle="regularSquare" imagePosition="left" inset="2" id="TnD-qo-gwi">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>

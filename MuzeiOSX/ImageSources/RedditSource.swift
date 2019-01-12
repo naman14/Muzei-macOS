@@ -15,7 +15,7 @@ class RedditSource: WallpaperSourceProtocol {
     
     let PREF_SUBREDDIT = "pref_subreddit"
     
-    var base_url = "https://www.reddit.com/r/{subreddit}/top.json?t=day&limit=10&raw_json=1"
+    var base_url = "https://www.reddit.com/r/{subreddit}/top.json?t=week&limit=10&raw_json=1"
     
     func getWallpaper(callback: @escaping (Wallpaper) -> Void, failure: @escaping () -> Void) {
         
@@ -35,15 +35,22 @@ class RedditSource: WallpaperSourceProtocol {
                 
                 let children = json["data"]["children"].arrayValue
                 
+                if (children.isEmpty) {
+                    failure()
+                    print("No images found")
+                    return
+                }
+                
                 //roughly check if its a landscape image before setting, try to ignore portrait image upto 3 times
                 var tries = 0
-
-                var random = Int(arc4random_uniform(UInt32(10)))
+                
+                let totalCount = children.count
+                var random = Int(arc4random_uniform(UInt32(totalCount)))
                 var data = children[random]["data"]
                 var imageSource = data["preview"]["images"][0]["source"]
                 
                 while (tries <= 3 && imageSource["width"].intValue > imageSource["height"].intValue) {
-                    random = Int(arc4random_uniform(UInt32(10)))
+                    random = Int(arc4random_uniform(UInt32(totalCount)))
                     data = children[random]["data"]
                     imageSource = data["preview"]["images"][0]["source"]
                     tries += 1

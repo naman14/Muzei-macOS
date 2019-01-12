@@ -74,6 +74,7 @@ class PreferenceWindowController : NSWindowController {
     @IBAction func sourceDoneClicked(_ sender: NSButton) {
         prefs.set(textSubredditName.stringValue, forKey: PREF_SUBREDDIT)
         prefs.synchronize()
+        menuController?.getWallpaper()
         window?.close()
     }
     
