@@ -29,7 +29,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="689" height="339"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="689" height="339"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -61,8 +61,8 @@
                                                         <rect key="frame" x="85" y="74" width="217" height="17"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Famous works of art updated daily:" id="3av-Hm-FYi">
                                                             <font key="font" metaFont="system"/>
-                                                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
                                                 </gridCell>
@@ -105,8 +105,8 @@
                                                         <rect key="frame" x="12" y="28" width="290" height="17"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Daily top pictures from the specified subreddit:" id="PEA-W2-nsV">
                                                             <font key="font" metaFont="system"/>
-                                                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
                                                 </gridCell>
@@ -237,7 +237,7 @@
                                                 </gridCell>
                                                 <gridCell row="izr-Xd-tgn" column="AYf-vU-j5t" id="xSK-9Y-XqZ">
                                                     <button key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="X7d-3H-rpf">
-                                                        <rect key="frame" x="-2" y="-1" width="50" height="18"/>
+                                                        <rect key="frame" x="11" y="-1" width="50" height="18"/>
                                                         <buttonCell key="cell" type="check" title="Dim:" bezelStyle="regularSquare" imagePosition="left" inset="2" id="TnD-qo-gwi">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
