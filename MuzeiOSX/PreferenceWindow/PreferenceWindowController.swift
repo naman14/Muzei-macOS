@@ -26,6 +26,7 @@ class PreferenceWindowController : NSWindowController {
     @IBOutlet weak var showInfoButton: NSButton!
     
     @IBOutlet weak var previewImage: NSImageView!
+    
     let SOURCE_FEATURED = "source_featured_art"
     let SOURCE_UNSPLASH = "source_unsplash"
     let SOURCE_REDDIT = "source_reddit"
